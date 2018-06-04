@@ -1,0 +1,75 @@
+产品管理/产品目录
+url: http://192.168.1.186:8000/ProductHandle/view/
+response: {"data": [{"productname": "YuceOne PLus", "book": "book", "config": "config", "period": 5, "normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "platform": "NGS", "bestuptime": 5, "worstuptime": 10, "chip": "chip", "strategy": "151bp", "moletag": "否", "productid": "MT100000"}]}
+产品管理/添加产品
+url: http://192.168.1.186:8000/ProductHandle/add/
+data: {'productid': 'MT100000', 'productname': 'YuceOne PLus', 'book': 'book', 'config': 'config', 'period': 5, 'normaltype': '血液', 'normalsize': '5g', 'tumortype': '组织', 'tumorsize': '5g', 'platform': 'NGS', 'bestuptime': 5, 'worstuptime': 10, 'chip': 'chip', 'strategy': '151bp', 'moletag': '否'}
+response: {"sucess": "产品保存/修改成功"}
+项目管理/患者管理/添加患者
+url: http://192.168.1.186:8000/PatientHandle/init/
+data: {'patientid': '0000001', 'patientname': '1号玩家', 'tumortype': '肺癌'}
+response: {"success": "保存成功"}
+项目管理/患者管理-下单
+url: http://192.168.1.186:8000/PatientHandle/addproject/
+data: {'products': ['MT100000'], 'tumortype': '肺癌 胃癌', 'patientid': '0000001', 'account': 'renqian', 'tag': '科研'}
+response: {"success": "保存成功"}
+项目管理/患者管理-加入项目
+url: http://192.168.1.186:8000/PatientHandle/add2project/
+data: {'projectid': 'YSkudOTK7H', 'patientid': '0000001'}
+response: {"error": "Cannot encode object: <Task: w67YlUjpMN>", "success": "添加患者到项目中成功"}
+项目管理/任务管理
+url: http://192.168.1.186:8000/PMTaskHandle/view/
+response: [{"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "status": "开始", "tumor": "肺癌", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:33", "bestuptime": "2018-06-06 10:21:33", "worstuptime": "2018-06-11 10:21:33", "deadline": {"$date": 1528712493979}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "GNpsTc56ye", "patientname": "1号玩家"}, {"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "status": "开始", "tumor": "胃癌", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:33", "bestuptime": "2018-06-06 10:21:33", "worstuptime": "2018-06-11 10:21:33", "deadline": {"$date": 1528712493994}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "BJAw4FcWiQ", "patientname": "1号玩家"}, {"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "status": "开始", "tumor": "", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:34", "bestuptime": "2018-06-06 10:21:34", "worstuptime": "2018-06-11 10:21:34", "deadline": {"$date": 1528712494038}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "5hYOlZBAyD", "patientname": "1号玩家"}, {"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "status": "开始", "tumor": "", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:34", "bestuptime": "2018-06-06 10:21:34", "worstuptime": "2018-06-11 10:21:34", "deadline": {"$date": 1528712494131}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "w67YlUjpMN", "patientname": "1号玩家"}]
+项目管理/任务管理-实验暂停
+{"success": "实验暂停成功"}
+项目管理/任务管理-分析暂停
+{"success": "分析暂停成功"}
+项目管理/任务管理-解读暂停
+{"success": "分析暂停成功"}
+项目管理/任务管理-重置任务
+url: http://192.168.1.186:8000/PMTaskHandle/reset/
+data: {'taskid': 'GNpsTc56ye', 'info': '尚未确定内容'}
+response: {"success": "重置成功"}
+项目管理/任务管理-修改任务
+url: http://192.168.1.186:8000/PMTaskHandle/modify/
+data: {'normaltype': '血液', 'normalsize': '5g', 'tumortype': '组织', 'tumorsize': '5g', 'expstatus': '开始', 'anastatus': 'wait', 'jiedu_status': 'wait', 'reportstatus': 'wait', 'info': '', 'extrainfo': '', 'status': '开始', 'tumor': '肺癌', 'product': 'MT100000', 'patient': '0000001', 'starttime': '2018-06-01 10:21:33', 'bestuptime': '2018-06-06 10:21:33', 'worstuptime': '2018-06-11 10:21:33', 'deadline': {'$date': 1528712493979}, 'chip': 'chip', 'strategy': '151bp', 'moletag': '否', 'platform': 'NGS', 'taskid': 'GNpsTc56ye', 'patientname': '1号玩家'}
+response: {"error": "A ReferenceField only accepts DBRef, LazyReference, ObjectId or documents"}
+项目管理/任务管理-终止任务
+url: http://192.168.1.186:8000/PMTaskHandle/stop/
+data: {'taskid': 'GNpsTc56ye', 'info': '尚未确定内容'}
+response: {"error": "操作失败"}
+项目管理/任务管理-取消实验
+url: http://192.168.1.186:8000/PMTaskHandle/cancel/
+data: {'taskid': 'GNpsTc56ye', 'cmd': '取消实验', 'info': '尚未确定内容'}
+response: {"success": "取消实验操作成功"}
+项目管理/任务管理-取消解读
+url: http://192.168.1.186:8000/PMTaskHandle/cancel/
+data: {'taskid': 'GNpsTc56ye', 'cmd': '取消解读', 'info': '尚未确定内容'}
+response: {"success": "取消实验操作成功"}
+实验室管理/任务管理-暂停实验
+http://192.168.1.186:8000/LabTaskHandle/cmd/
+实验室管理/任务管理-重置任务
+http://192.168.1.186:8000/LabTaskHandle/cmd/
+实验室管理/任务管理-进行实验
+url: http://192.168.1.186:8000/LabTaskHandle/go/
+data: {'taskid': 'GNpsTc56ye', 'cmd': '实验', 'info': '随便填写原因'}
+response: {"error": "'sample'"}
+实验室管理/任务管理-上机
+url: http://192.168.1.186:8000/LabTaskHandle/go/
+data: {'taskid': 'GNpsTc56ye', 'cmd': '上机', 'info': '随便填写原因'}
+response: {}
+实验室管理/任务管理-终止
+http://192.168.1.186:8000/LabTaskHandle/cmd/
+实验室管理/任务管理-任务列表
+url: http://192.168.1.186:8000/LabTaskHandle/view/
+response: [{"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "上机", "anastatus": "开始", "jiedu_status": "wait", "reportstatus": "wait", "info": "尚未确定内容尚未确定内容尚未确定内容尚未确定内容", "extrainfo": "", "status": "进行", "tumor": "肺癌", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:33", "bestuptime": "2018-06-06 10:21:33", "worstuptime": "2018-06-11 10:21:33", "deadline": {"$date": 1528712493979}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "GNpsTc56ye", "patientname": "1号玩家"}, {"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "status": "开始", "tumor": "胃癌", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:33", "bestuptime": "2018-06-06 10:21:33", "worstuptime": "2018-06-11 10:21:33", "deadline": {"$date": 1528712493994}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "BJAw4FcWiQ", "patientname": "1号玩家"}, {"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "status": "开始", "tumor": "", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:34", "bestuptime": "2018-06-06 10:21:34", "worstuptime": "2018-06-11 10:21:34", "deadline": {"$date": 1528712494038}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "5hYOlZBAyD", "patientname": "1号玩家"}, {"normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "status": "开始", "tumor": "", "product": "MT100000", "patient": "0000001", "starttime": "2018-06-01 10:21:34", "bestuptime": "2018-06-06 10:21:34", "worstuptime": "2018-06-11 10:21:34", "deadline": {"$date": 1528712494131}, "chip": "chip", "strategy": "151bp", "moletag": "否", "platform": "NGS", "taskid": "w67YlUjpMN", "patientname": "1号玩家"}]
+项目管理/项目管理
+url: http://192.168.1.186:8000/ProjectHandle/view/
+response: {"data": [{"products": ["MT100000", "MT100000"], "patients": ["0000001", "0000001"], "tumortype": "", "tasks": ["GNpsTc56ye", "BJAw4FcWiQ"], "status": "已付费", "delay": "否", "duty": "renqian", "start_time": {"$date": 1527848493924}, "deadline": {"$date": 1528712493924}, "tag": "科研", "duration": 9, "projectid": "YSkudOTK7H", "patient_list": [{"_id": "0000001", "patientname": "1号玩家", "tumortype": "肺癌", "samples": [], "infostatus": "无", "samplestatus": "无", "taskstatus": "有"}, {"_id": "0000001", "patientname": "1号玩家", "tumortype": "肺癌", "samples": [], "infostatus": "无", "samplestatus": "无", "taskstatus": "有"}], "product_list": [{"_id": "MT100000", "productname": "YuceOne PLus", "book": "book", "config": "config", "period": 5, "normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "platform": "NGS", "bestuptime": 5, "worstuptime": 10, "chip": "chip", "strategy": "151bp", "moletag": "否"}, {"_id": "MT100000", "productname": "YuceOne PLus", "book": "book", "config": "config", "period": 5, "normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "platform": "NGS", "bestuptime": 5, "worstuptime": 10, "chip": "chip", "strategy": "151bp", "moletag": "否"}], "task_list": [{"product": "MT100000", "patient": "0000001", "tumor": "肺癌", "chip": "chip", "strategy": "151bp", "moletag": "否", "bestuptime": {"$date": 1528280493979}, "worstuptime": {"$date": 1528712493979}, "normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "platform": "NGS", "starttime": {"$date": 1527848493979}, "deadline": {"$date": 1528712493979}, "status": "进行", "expstatus": "上机", "anastatus": "开始", "jiedu_status": "wait", "reportstatus": "wait", "info": "尚未确定内容尚未确定内容尚未确定内容尚未确定内容", "extrainfo": "", "taskid": "GNpsTc56ye", "patientname": "1号玩家"}, {"product": "MT100000", "patient": "0000001", "tumor": "胃癌", "chip": "chip", "strategy": "151bp", "moletag": "否", "bestuptime": {"$date": 1528280493994}, "worstuptime": {"$date": 1528712493994}, "normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "platform": "NGS", "starttime": {"$date": 1527848493994}, "deadline": {"$date": 1528712493994}, "status": "开始", "expstatus": "开始", "anastatus": "wait", "jiedu_status": "wait", "reportstatus": "wait", "info": "", "extrainfo": "", "taskid": "BJAw4FcWiQ", "patientname": "1号玩家"}]}]}
+项目管理/添加项目-获取数据
+url: http://192.168.1.186:8000/ProjectHandle/init/
+response: {"data": [{"product_list": [{"productname": "YuceOne PLus", "book": "book", "config": "config", "period": 5, "normaltype": "血液", "normalsize": "5g", "tumortype": "组织", "tumorsize": "5g", "platform": "NGS", "bestuptime": 5, "worstuptime": 10, "chip": "chip", "strategy": "151bp", "moletag": "否", "productid": "MT100000"}], "user_list": [{"group": "项目管理", "account": "renqian"}]}]}
+项目管理/添加项目-提交数据
+url: http://192.168.1.186:8000/ProjectHandle/init/
+data: {'patients': '0000001 0000002', 'start_time': '2018-06-01 18:21:34', 'deadline': '2018-06-21 18:21:34', 'products': ['MT100000'], 'tumortype': '肺癌', 'institute': 'yucebio', 'duty': 'renqian', 'projectid': '', 'info': '', 'tag': '科研'}
+response: {"success": "保存成功", "warning": "以下患者出现问题，可能不存在：0000002"}

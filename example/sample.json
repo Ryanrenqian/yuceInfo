@@ -1,0 +1,40 @@
+{
+  "sample": {
+    "18B00205XY01": {
+      "ctype": "肺癌",
+      "lane": {
+        "Ipost1800235_TP6_T6_S10": {
+          "lib": "Ipost1800235_TP6_T6_S10",
+          "path": [
+            "/mnt/wfs/database/FQDATA/2018b/180517_TPNB500223AR_0035_AHVLJKBGX5/YC/18B00205XY01/Ipost1800235_TP6_T6_S10_R1_001.fastq.gz",
+            "/mnt/wfs/database/FQDATA/2018b/180517_TPNB500223AR_0035_AHVLJKBGX5/YC/18B00205XY01/Ipost1800235_TP6_T6_S10_R2_001.fastq.gz"
+          ],
+          "adapter": [
+            "AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC",
+            "TACACTCTTTCCCTACACGACGCTCTTCCGATCT"
+          ]
+        }
+      },
+      "type": "raw",
+      "description": "18B00205XY01"
+    },
+    "18A00205SL01": {
+      "ctype": "肺癌",
+      "lane": {
+        "Ipost1800160_TP1_T23_S11": {
+          "lib": "Ipost1800160_TP1_T23_S11",
+          "path": [
+            "/mnt/wfs/database/FQDATA/2018b/180428_TPNB500223AR_0027_AHKHTTBGX5/YC/18A00205SL01/Ipost1800160_TP1_T23_S11_R1_001.fastq.gz",
+            "/mnt/wfs/database/FQDATA/2018b/180428_TPNB500223AR_0027_AHKHTTBGX5/YC/18A00205SL01/Ipost1800160_TP1_T23_S11_R2_001.fastq.gz"
+          ],
+          "adapter": [
+            "AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC",
+            "TACACTCTTTCCCTACACGACGCTCTTCCGATCT"
+          ]
+        }
+      },
+      "type": "raw",
+      "description": "18A00205SL01"
+    }
+  }
+}
