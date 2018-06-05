@@ -19,7 +19,6 @@ def GenerateID(database):
             ran_str = ''.join(random.sample(string.ascii_letters + string.digits, 10))
     return ran_str
 
-# 生成任务  debug
 def GenerateTask(patient,product,tumortype):
     '''
 
@@ -51,31 +50,35 @@ def GenerateTask(patient,product,tumortype):
                 normalsize = product.normalsize,
                 platform = product.platform,
                 tumortype = product.tumortype,
-                tumorsize = product.tumorsize
+                tumorsize = product.tumorsize,
+                config=product.config
                 )
     return task
 
-# 保存上传数据
-def handle_uploaded_file(f):
-    file='/Users/ryan/PycharmProjects/yucebio/tmp/'+f.name
+def handle_uploaded_file(f,tmp):
+    file=tmp+f.name
     with open(file, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
     return file
 
-# 首页文件
 def index(request):
-    pass
+    return HttpResponse('index')
 
-# 模板类
-class Tem:
-    def __init__(self, group, check):
+class Handle:
+    '''
+    处理器父类：提供权限检查和临时文件存储支持
+    '''
+    def __init__(self, group, check,tmp=None):
         '''
-                :param group: 有权限的组
-                :param check: 是否开启权限
+        初始化
+        :param group:
+        :param check:
+        :param tmp:
         '''
         self.group = group
         self.check = check
+        self.tmp=tmp
 
     def is_valid(self, request):
         if not self.check:
@@ -85,45 +88,22 @@ class Tem:
             user = User.objects(pk=user).first()
             return user.group in self.group
 
-    def GET(self, request):
-        message = {}
-        if self.is_valid(request):
-            if request.method == 'GET':
-                pass
-        else:
-            message['warning'] = '对不起，您没有权限'
-        return HttpResponse(json.dumps(message, ensure_ascii=False))
+    @property
+    def checktmp(self):
+        if not os.path.exists(self.tmp):
+            return os.mkdir(self.tmp)
+        return True
 
-    def POST(self, request):
-        message = {}
-        if self.is_valid(request):
-            if request.method == 'POST':
-                data = json.loads(request.body.decode('utf-8'))
-                pass
-        else:
-            message['warning'] = '对不起，您没有权限'
-        return HttpResponse(json.dumps(message, ensure_ascii=False))
-
-# 任务处理类
-class TaskHandle:
-    def __init__(self,group,check):
-        '''
-                :param group: 有权限的组
-                :param check: 是否开启权限
-        '''
-        self.group=group
-        self.check=check
-
-    def is_valid(self,request):
-        message = {}
-        if self.is_valid(request):
-            if request.method == 'POST':
-                data = json.loads(request.body.decode('utf-8'))
-                pass
-        else:
-            message['warning'] = '对不起，您没有权限'
-        return HttpResponse(json.dumps(message, ensure_ascii=False))
+class TaskHandle(Handle):
+    '''
+    任务处理类： 模板设计
+    '''
     def pause(self,request):
+        '''
+
+        :param request:
+        :return: message
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
@@ -196,25 +176,17 @@ class TaskHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-# 项目管理操作任务
 class PMTaskHandle(TaskHandle):
-    # def __init__(self,group,check):
-    #     '''
-    #             :param group: 有权限的组
-    #             :param check: 是否开启权限
-    #     '''
-    #     self.group=group
-    #     self.check=check
-    # 权限检查
-    def is_valid(self,request):
-        if not self.check:
-            return True
-        else:
-            user=request.session['user']
-            user=User.objects(pk=user).first()
-            return user.group in self.group
-    # 暂停
+    '''
+    项目管理：任务处理器
+    '''
     def pause(self,request):
+        '''
+        通过post传递暂停命令：
+        cmd调控暂停的内容
+        :param request:
+        :return: message
+        '''
         message={}
         if self.is_valid(request):
             if request.method =='POST':
@@ -242,15 +214,20 @@ class PMTaskHandle(TaskHandle):
                 elif data['cmd']=='解读暂停':
                     try:
                         task.modify(status='暂停', jiedu_status='暂停', info=info)
-                        message['success'] = '分析暂停成功'
+                        message['success'] = '解读暂停成功'
                     except Exception as e:
                         message['error'] = str(e)
                         logging.debug(e)
         else:
             message['warning']='对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
-    # 添加
+
     def add(self,request):
+        '''
+        添加任务（暂不需要）
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
@@ -258,8 +235,13 @@ class PMTaskHandle(TaskHandle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
-    # 重置
+
     def reset(self,request):
+        '''
+        重置任务，与实验室的重置不一样
+        :param request:
+        :return: message
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
@@ -276,8 +258,13 @@ class PMTaskHandle(TaskHandle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message,ensure_ascii=False))
-    # 操作
+
     def go(self,request):
+        '''
+        操作
+        :param request:
+        :return: message
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
@@ -285,8 +272,13 @@ class PMTaskHandle(TaskHandle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
-    # 修改
+
     def modify(self,request):
+        '''
+        修改
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
@@ -318,7 +310,7 @@ class PMTaskHandle(TaskHandle):
                         '%Y-%m-%d %H:%M:%S')
                     task['worstuptime'] = datetime.datetime.fromtimestamp(task['worstuptime']['$date'] / 1000).strftime(
                         '%Y-%m-%d %H:%M:%S')
-                return HttpResponse(json.dumps(task_list,ensure_ascii=False))
+                return HttpResponse(json.dumps({'data':task_list},ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -370,47 +362,32 @@ class PMTaskHandle(TaskHandle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-# 实验管理操作任务
 class LabTaskHandle(TaskHandle):
-    # def __init__(self,group,check):
-    #     '''
-    #             :param group: 有权限的组
-    #             :param check: 是否开启权限
-    #     '''
-    #     self.group=group
-    #     self.check=check
-    def is_valid(self, request):
-        if not self.check:
-            return True
-        else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
-
+    '''
+    实验管理：任务处理器
+    '''
     def cmd(self, request):
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
+                logging.info('cmd: %s'%request.body.decode('utf-8'))
                 task = Task.objects(pk=data['taskid']).first()
-                data['info'] = data['info'] + task.info
-                if data['cmd']=='暂停':
-                    try:
-                        task = Task.objects(pk=data['taskid']).first()
-                        task.modify(status='暂停', expstatus='暂停', **data)
-                        message['success'] = '暂停成功'
-                    except Exception as e:
-                        message['error'] = str(e)
-                        logging.debug(e)
-                elif data['cmd']=='终止':
-                    task = Task.objects(pk=data['taskid']).first()
+                data['info'] = data.get('info','')+ task.info
+                cmd=data.pop('cmd')
+                task = Task.objects(pk=data['taskid']).first()
+                if cmd=='暂停':
+                    task.modify(status='暂停', expstatus='暂停', **data)
+                    message['success'] = '暂停成功'
+                elif cmd=='终止':
                     task.modify(status='终止',
                                 expstatus='终止',
                                 anastatus='终止',
-                                jiedustatus='终止',
+                                jiedu_status='终止',
                                 reportstatus='终止',
-                                info=data['info'])
-                elif data['cmd']=='重置':
+                                **data)
+                    message['success']='终止成功'
+                elif cmd=='重置':
                     starttime = datetime.datetime.now()
                     deadline = datetime.datetime.now() + datetime.timedelta(days=task.product.period)
                     bestuptime = datetime.datetime.now() + datetime.timedelta(days=task.product.bestuptime)
@@ -423,6 +400,9 @@ class LabTaskHandle(TaskHandle):
                         message['success'] = '实验重启成功'
                     except Exception as e:
                         message['error']=str(e)
+                elif cmd=='完成':
+                    task.modify(expstatus='完成',**data)
+                    message['success']='已完成'
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -494,31 +474,19 @@ class LabTaskHandle(TaskHandle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-# 自动化脚本调用
-class AutoTaskHandle:
+class AutoTaskHandle(Handle):
+    '''
+    本打算留作自动化投递任务的接口的，现在不需要了，也许以后会用得上
+    '''
     def GET(self,request):
         pass
     def POST(self,request):
         pass
 
-# 分析师操作任务
-class AanaTaskHandle:
-
-    def __init__(self,group,check):
-        '''
-                :param group: 有权限的组
-                :param check: 是否开启权限
-        '''
-        self.group=group
-        self.check=check
-    def is_valid(self, request):
-        if not self.check:
-            return True
-        else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
-
+class AanaTaskHandle(TaskHandle):
+    '''
+    分析师：任务处理器，提供相关操作
+    '''
     def view(self,request):
         message = {}
         if self.is_valid(request):
@@ -558,29 +526,20 @@ class AanaTaskHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-# 对项目的操作
-class ProjectHandle:
-    def __init__(self,group,check):
-        '''
-                :param group: 有权限的组
-                :param check: 是否开启权限
-        '''
-        self.group=group
-        self.check=check
-    def is_valid(self, request):
-        if not self.check:
-            return True
-        else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
-    # 生成新的项目
+class ProjectHandle(Handle):
+    '''
+    项目管理：项目处理器
+    '''
     def init(self,request):
+        '''
+        生成新的项目
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
-
                 warning = []
                 patients = set(data['patients'].split())
                 for patient in data['patients'].split():
@@ -591,9 +550,9 @@ class ProjectHandle:
                 tumortypes = data.get('tumortype').split()
                 data['start_time'] = datetime.datetime.strptime(data['start_time'], "%Y-%m-%d %H:%M:%S")
                 data['deadline'] = datetime.datetime.strptime(data['deadline'], "%Y-%m-%d %H:%M:%S")
-                if data['projectid']=='':
+                if not data.get('projectid',None):
                     data['projectid']=GenerateID(Project)
-                info=data.pop('info')
+                # info=data.pop('info')
                 project = Project(**data)
                 project.save()
                 logging.debug(data)
@@ -611,8 +570,6 @@ class ProjectHandle:
                             task = GenerateTask(patient, product, '')
                             tasks.append(task)
                 data['tasks']=tasks
-
-                # project.save()
                 project.modify(tasks=tasks)
                 message['success'] = '保存成功'
                 if len(warning) != 0:
@@ -820,28 +777,16 @@ class ProjectHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-# 对患者的操作
-class PatientHandle:
-    def __init__(self,group,check,tmp):
-        '''
-        :param group: 有权限的组
-        :param check: 是否开启权限
-        :param tmp: 临时文件存储位置
-        '''
-        self.group=group
-        self.check=check
-        self.tmp=tmp
-        if not os.path.exists(self.tmp):
-            os.mkdir(self.tmp)
-    def is_valid(self, request):
-        if not self.check:
-            return True
-        else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
-
+class PatientHandle(Handle):
+    '''
+    患者处理器
+    '''
     def view(self,request):
+        '''
+        视图函数
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
@@ -849,7 +794,7 @@ class PatientHandle:
                 patient_list = json.loads(patient_list.to_json(ensure_ascii=False))
                 for patient in patient_list:
                     patient['patientid'] = patient.pop('_id')
-                    samples = json.loads(Sample.objects(patient=patient.pop('_id')).all().to_json(ensure_ascii=False))
+                    samples = json.loads(Sample.objects(patient=patient['patientid']).all().to_json(ensure_ascii=False))
                     patient['samples'] = samples
                 return HttpResponse(json.dumps({'data': patient_list}, ensure_ascii=False))
         else:
@@ -876,7 +821,33 @@ class PatientHandle:
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 # 导入患者
     def batchadd(self,request):
-        pass
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                f = handle_uploaded_file(request.FILES['file'],self.tmp)
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    try:
+                        fail = []
+                        warn = []
+                        data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                        for i in data.index:
+                            row = data.loc[i].to_dict()
+                            if len(Patient.objects(patientid=row['patientid'])) == 0:
+                                try:
+                                    patient = Patient(**row)
+                                    patient.save()
+                                except Exception as e:
+                                    message['error'] = e
+                                    fail.append(row['patientid'] + row['patientname'])
+                            else:
+                                warn.append(row['patientid'])
+                        message['warning'] = '以下患者编号已存在：%s' % ' '.join(warn)
+                        message['error'] = '以下患者保存失败：%s' % ' '.join(fail)
+                    except Exception as e:
+                        message['error'] = str(e)
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
 # 添加项目
     def addproject(self,request):
         message = {}
@@ -963,25 +934,14 @@ class PatientHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-#对样本的操作
-class SampleHandle:
-    def __init__(self,group,check):
-        '''
-                :param group: 有权限的组
-                :param check: 是否开启权限
-        '''
-        self.group=group
-        self.check=check
-
-    def is_valid(self, request):
-        if not self.check:
-            return True
-        else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
-# 生成样本和患者
+class SampleHandle(Handle):
+    '''样本处理器'''
     def init(self,request):
+        '''
+        添加样本
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             warning=[]
@@ -1001,10 +961,10 @@ class SampleHandle:
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
-# 补充样本
+
     def add(self,request):
         '''
-
+        补充样本，好像没啥用
         :param request:
         :return:
         '''
@@ -1022,7 +982,28 @@ class SampleHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
+    def complete(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                try:
+                    sample = Sample(**data)
+                    sample.save()
+                    message['success']='保存成功'
+                except Exception as e:
+                    logging.debug(e)
+                    message['error'] = str(e)
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
     def view(self,request):
+        '''
+        视图函数
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
@@ -1032,25 +1013,14 @@ class SampleHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-# 对产品的操作
-class ProductHandle:
-    def __init__(self,group,check):
-        '''
-                :param group: 有权限的组
-                :param check: 是否开启权限
-        '''
-        self.group=group
-        self.check=check
-
-    def is_valid(self, request):
-        if not self.check:
-            return True
-        else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
-
+class ProductHandle(Handle):
+    '''产品处理器'''
     def add(self,request):
+        '''
+        添加或者修改产品
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
@@ -1066,6 +1036,11 @@ class ProductHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
     def view(self,request):
+        '''
+        视图函数
+        :param request:
+        :return:
+        '''
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
@@ -1077,14 +1052,13 @@ class ProductHandle:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-## main
-# 存在的权限属性写入
+
 groups=['项目管理','实验室管理','信息分析师']
 for group in groups:
     Group(name=group).save()
 
 check=False
-autotaskhandle=AutoTaskHandle()
+# autotaskhandle=AutoTaskHandle()
 
 group=['实验室管理']
 samplehandle=SampleHandle(group,check)
@@ -1097,6 +1071,5 @@ producthandle=ProductHandle(group,check)
 group = ['项目管理','实验室管理']
 tmp='tmp'
 patienthandle=PatientHandle(group,check,tmp)
-
 group = ['信息分析师']
 anataskhandle=AanaTaskHandle(group,check)

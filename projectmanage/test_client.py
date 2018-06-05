@@ -1,43 +1,7 @@
 import requests,json,logging
 from projectmanage.models import *
-
+import time,datetime
 logging.basicConfig(filename='data.url.txt',level=logging.INFO,format='%(message)s')
-
-class Tem:
-    def __init__(self, group, check):
-        '''
-                :param group: 有权限的组
-                :param check: 是否开启权限
-        '''
-        self.group = group
-        self.check = check
-
-    def is_valid(self, request):
-        if not self.check:
-            return True
-        else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
-
-    def GET(self, request):
-        message = {}
-        if self.is_valid(request):
-            if request.method == 'GET':
-                pass
-        else:
-            message['warning'] = '对不起，您没有权限'
-        return HttpResponse(json.dumps(message, ensure_ascii=False))
-
-    def POST(self, request):
-        message = {}
-        if self.is_valid(request):
-            if request.method == 'POST':
-                data = json.loads(request.body.decode('utf-8'))
-                pass
-        else:
-            message['warning'] = '对不起，您没有权限'
-        return HttpResponse(json.dumps(message, ensure_ascii=False))
 
 
 url='http://192.168.1.186:8000/'
@@ -296,7 +260,6 @@ class PatientHandle:
         logging.info('response: %s'%response.text)
         return response.text
 
-
 # ProductHandle 模块测试
 def test_product():
     productclient=ProductHandle(url)
@@ -329,7 +292,9 @@ def test_patient():
     patient1={
     'patientid' : '0000001',
     'patientname' : '1号玩家',
-    'tumortype' : '肺癌'
+    'tumortype' : '肺癌',
+        'age':15,
+        'gender':'男'
     }
     logging.info('项目管理/患者管理/添加患者')
     patientclient.init(patient1)
@@ -412,13 +377,15 @@ def test_labtask():
     logging.info('实验室管理/任务管理-暂停实验')
     data={
         'taskid':Task.objects.first().pk,
-        'info':'随便填写原因'
+        'info':'随便填写原因',
+        'cmd':'暂停'
     }
     labtaskclient.cmd(data)
     logging.info('实验室管理/任务管理-重置任务')
     data = {
         'taskid': Task.objects.first().pk,
         'info': '随便填写原因'
+
     }
     labtaskclient.cmd(data)
     logging.info('实验室管理/任务管理-进行实验')
@@ -463,7 +430,6 @@ def test_labtask():
                 'QsepPeak':'',
                 'qPCRConcentration':'',
                 'datasize':5,
-                'datapath':'',
                 'info':''
 
             },
@@ -481,14 +447,11 @@ def test_labtask():
                 'QsepPeak': '',
                 'qPCRConcentration': '',
                 'datasize': 5,
-                'datapath': '',
                 'info': ''
             }
         ]
     }
     labtaskclient.loadsample(data)
-
-
 
 # 测试 ProjectHandle 模块
 def test_project():
@@ -499,7 +462,7 @@ def test_project():
     logging.info('项目管理/添加项目-获取数据')
     projectclient.initget()
     logging.info('项目管理/添加项目-提交数据')
-    import time,datetime
+
     project={
         'patients':'0000001 0000002',
         'start_time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -515,8 +478,11 @@ def test_project():
     projectclient.initpost(project)
 
 
+Task.drop_collection()
+Project.drop_collection()
+Sample.drop_collection()
 test_product()
 test_patient()
-test_pmtask()
 test_labtask()
 test_project()
+test_pmtask()

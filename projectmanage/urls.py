@@ -14,15 +14,15 @@ urlpatterns=[
     path('PMTaskHandle/stop/', views.pmtaskhandle.stop), #终止任务
     path('PMTaskHandle/cancel/', views.pmtaskhandle.cancel), # 取消操作 cmd： 取消实验 取消解读
     # 实验室管理的任务操作
-    path('LabTaskHandle/cmd/', views.labtaskhandle.pause), # cmd操作，进行，暂停，终止,重置
+    path('LabTaskHandle/cmd/', views.labtaskhandle.cmd), # cmd操作，进行，暂停，终止,重置
     # path('LabTaskHandle/reset/', views.labtaskhandle.reset), # 重置任务
     path('LabTaskHandle/loadsample/', views.labtaskhandle.go), # 上机
     path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
     # path('LabTaskHandle/stop/', views.labtaskhandle.stop), #
     path('LabTaskHandle/finish/', views.labtaskhandle.finish), # 完成测序
     # 自动化投递任务操作
-    path('AutoTaskHandle/get/',views.autotaskhandle.GET),
-    path('AutoTaskHandle/post/', views.autotaskhandle.POST),
+    # path('AutoTaskHandle/get/',views.autotaskhandle.GET),
+    # path('AutoTaskHandle/post/', views.autotaskhandle.POST),
     # 项目操作
     path('ProjectHandle/init/',views.projecthandle.init), # 添加项目
     path('ProjectHandle/stop/', views.projecthandle.stop), # 终止项目
@@ -37,9 +37,10 @@ urlpatterns=[
     path('PatientHandle/view/', views.patienthandle.view), # 患者列表
     path('PatientHandle/addproject/', views.patienthandle.addproject), # 直接下单
     path('PatientHandle/add2project/', views.patienthandle.add2project), # 添加到项目
+    path('PatientHandle/batchadd/',views.patienthandle.batchadd), # 批量导入患者
     # 样本操作
     path('SampleHandle/init/', views.samplehandle.init), # 添加样本
-    path('SampleHandle/add/', views.samplehandle.add), # 补充样本
+    path('SampleHandle/complete/', views.samplehandle.complete), # 完善或者修改样本信息
     path('SampleHandle/view/', views.samplehandle.view), # 样本列表
     # 产品操作
     path('ProductHandle/view/',views.producthandle.view), # 产品列表
