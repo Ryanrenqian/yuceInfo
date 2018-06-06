@@ -3,8 +3,6 @@ import datetime,json,random,string,logging,os
 import pandas as pd
 from .models import *
 
-
-
 logging.basicConfig(level=logging.DEBUG,filename='log.txt',format='%(asctime)s: %(message)s')
 # Create your views here.
 # 生成uniq ID debug
@@ -19,7 +17,7 @@ def GenerateID(database):
             ran_str = ''.join(random.sample(string.ascii_letters + string.digits, 10))
     return ran_str
 
-configpath='config'
+configpath='config' # 设置config文件默认目录
 def GenerateTask(patient,product,tumortype,configoath=configpath):
     '''
 
@@ -519,6 +517,19 @@ class AanaTaskHandle(TaskHandle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
+    def modify(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                taskid=data['taskid']
+                task=Task.objects(pk=taskid).first()
+                task.modify(**data)
+                message['success']='修改成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
     def tmp(self,request):
         message = {}
         if self.is_valid(request):
@@ -985,14 +996,14 @@ class SampleHandle(Handle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-    def complete(self,request):
+    def modify(self,request):
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
+                sample=Sample.objects(pk=data['sampleid']).first()
                 try:
-                    sample = Sample(**data)
-                    sample.save()
+                    sample.modify(**data)
                     message['success']='保存成功'
                 except Exception as e:
                     logging.debug(e)

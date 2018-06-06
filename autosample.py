@@ -12,7 +12,6 @@ from projectmanage.models import *
 from config import *
 #connect database
 conn = pymongo.MongoClient("127.0.0.1",27017)
-connect('test')
 # Create your models here.
 db = conn.bclmon
 col = db["samples"]
@@ -129,7 +128,7 @@ def taskhandle(workdir,task):
     return task.modify(anastatus='已自动投递')
 if __name__=='__main__':
     workdir=''
-    jsondir=''
     while True:
         for task in Task.objects(expstatus='上机',anastatus='wait')
-            taskhandle(workdir,jsondir,task)
+            taskhandle(workdir,task)
+        time.sleep(300)# 五分钟扫描一次
