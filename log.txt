@@ -1,4 +1,5 @@
-2018-06-05 06:21:52,416: Internal Server Error: /ProjectHandle/init/
+2018-06-06 01:57:41,049: {'taskid': 'YxIfpvDVSl', 'samples': [{'sampleid': '1111', 'tumortype': '1111111111111', 'tissue': '111111111111', 'read1': '1111111111', 'read2': '1111111111111', 'platform': '1111111111111', 'i5': '1111111111111111111111', 'i7': '1111111111', 'volume': '111111111', 'concentration': '1111111111', 'QsepPeak': '111111111', 'qPCRConcentration': '1111111111', 'datasize': '111111111', 'info': '111111111111111'}]}
+2018-06-06 01:57:41,052: Internal Server Error: /LabTaskHandle/loadsample/
 Traceback (most recent call last):
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
@@ -6,12 +7,13 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 559, in init
-    project = Project(**data)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 421, in loadsample
+    sample=Sample(**sample)
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
     raise FieldDoesNotExist(msg)
-mongoengine.errors.FieldDoesNotExist: The fields "{'info'}" do not exist on the document "Project"
-2018-06-05 06:24:18,687: Internal Server Error: /ProjectHandle/init/
+mongoengine.errors.FieldDoesNotExist: The fields "{'read2'}" do not exist on the document "Sample"
+2018-06-06 01:57:49,034: {'taskid': 'YxIfpvDVSl', 'samples': [{'sampleid': '1111', 'tumortype': '1111111111111', 'tissue': '111111111111', 'read1': '1111111111', 'read2': '1111111111111', 'platform': '1111111111111', 'i5': '1111111111111111111111', 'i7': '1111111111', 'volume': '111111111', 'concentration': '1111111111', 'QsepPeak': '111111111', 'qPCRConcentration': '1111111111', 'datasize': '111111111', 'info': '111111111111111'}]}
+2018-06-06 01:57:49,036: Internal Server Error: /LabTaskHandle/loadsample/
 Traceback (most recent call last):
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
@@ -19,177 +21,9 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 555, in init
-    info=data.pop('info')
-KeyError: 'info'
-2018-06-05 06:26:04,861: Internal Server Error: /ProjectHandle/init/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 553, in init
-    if data['projectid']=='':
-KeyError: 'projectid'
-2018-06-05 06:27:22,759: Internal Server Error: /ProjectHandle/init/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 557, in init
-    project.save()
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 354, in save
-    self.validate(clean=clean)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 394, in validate
-    raise ValidationError(message, errors=errors)
-mongoengine.errors.ValidationError: ValidationError (Project:None) (Field is required: ['projectid'])
-2018-06-05 06:27:49,279: {'tag': '科研', 'patients': [], 'tumortype': '胃癌', 'start_time': datetime.datetime(2018, 6, 5, 14, 27, 4), 'deadline': datetime.datetime(2018, 6, 13, 14, 27), 'duty': 'renqian', 'products': ['MT100000'], 'projectid': '2QligyJWSX'}
-2018-06-05 06:51:30,994: {'taskid': '38xQlAwhBU', 'info': '', 'cmd': '实验暂停'}
-2018-06-05 06:52:24,885: {'taskid': '38xQlAwhBU', 'info': '', 'cmd': '分析暂停'}
-2018-06-05 06:52:35,411: {'taskid': '7DvZM9CuKH', 'info': '', 'cmd': '解读暂停'}
-2018-06-05 06:53:35,450: {'taskid': 'daYFGibfSR', 'info': '', 'cmd': '实验暂停'}
-2018-06-05 06:53:50,864: Cannot resolve field "jiedustatus"
-2018-06-05 06:56:02,709: Internal Server Error: /PMTaskHandle/cancel/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 347, in cancel
-    if data['cmd'] == '取消实验':
-KeyError: 'cmd'
-2018-06-05 07:02:42,859: Internal Server Error: /PatientHandle/addproject/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 865, in addproject
-    task = GenerateTask(patient,product,tumortype)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 34, in GenerateTask
-    bestuptime = starttime + datetime.timedelta(days=product.bestuptime)
-AttributeError: 'NoneType' object has no attribute 'bestuptime'
-2018-06-05 07:04:04,537: Internal Server Error: /
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 139, in _get_response
-    "returned None instead." % (callback.__module__, view_name)
-ValueError: The view projectmanage.views.index didn't return an HttpResponse object. It returned None instead.
-2018-06-05 07:12:35,695: Internal Server Error: /PatientHandle/addproject/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 865, in addproject
-    task = GenerateTask(patient,product,tumortype)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 34, in GenerateTask
-    bestuptime = starttime + datetime.timedelta(days=product.bestuptime)
-AttributeError: 'NoneType' object has no attribute 'bestuptime'
-2018-06-05 07:30:24,433: add task: YxIfpvDVSl 0000001 MT100000 胃癌
-2018-06-05 07:30:24,443: [<Task: YxIfpvDVSl>]
-2018-06-05 07:31:06,137: add task: FJBgteIioL 0000001 MT100000 脑癌
-2018-06-05 07:31:06,150: [<Task: FJBgteIioL>]
-2018-06-05 08:33:17,273: Not Found: /lab/taskindex/index/
-2018-06-05 08:35:26,032: Not Found: /lab/taskindex/index/
-2018-06-05 08:35:55,027: Not Found: /lab/taskindex/index/
-2018-06-05 09:25:19,585: cmd: {"taskid":"38xQlAwhBU","info":"佛利莎","cmd":"暂停"}
-2018-06-05 09:25:38,107: cmd: {"taskid":"wZbrnxeoJp","info":"胃必治","cmd":"暂停"}
-2018-06-05 09:27:43,557: cmd: {"taskid":"TgV3a0Fi4r","info":"无","cmd":"暂停"}
-2018-06-05 09:28:24,303: cmd: {"taskid":"YxIfpvDVSl","info":"无","cmd":"暂停"}
-2018-06-05 09:29:11,579: cmd: {"taskid":"FJBgteIioL","info":"无","cmd":"暂停"}
-2018-06-05 09:31:07,732: cmd: {"taskid":"38xQlAwhBU","info":"无","cmd":"暂停"}
-2018-06-05 09:35:53,325: cmd: {"taskid":"38xQlAwhBU","info":"无","cmd":"暂停"}
-2018-06-05 09:53:51,420: cmd: {"taskid":"38xQlAwhBU","cmd":"重置"}
-2018-06-05 09:53:51,421: Internal Server Error: /LabTaskHandle/cmd/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 376, in cmd
-    data['info'] = data['info'] + task.info
-KeyError: 'info'
-2018-06-05 09:54:16,927: cmd: {"taskid":"38xQlAwhBU","cmd":"重置"}
-2018-06-05 09:54:16,929: Internal Server Error: /LabTaskHandle/cmd/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 376, in cmd
-    data['info'] = data['info'] + task.info
-KeyError: 'info'
-2018-06-05 09:54:26,047: cmd: {"taskid":"38xQlAwhBU","info":"","cmd":"重置"}
-2018-06-05 09:55:21,614: cmd: {"taskid":"daYFGibfSR","cmd":"重置"}
-2018-06-05 09:55:21,616: Internal Server Error: /LabTaskHandle/cmd/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 376, in cmd
-    data['info'] = data['info'] + task.info
-KeyError: 'info'
-2018-06-05 09:55:29,499: cmd: {"taskid":"wZbrnxeoJp","info":"无","cmd":"重置"}
-2018-06-05 09:55:49,978: cmd: {"taskid":"wZbrnxeoJp","cmd":"重置"}
-2018-06-05 09:55:49,980: Internal Server Error: /LabTaskHandle/cmd/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 376, in cmd
-    data['info'] = data['info'] + task.info
-KeyError: 'info'
-2018-06-05 09:56:20,701: cmd: {"taskid":"TgV3a0Fi4r","cmd":"重置"}
-2018-06-05 09:56:54,900: cmd: {"taskid":"38xQlAwhBU","cmd":"完成"}
-2018-06-05 09:57:38,217: cmd: {"taskid":"38xQlAwhBU","cmd":"完成"}
-2018-06-05 09:58:09,140: cmd: {"taskid":"38xQlAwhBU","info":"微软","cmd":"完成"}
-2018-06-05 10:00:20,524: cmd: {"taskid":"38xQlAwhBU","info":"","cmd":"终止"}
-2018-06-05 10:00:20,531: Internal Server Error: /LabTaskHandle/cmd/
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 253, in update
-    fields = _doc_cls._lookup_field(parts)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
-    raise LookUpError('Cannot resolve field "%s"' % field_name)
-mongoengine.errors.LookUpError: Cannot resolve field "jiedustatus"
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
-    response = get_response(request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 388, in cmd
-    info=data['info'])
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 281, in modify
-    updated = self._qs(**query).modify(new=True, **update)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 605, in modify
-    update = transform.update(queryset._document, **update)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 255, in update
-    raise InvalidQueryError(e)
-mongoengine.errors.InvalidQueryError: Cannot resolve field "jiedustatus"
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 421, in loadsample
+    sample=Sample(**sample)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'read2'}" do not exist on the document "Sample"
+2018-06-06 01:58:26,310: {'taskid': 'YxIfpvDVSl', 'samples': [{'sampleid': '1111', 'tumortype': '1111111111111', 'tissue': '111111111111', 'read1': '1111111111', 'read2': '1111111111111', 'platform': '1111111111111', 'i5': '1111111111111111111111', 'i7': '1111111111', 'volume': '111111111', 'concentration': '1111111111', 'QsepPeak': '111111111', 'qPCRConcentration': '1111111111', 'datasize': '111111111', 'info': '111111111111111'}]}

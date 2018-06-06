@@ -16,7 +16,7 @@ urlpatterns=[
     # 实验室管理的任务操作
     path('LabTaskHandle/cmd/', views.labtaskhandle.cmd), # cmd操作，进行，暂停，终止,重置
     # path('LabTaskHandle/reset/', views.labtaskhandle.reset), # 重置任务
-    path('LabTaskHandle/loadsample/', views.labtaskhandle.go), # 上机
+    path('LabTaskHandle/loadsample/', views.labtaskhandle.loadsample), # 上机
     path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
     # path('LabTaskHandle/stop/', views.labtaskhandle.stop), #
     path('LabTaskHandle/finish/', views.labtaskhandle.finish), # 完成测序

@@ -19,7 +19,8 @@ def GenerateID(database):
             ran_str = ''.join(random.sample(string.ascii_letters + string.digits, 10))
     return ran_str
 
-def GenerateTask(patient,product,tumortype):
+configpath='config'
+def GenerateTask(patient,product,tumortype,configoath=configpath):
     '''
 
     :param patient: Patient Object
@@ -51,7 +52,7 @@ def GenerateTask(patient,product,tumortype):
                 platform = product.platform,
                 tumortype = product.tumortype,
                 tumorsize = product.tumorsize,
-                config=product.config
+                config=configpath+'/'+product.config
                 )
     return task
 
@@ -413,6 +414,7 @@ class LabTaskHandle(TaskHandle):
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
+                logging.info(str(data))
                 task = Task.objects(pk=data['taskid']).first()
                 samples=[]
                 for sample in data['samples']:
@@ -421,6 +423,7 @@ class LabTaskHandle(TaskHandle):
                     samples.append(sample)
                 try:
                     task.modify(expstatus='上机',samples=samples)
+                    message['success']='上样成功～'
                 except Exception as e:
                     message['error'] = str(e)
                     logging.debug(e)

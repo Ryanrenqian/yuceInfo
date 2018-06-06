@@ -43,24 +43,24 @@ class Product(Document):
 
 # 样本
 class Sample(Document):
-    sampleid=StringField(primary_key=True)
-    patient=StringField(default='')
-    tumortype=StringField(default='')
-    flag=StringField(default='')
-    tissue=StringField(default='')
-    type = StringField(default='')
+    sampleid=StringField(primary_key=True)# 样本编号
+    patient=StringField(default='') # 患者编号
+    tumortype=StringField(default='') # 肿瘤类型
+    flag=StringField(default='') # 标记
+    tissue=StringField(default='') # 组织类型
+    type = StringField(default='') #
     create_time=DateTimeField(auto_now=True)
-    i5=StringField(default='')
-    i7=StringField(default='')
-    volume=IntField(default=0)
-    concentration=StringField(default='')
-    QsepPeak=StringField(default='')
-    qPCRConcentration=StringField(default='')
-    datasize=IntField(default=0)
+    i5=StringField(default='') #  i5
+    i7=StringField(default='') # i7
+    volume=IntField(default=0) # 体积
+    concentration=StringField(default='') # 浓度
+    QsepPeak=StringField(default='') # Qsep峰值
+    qPCRConcentration=StringField(default='')#qPCR浓度
+    datasize=IntField(default=0) #测序数据量
     read1=StringField(default='')
-    reads=StringField(default='')
-    platform=StringField(default='')
-    info=StringField(default='')
+    read2=StringField(default='')
+    platform=StringField(default='') # 测序平台
+    info=StringField(default='') # 备注
     def __str__(self):
         return self.pk
 
