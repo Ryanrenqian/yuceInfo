@@ -1,5 +1,5 @@
-2018-06-06 01:57:41,049: {'taskid': 'YxIfpvDVSl', 'samples': [{'sampleid': '1111', 'tumortype': '1111111111111', 'tissue': '111111111111', 'read1': '1111111111', 'read2': '1111111111111', 'platform': '1111111111111', 'i5': '1111111111111111111111', 'i7': '1111111111', 'volume': '111111111', 'concentration': '1111111111', 'QsepPeak': '111111111', 'qPCRConcentration': '1111111111', 'datasize': '111111111', 'info': '111111111111111'}]}
-2018-06-06 01:57:41,052: Internal Server Error: /LabTaskHandle/loadsample/
+2018-06-07 03:23:47,087: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:23:47,088: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
 Traceback (most recent call last):
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
@@ -7,13 +7,9 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 421, in loadsample
-    sample=Sample(**sample)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
-    raise FieldDoesNotExist(msg)
-mongoengine.errors.FieldDoesNotExist: The fields "{'read2'}" do not exist on the document "Sample"
-2018-06-06 01:57:49,034: {'taskid': 'YxIfpvDVSl', 'samples': [{'sampleid': '1111', 'tumortype': '1111111111111', 'tissue': '111111111111', 'read1': '1111111111', 'read2': '1111111111111', 'platform': '1111111111111', 'i5': '1111111111111111111111', 'i7': '1111111111', 'volume': '111111111', 'concentration': '1111111111', 'QsepPeak': '111111111', 'qPCRConcentration': '1111111111', 'datasize': '111111111', 'info': '111111111111111'}]}
-2018-06-06 01:57:49,036: Internal Server Error: /LabTaskHandle/loadsample/
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:23:48,353: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:23:48,353: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
 Traceback (most recent call last):
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
@@ -21,9 +17,459 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 421, in loadsample
-    sample=Sample(**sample)
-  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
-    raise FieldDoesNotExist(msg)
-mongoengine.errors.FieldDoesNotExist: The fields "{'read2'}" do not exist on the document "Sample"
-2018-06-06 01:58:26,310: {'taskid': 'YxIfpvDVSl', 'samples': [{'sampleid': '1111', 'tumortype': '1111111111111', 'tissue': '111111111111', 'read1': '1111111111', 'read2': '1111111111111', 'platform': '1111111111111', 'i5': '1111111111111111111111', 'i7': '1111111111', 'volume': '111111111', 'concentration': '1111111111', 'QsepPeak': '111111111', 'qPCRConcentration': '1111111111', 'datasize': '111111111', 'info': '111111111111111'}]}
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:23:49,679: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:23:49,679: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:23:50,764: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:23:50,764: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:24:00,951: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:24:00,951: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:25:21,143: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:25:21,143: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got an unexpected keyword argument 'path'
+2018-06-07 03:25:22,825: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:25:22,826: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got an unexpected keyword argument 'path'
+2018-06-07 03:26:40,057: Not Found: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+2018-06-07 03:26:41,735: Not Found: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+2018-06-07 03:27:02,143: Not Found: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+2018-06-07 03:27:21,018: Not Found: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+2018-06-07 03:27:22,720: Not Found: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+2018-06-07 03:27:42,598: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:27:42,598: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:28:25,673: Not Found: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+2018-06-07 03:28:52,614: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:28:52,615: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:28:54,075: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:28:54,075: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:31:33,217: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:31:33,223: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:33:14,879: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:33:14,879: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:33:16,411: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:33:16,411: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:33:17,864: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:33:17,864: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:33:19,786: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:33:19,786: Internal Server Error: /imageview/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: imageview() got multiple values for argument 'path'
+2018-06-07 03:34:13,163: tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:34:33,313: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:34:33,314: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:34:33,314: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:34:33,314: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:34:33,314: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:34:33,314: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:34:33,330: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:35:44,107: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:35:44,108: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:35:44,108: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:35:44,108: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:35:44,108: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:35:44,108: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:35:44,121: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:38:28,297: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:38:28,306: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:38:28,306: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:38:28,307: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:38:28,307: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:38:28,307: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:38:28,323: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:38:28,324: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:38:28,325: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:38:28,326: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:38:54,145: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:38:54,146: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:38:54,146: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:38:54,146: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:38:54,146: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:38:54,146: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:41:18,517: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:41:18,517: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:41:18,518: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:41:18,518: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:41:18,518: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:41:18,518: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:41:18,540: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:41:18,541: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:41:18,543: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:41:18,545: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:41:18,547: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:41:18,548: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:42:06,055: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:42:06,056: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:42:06,056: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:42:06,056: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:42:06,056: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:42:06,056: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:42:06,075: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:42:06,077: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:42:06,079: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:42:06,082: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:42:06,084: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:42:06,087: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:42:51,268: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:42:51,269: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:42:51,269: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:42:51,269: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:42:51,269: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:42:51,270: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:42:51,292: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:42:51,294: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:42:51,296: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:42:51,298: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:42:51,300: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:42:51,302: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:43:37,901: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:43:37,901: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:43:37,902: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:43:37,902: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:43:37,902: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:43:37,902: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:43:37,917: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:43:37,919: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:43:37,920: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:43:37,921: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:43:37,923: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:43:37,924: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:44:25,714: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:44:25,715: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:44:25,715: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:44:25,715: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:44:25,715: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:44:25,715: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:44:25,729: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:44:25,731: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:44:25,736: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:44:25,737: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:44:25,739: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:44:25,740: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:45:10,661: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:45:10,662: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:45:10,662: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:45:10,662: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:45:10,662: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:45:10,662: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:45:10,684: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:45:10,686: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:45:10,687: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:45:10,689: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:45:10,690: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:45:10,692: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:45:29,520: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:45:29,520: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:45:29,521: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:45:29,521: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:45:29,521: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:45:29,521: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:45:29,544: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:45:29,545: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:45:29,546: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:45:29,547: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:45:29,550: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:45:29,551: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:45:43,723: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:45:43,723: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:45:43,723: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:45:43,723: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:45:43,723: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:45:43,723: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:45:43,748: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:45:43,750: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:45:43,752: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:45:43,754: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:45:43,755: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:45:43,756: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:46:43,541: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:46:43,542: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:46:43,542: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:46:43,542: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:46:43,542: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:46:43,542: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:46:43,565: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:46:43,567: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:46:43,569: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:46:43,570: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:46:43,572: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:46:43,575: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:46:54,687: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:46:54,687: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:46:54,687: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:46:54,687: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:46:54,687: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:46:54,687: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:46:54,712: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:46:54,713: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:46:54,714: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:46:54,716: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:46:54,717: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:46:54,719: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:47:30,872: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:47:30,872: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:47:30,872: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:47:30,872: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:47:30,873: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:47:30,873: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:47:56,975: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:47:56,975: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:47:56,975: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:47:56,975: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:47:56,975: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:47:56,975: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:47:57,005: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:47:57,007: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:47:57,011: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:47:57,013: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:47:57,014: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:47:57,017: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:53:07,415: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:53:07,415: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:53:07,415: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:53:07,415: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:53:07,416: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:53:07,416: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:58:33,952: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:58:33,952: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:58:33,953: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:58:33,953: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:58:33,953: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:58:33,953: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:58:33,989: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:58:33,990: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:58:33,992: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:58:33,995: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:58:33,997: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:58:34,001: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:59:01,371: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:59:01,372: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:59:01,372: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:59:01,373: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:59:01,373: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 03:59:01,373: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:59:01,398: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 03:59:01,399: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 03:59:01,401: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 03:59:01,404: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 03:59:01,405: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 03:59:01,407: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:03:08,700: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:03:08,700: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:03:08,700: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:03:08,701: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:03:08,701: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:03:08,701: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:03:08,723: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:03:08,724: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:03:08,726: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:03:08,728: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:03:08,729: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:03:08,731: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:04:04,565: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:04:04,566: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:04:04,566: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:04:04,566: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:04:04,566: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:04:04,566: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:04:04,590: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:04:04,591: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:04:04,592: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:04:04,594: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:04:04,598: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:04:04,600: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:06:46,248: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:06:46,249: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:06:46,249: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:06:46,249: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:06:46,250: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:06:46,250: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:06:46,284: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:06:46,286: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:06:46,287: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:06:46,289: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:06:46,291: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:06:46,293: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:07:15,769: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:07:15,770: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:07:15,770: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:07:15,770: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:07:15,771: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:07:15,771: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:07:15,806: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:07:15,808: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:07:15,810: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:07:15,811: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:07:15,812: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:07:15,816: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:09:02,361: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:09:02,362: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:09:02,362: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:09:02,362: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:09:02,363: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:09:02,363: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:09:02,391: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:09:02,392: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:09:02,393: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:09:02,395: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:09:02,397: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:09:02,398: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:11:35,955: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:11:35,955: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:11:35,955: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:11:35,955: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:11:35,955: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:11:35,955: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:11:35,983: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:11:35,984: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:11:35,986: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:11:35,987: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:11:35,989: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:11:35,992: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:54:34,391: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:54:34,392: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:54:34,392: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:54:34,392: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:54:34,392: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:54:34,393: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:54:52,997: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:54:52,997: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:54:52,997: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:54:52,997: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:54:52,997: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:54:52,998: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:54:54,754: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:54:54,754: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:54:54,755: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:54:54,755: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:54:54,755: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:54:54,755: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:55:14,439: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:55:14,440: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:55:14,440: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:55:14,440: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:55:14,440: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:55:14,440: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:56:22,903: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:56:22,903: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:56:22,904: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:56:22,904: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:56:22,905: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:56:22,906: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:56:22,929: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:56:22,930: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:56:22,931: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:56:22,932: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:56:22,933: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:56:22,934: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:57:20,822: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:57:20,822: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:57:20,822: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 04:57:20,822: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:57:20,822: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:57:20,822: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:57:20,854: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.germline.png
+2018-06-07 04:57:20,855: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.tumour.png
+2018-06-07 04:57:20,857: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASPCF.png
+2018-06-07 04:57:20,859: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
+2018-06-07 04:57:20,860: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
+2018-06-07 04:57:20,861: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png

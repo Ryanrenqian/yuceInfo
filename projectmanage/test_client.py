@@ -6,11 +6,11 @@ logging.basicConfig(filename='data.url.txt',level=logging.INFO,format='%(message
 
 url='http://192.168.1.186:8000/'
 
-# 测试前先清理数据
-Project.drop_collection()
-Task.drop_collection()
-Patient.drop_collection()
-Sample.drop_collection()
+# # 测试前先清理数据
+# Project.drop_collection()
+# Task.drop_collection()
+# Patient.drop_collection()
+# Sample.drop_collection()
 
 
 # Class
@@ -477,12 +477,18 @@ def test_project():
     }
     projectclient.initpost(project)
 
-
-Task.drop_collection()
-Project.drop_collection()
-Sample.drop_collection()
-test_product()
-test_patient()
-test_labtask()
-test_project()
-test_pmtask()
+#
+# Task.drop_collection()
+# Project.drop_collection()
+# Sample.drop_collection()
+# test_product()
+# test_patient()
+# test_labtask()
+# test_project()
+# # # # test_pmtask()
+# data={'patient': 'asdf', 'tumortype': '肺癌', 'flag': '333333333', 'tissue': '血浆', 'type': 'as', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRentration': '', 'datasize': 5, 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'info': '', 'sampleid': '18A00335XJ03'}
+# # sample=Sample.objects(pk=data.pop('sampleid')).first()
+# sample.modify(**data)
+data={'taskid':'soyirJEYje'}
+res=requests.post(url+'AnaTaskHandle/qcview/',json=data)
+print(res.text)

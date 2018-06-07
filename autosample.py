@@ -10,14 +10,7 @@ from mongoengine import *
 import pymongo
 from projectmanage.models import *
 from config import *
-#connect database
-conn = pymongo.MongoClient("127.0.0.1",27017)
-# Create your models here.
-db = conn.bclmon
-col = db["samples"]
-colrun = db["sequencing"]
-db = conn.pipeline
-projects = db["Projects"]
+
 
 def taskhandle(workdir,task):
     with open(task.config,'r')as f:
@@ -33,7 +26,7 @@ def taskhandle(workdir,task):
     ctype = {}
     for sample in task.samples:
         ctype[str(sample)]=sample.tumortype
-        samplelist.append(str(sample),"")
+        samplelist.append((str(sample),""))
     currentrun = colrun.find({"status": {"$ne": "end"}}).sort("_id",-1).limit(1)
     for item in samplelist:
         sample = item[0]
@@ -126,9 +119,18 @@ def taskhandle(workdir,task):
     }
     objid = projectobj.insert(scriptobj)
     return task.modify(anastatus='已自动投递')
+
 if __name__=='__main__':
-    workdir=''
+    # connect database
+    conn = pymongo.MongoClient("127.0.0.1", 27017) #数据库连接设置
+    db = conn.bclmon
+    col = db["samples"]
+    colrun = db["sequencing"]
+    db = conn.pipeline
+    projects = db["Projects"]
+    workdir=''   # 设置工作目录
+    waittime=300 # 扫描时间间隔
     while True:
         for task in Task.objects(expstatus='上机',anastatus='wait')
             taskhandle(workdir,task)
-        time.sleep(300)# 五分钟扫描一次
+        time.sleep(waittime)# 五分钟扫描一次

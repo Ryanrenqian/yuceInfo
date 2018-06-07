@@ -50,11 +50,11 @@ class Sample(Document):
     tissue=StringField(default='') # 组织类型
     type = StringField(default='') #
     create_time=DateTimeField(auto_now=True)
-    i5=StringField(default='') #  i5
-    i7=StringField(default='') # i7
-    volume=IntField(default=0) # 体积
-    concentration=StringField(default='') # 浓度
-    QsepPeak=StringField(default='') # Qsep峰值
+    i5=StringField(default='') #
+    i7=StringField(default='')
+    volume=IntField(default=0)
+    concentration=StringField(default='')
+    QsepPeak=StringField(default='') #
     qPCRConcentration=StringField(default='')#qPCR浓度
     datasize=IntField(default=0) #测序数据量
     read1=StringField(default='')

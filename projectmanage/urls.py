@@ -1,13 +1,26 @@
-from django.conf.urls import url
 from . import views
-from django.urls import path
+from django.urls import path,register_converter
+import logging
 app_name='YuceInfo'
+
+class FilePath:
+    regex=".*"
+    def to_python(self,value):
+        logging.info(str(value))
+        return str(value)
+    def to_url(self,value):
+        logging.info(str(value))
+        return '%s'%str(value)
+
+register_converter(FilePath,'fp')
 urlpatterns=[
     path('', views.index),
+    path('imageview/<fp:path>/',views.fileview.imageview,name='imageview'),
+    path('tableview/<path:path>/',views.fileview.tableview,name='tableview'),
     #项目管理的任务操作
-    path('PMTaskHandle/pause/',views.pmtaskhandle.pause), # 暂停操作 cmd：实验暂停 分析暂停
-    path('PMTaskHandle/add/',views.pmtaskhandle.add), # 保留项
-    path('PMTaskHandle/reset/',views.pmtaskhandle.reset), # 重置任务
+    path('PMTaskHandle/pause/',views.pmtaskhandle.cmd), # 暂停操作 cmd：实验暂停 分析暂停
+    # path('PMTaskHandle/add/',views.pmtaskhandle.add), # 保留项
+    # path('PMTaskHandle/reset/',views.pmtaskhandle.reset), # 重置任务
     path('PMTaskHandle/go/', views.pmtaskhandle.go), # 保留项
     path('PMTaskHandle/modify/', views.pmtaskhandle.modify), # 任务修改
     path('PMTaskHandle/view/', views.pmtaskhandle.view), # 任务列表
@@ -22,6 +35,11 @@ urlpatterns=[
     path('LabTaskHandle/finish/', views.labtaskhandle.finish), # 完成测序
     # 自动化投递任务操作
     # path('AutoTaskHandle/get/',views.autotaskhandle.GET),
+    # 分析师修改任务操作
+    path('AnaTaskHandle/view/',views.anataskhandle.view),
+    path('AnaTaskHandle/modify/',views.anataskhandle.modify),
+    path('AnaTaskHandle/qcview/', views.anataskhandle.qcview),
+
     # path('AutoTaskHandle/post/', views.autotaskhandle.POST),
     # 项目操作
     path('ProjectHandle/init/',views.projecthandle.init), # 添加项目
@@ -40,7 +58,7 @@ urlpatterns=[
     path('PatientHandle/batchadd/',views.patienthandle.batchadd), # 批量导入患者
     # 样本操作
     path('SampleHandle/init/', views.samplehandle.init), # 添加样本
-    path('SampleHandle/complete/', views.samplehandle.complete), # 完善或者修改样本信息
+    path('SampleHandle/modify/', views.samplehandle.modify), # 完善或者修改样本信息
     path('SampleHandle/view/', views.samplehandle.view), # 样本列表
     # 产品操作
     path('ProductHandle/view/',views.producthandle.view), # 产品列表

@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse,reverse
 import datetime,json,random,string,logging,os
 import pandas as pd
 from .models import *
@@ -20,7 +20,7 @@ def GenerateID(database):
 configpath='config' # 设置config文件默认目录
 def GenerateTask(patient,product,tumortype,configoath=configpath):
     '''
-
+    自动生成task
     :param patient: Patient Object
     :param product:  str Product
     :param tumortype:  str Tumortype
@@ -55,11 +55,35 @@ def GenerateTask(patient,product,tumortype,configoath=configpath):
     return task
 
 def handle_uploaded_file(f,tmp):
+    '''
+    上传的文件处理
+    :param f:
+    :param tmp:
+    :return:
+    '''
     file=tmp+f.name
     with open(file, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
     return file
+
+
+def normalizejson(data):
+    '''
+    标准化处理不合格的json格式，需要设置对应的workdir
+    :param data:
+    :return:
+    '''
+    data_list=[]
+    for key in data.keys():
+        _data={'key':key}
+
+        for i,value in enumerate(data[key]):
+            _data['key'+str(i)]=value
+        data_list.append(_data)
+    return data_list
+
+
 
 def index(request):
     return HttpResponse('index')
@@ -68,7 +92,7 @@ class Handle:
     '''
     处理器父类：提供权限检查和临时文件存储支持
     '''
-    def __init__(self, group, check,tmp=None):
+    def __init__(self, group, check,tmp=None,workdir=None):
         '''
         初始化
         :param group:
@@ -78,6 +102,7 @@ class Handle:
         self.group = group
         self.check = check
         self.tmp=tmp
+        self.workdir=workdir
 
     def is_valid(self, request):
         if not self.check:
@@ -179,7 +204,7 @@ class PMTaskHandle(TaskHandle):
     '''
     项目管理：任务处理器
     '''
-    def pause(self,request):
+    def cmd(self,request):
         '''
         通过post传递暂停命令：
         cmd调控暂停的内容
@@ -217,6 +242,8 @@ class PMTaskHandle(TaskHandle):
                     except Exception as e:
                         message['error'] = str(e)
                         logging.debug(e)
+                elif data['cmd']=='加急':
+                    pass
         else:
             message['warning']='对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -491,28 +518,80 @@ class AanaTaskHandle(TaskHandle):
     def view(self,request):
         message = {}
         if self.is_valid(request):
-            if request.method == 'GET':
-                task_list = Task.objects().all().to_json(ensure_ascii=False)
+            if request.method == 'POST':
+                task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
                 for task in task_list:
                     task['taskid']=task.pop('_id')
+                    task['samples']=','.join(task.get('samples',[]))
                 return HttpResponse(json.dumps(task_list,ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
     # 暂停分析
-    def pause(self,request):
+    # def pause(self,request):
+    #     message = {}
+    #     if self.is_valid(request):
+    #         if request.method == 'POST':
+    #             data = json.loads(request.body.decode('utf-8'))
+    #             task=Task.objects(pk=data['taskid']).first()
+    #             data['info']=data.get('info','')+task.info
+    #             try:
+    #                 task.modify(**data)
+    #                 message['success']='暂停成功'
+    #             except Exception as e:
+    #                 logging.debug(e)
+    #                 message['error']=str(e)
+    #     else:
+    #         message['warning'] = '对不起，您没有权限'
+    #     return HttpResponse(json.dumps(message, ensure_ascii=False))
+    def qcview(self,request):
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
                 task=Task.objects(pk=data['taskid']).first()
-                data['info']=data.get('info','')+task.info
-                try:
-                    task.modify(**data)
-                    message['success']='暂停成功'
-                except Exception as e:
-                    logging.debug(e)
-                    message['error']=str(e)
+                data = {}
+                workdir = os.path.join(self.workdir, task.pk)
+                qcpath = os.path.join(workdir, 'qc')
+                if os.path.exists(qcpath):
+                    for root, dirs, files in os.walk(qcpath):
+                        for file in files:
+                            if file.endswith('fqcheck.json'):
+                                data['fqcheck'] = json.loads(open(os.path.join(root, file), 'r').read())
+                                data['fqcheck'] = normalizejson(data['fqcheck'])
+                            elif file.endswith('qualimm.json'):
+                                data['qualimm'] = json.loads(open(os.path.join(root, file)).read())
+                                data['qualimm'] = normalizejson(data['qualimm'])
+                smpath = os.path.join(workdir, 'somatic/pairs_qc')
+                if os.path.exists(smpath):
+                    for root, dirs, files in os.walk(smpath):
+                        for file in files:
+                            if file.endswith('.pairs.txt'):
+                                lines = {}
+                                with open(os.path.join(root, file), 'r') as f:
+                                    for i, line in enumerate(f.readlines()):
+                                        lines[i] = line.split('\t')
+                                        if i == 2:
+                                            break
+                                data['pairqc'] = lines
+                                data['pairqc'] = normalizejson(data['pairqc'])
+                ascpath = os.path.join(workdir, 'somatic/ascatngs')
+                data['ascat'] = {}
+                if os.path.exists(ascpath):
+                    for root, dirs, files in os.walk(ascpath):
+                        for file in files:
+                            if file.endswith('.png'):
+                                imgpath = os.path.join(root, file)
+                                data['ascat'].setdefault('imgs', []).append(
+                                    reverse('YuceInfo:imageview', args=[imgpath]))
+                            if file.endswith('.samplestatistics.txt'):
+                                data['ascat'].setdefault('file', {})
+                                lines = {}
+                                with open(os.path.join(root, file), 'r') as f:
+                                    for i, line in enumerate(f.readlines()):
+                                        lines[i] = line.split('\t')
+                                data['ascat']['file'] = normalizejson(lines)
+                return HttpResponse(json.dumps(data, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -522,8 +601,7 @@ class AanaTaskHandle(TaskHandle):
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
-                taskid=data['taskid']
-                task=Task.objects(pk=taskid).first()
+                task=Task.objects(pk=data['taskid']).first()
                 task.modify(**data)
                 message['success']='修改成功'
         else:
@@ -539,6 +617,52 @@ class AanaTaskHandle(TaskHandle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+class JieduTaskHandle(TaskHandle):
+    def view(self, request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
+                for task in task_list:
+                    task['taskid'] = task.pop('_id')
+                    task['samples'] = ','.join(task.get('samples', []))
+                return HttpResponse(json.dumps(task_list, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+
+    def cmd(self,request):
+        '''
+        通过post传递暂停命令：
+        cmd调控暂停的内容
+        :param request:
+        :return: message
+        '''
+        message={}
+        if self.is_valid(request):
+            if request.method =='POST':
+                data = json.loads(request.body.decode('utf-8'))
+                logging.debug(data)
+                task = Task.objects(pk=data['taskid']).first()
+                if task.info:
+                    info = task.info + data['info']
+                else:
+                    info=data['info']
+                if data['cmd']=='完成':
+                    try:
+                        task.modify(status='完成', jiedu_status='完成', reportstatus='完成',info=info)
+                        message['success'] = '实验暂停成功'
+                    except Exception as e:
+                        message['error'] = str(e)
+                        logging.debug(e)
+        else:
+            message['warning']='对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+
+
 
 class ProjectHandle(Handle):
     '''
@@ -1001,13 +1125,10 @@ class SampleHandle(Handle):
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
-                sample=Sample.objects(pk=data['sampleid']).first()
-                try:
-                    sample.modify(**data)
-                    message['success']='保存成功'
-                except Exception as e:
-                    logging.debug(e)
-                    message['error'] = str(e)
+                logging.info(str(data))
+                Sample(**data).save()
+                message['success']='保存成功'
+
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1021,8 +1142,10 @@ class SampleHandle(Handle):
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
-                sample_list = Sample.objects().all().to_json(ensure_ascii=False)
-                return HttpResponse(sample_list)
+                sample_list = json.loads(Sample.objects().all().to_json(ensure_ascii=False))
+                for sample in sample_list:
+                    sample['sampleid']=sample.pop('_id')
+                return HttpResponse(json.dumps(sample_list,ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1066,11 +1189,33 @@ class ProductHandle(Handle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
+class FileView:
+    '''
+    自动化投递任务的结果展示
+    '''
+    def __init__(self,workdir):
+        self.workdir=workdir
+    def tableview(self,request,path):
+        table=pd.read_table(path)
+        data=table.to_json(orient='records',force_ascii=False)
+        return HttpResponse(data)
+
+    def imageview(self,request,path):
+        message={}
+        # filepath=os.path.join(self.workdir,path)
+        if os.path.exists(path):
+            return HttpResponse(open(path, 'rb').read(), content_type='image/png')
+        else:
+            message['error']='文件不存在'
+            return HttpResponse(json.dumps(message,ensure_ascii=False))
 
 groups=['项目管理','实验室管理','信息分析师']
 for group in groups:
     Group(name=group).save()
 
+
+workdir = 'tmp' #设置总任务工作目录
+workdir=os.path.abspath(workdir)
 check=False
 # autotaskhandle=AutoTaskHandle()
 
@@ -1086,4 +1231,5 @@ group = ['项目管理','实验室管理']
 tmp='tmp'
 patienthandle=PatientHandle(group,check,tmp)
 group = ['信息分析师']
-anataskhandle=AanaTaskHandle(group,check)
+anataskhandle=AanaTaskHandle(group,check,workdir=workdir)
+fileview=FileView(workdir=workdir)
