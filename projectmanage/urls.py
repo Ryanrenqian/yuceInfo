@@ -3,19 +3,19 @@ from django.urls import path,register_converter
 import logging
 app_name='YuceInfo'
 
-class FilePath:
-    regex=".*"
-    def to_python(self,value):
-        logging.info(str(value))
-        return str(value)
-    def to_url(self,value):
-        logging.info(str(value))
-        return '%s'%str(value)
-
-register_converter(FilePath,'fp')
+# class FilePath:
+#     regex=".*"
+#     def to_python(self,value):
+#         logging.info(str(value))
+#         return str(value)
+#     def to_url(self,value):
+#         logging.info(str(value))
+#         return '%s'%str(value)
+#
+# register_converter(FilePath,'fp')
 urlpatterns=[
     path('', views.index),
-    path('imageview/<fp:path>/',views.fileview.imageview,name='imageview'),
+    path('imageview/<path:path>/',views.fileview.imageview,name='imageview'),
     path('tableview/<path:path>/',views.fileview.tableview,name='tableview'),
     #项目管理的任务操作
     path('PMTaskHandle/pause/',views.pmtaskhandle.cmd), # 暂停操作 cmd：实验暂停 分析暂停

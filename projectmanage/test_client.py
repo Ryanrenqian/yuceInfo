@@ -462,7 +462,6 @@ def test_project():
     logging.info('项目管理/添加项目-获取数据')
     projectclient.initget()
     logging.info('项目管理/添加项目-提交数据')
-
     project={
         'patients':'0000001 0000002',
         'start_time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),

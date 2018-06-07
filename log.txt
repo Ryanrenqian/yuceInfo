@@ -473,3 +473,8 @@ TypeError: imageview() got multiple values for argument 'path'
 2018-06-07 04:57:20,859: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.rawprofile.png
 2018-06-07 04:57:20,860: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.sunrise.png
 2018-06-07 04:57:20,861: /Users/ryan/PycharmProjects/untitled/tmp/soyirJEYje/somatic/ascatngs/chenmeiyun_T-VS-chenmeiyun_N/chenmeiyun_T.ASCATprofile.png
+2018-06-07 05:47:32,847: Not Found: /undefined
+2018-06-07 06:58:46,299: Not Found: /undefined
+2018-06-07 06:58:49,337: Not Found: /undefined
+2018-06-07 06:58:50,489: Not Found: /undefined
+2018-06-07 07:15:27,896: {'taskid': 'ncu9h2i5Vg', 'info': '', 'cmd': '实验暂停'}

@@ -589,8 +589,16 @@ class AanaTaskHandle(TaskHandle):
                                 lines = {}
                                 with open(os.path.join(root, file), 'r') as f:
                                     for i, line in enumerate(f.readlines()):
-                                        lines[i] = line.split('\t')
+                                        lines[i] = line.split()
                                 data['ascat']['file'] = normalizejson(lines)
+                mutpath=os.path.join(workdir,'somatic/overlap')
+                if os.path.exists(mutpath):
+                    for root, dirs, files in os.walk(mutpath):
+                        for file in files:
+                            if file.endswith('.snv.sindel.AAchange.xls'):
+                                tablepath = os.path.join(root,file)
+                                data['mutation']=reverse('YuceInfo:tableview',args=[tablepath])
+                                break
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
@@ -602,7 +610,7 @@ class AanaTaskHandle(TaskHandle):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
                 task=Task.objects(pk=data['taskid']).first()
-                task.modify(**data)
+                task.modify(anastatus='wait',**data)
                 message['success']='修改成功'
         else:
             message['warning'] = '对不起，您没有权限'
@@ -632,7 +640,27 @@ class JieduTaskHandle(TaskHandle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-
+    def detailview(self,request):
+        message = {}
+        if self.is_valid(request):
+                if request.method == 'POST':
+                    data = json.loads(request.body.decode('utf-8'))
+                    task = Task.objects(pk=data['taskid']).first()
+                    mutpath = os.path.join(workdir, 'somatic/overlap')
+                    data = {}
+                    if os.path.exists(mutpath):
+                        for root, dirs, files in os.walk(mutpath):
+                            for file in files:
+                                if file.endswith('.snv.sindel.AAchange.xls '):
+                                    tablepath = os.path.join(root, file)
+                                    data['mutation'] = reverse('YuceInfo:tableview', args=[tablepath])
+                                    break
+                    return HttpResponse(json.dumps(data,ensure_ascii=False))
+                else:
+                    message['error']='POST method please～'
+        else:
+            message['error']='对不起，您没有权限～'
+        return HttpResponse(json.dumps(message,ensure_ascii=False))
     def cmd(self,request):
         '''
         通过post传递暂停命令：
@@ -660,9 +688,6 @@ class JieduTaskHandle(TaskHandle):
         else:
             message['warning']='对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
-
-
-
 
 class ProjectHandle(Handle):
     '''
