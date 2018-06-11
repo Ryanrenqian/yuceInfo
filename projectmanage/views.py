@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse,reverse
+from django.shortcuts import HttpResponse,reverse,render
 import datetime,json,random,string,logging,os
 import pandas as pd
 from .models import *
@@ -86,7 +86,7 @@ def normalizejson(data):
 
 
 def index(request):
-    return HttpResponse('index')
+    return render('index.html')
 
 class Handle:
     '''
@@ -979,6 +979,21 @@ class PatientHandle(Handle):
                         message['error'] = str(e)
                 else:
                     message['warning'] = '该患者编号已存在'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+# 修改患者
+    def modify(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                try:
+                    patient = Patient(**data)
+                    patient.save()
+                    message['success'] = '修改成功'
+                except Exception as e:
+                    message['error'] = str(e)
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))

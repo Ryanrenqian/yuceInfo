@@ -53,6 +53,7 @@ urlpatterns=[
     # 患者操作
     path('PatientHandle/init/', views.patienthandle.init), # 添加患者
     path('PatientHandle/view/', views.patienthandle.view), # 患者列表
+    path('PatientHandle/modify/', views.patienthandle.modify), # 患者列表
     path('PatientHandle/addproject/', views.patienthandle.addproject), # 直接下单
     path('PatientHandle/add2project/', views.patienthandle.add2project), # 添加到项目
     path('PatientHandle/batchadd/',views.patienthandle.batchadd), # 批量导入患者
