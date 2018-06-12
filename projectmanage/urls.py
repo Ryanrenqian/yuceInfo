@@ -26,6 +26,8 @@ urlpatterns=[
     path('PMTaskHandle/view/', views.pmtaskhandle.view), # 任务列表
     path('PMTaskHandle/stop/', views.pmtaskhandle.stop), #终止任务
     path('PMTaskHandle/cancel/', views.pmtaskhandle.cancel), # 取消操作 cmd： 取消实验 取消解读
+    path('PMTaskHandle/allocate/', views.pmtaskhandle.allocate),  # 任务分配
+
     # 实验室管理的任务操作
     path('LabTaskHandle/cmd/', views.labtaskhandle.cmd), # cmd操作，进行，暂停，终止,重置
     # path('LabTaskHandle/reset/', views.labtaskhandle.reset), # 重置任务
@@ -35,10 +37,16 @@ urlpatterns=[
     path('LabTaskHandle/finish/', views.labtaskhandle.finish), # 完成测序
     # 自动化投递任务操作
     # path('AutoTaskHandle/get/',views.autotaskhandle.GET),
-    # 分析师修改任务操作
+    # 分析师任务操作
     path('AnaTaskHandle/view/',views.anataskhandle.view),
     path('AnaTaskHandle/modify/',views.anataskhandle.modify),
     path('AnaTaskHandle/qcview/', views.anataskhandle.qcview),
+    # 解读师任务擦欧总
+    path('JieduTaskHandle/view/', views.jiedutaskhandle.view),# 任务列表
+    path('JieduTaskHandle/detailview/', views.jiedutaskhandle.detailview),#任务详细
+    path('JieduTaskHandle/download/', views.jiedutaskhandle.download),#下载报告
+    path('JieduTaskHandle/upload/', views.jiedutaskhandle.upload),#上传报告
+    path('JieduTaskHandle/review/', views.jiedutaskhandle.review),#审核
 
     # path('AutoTaskHandle/post/', views.autotaskhandle.POST),
     # 项目操作

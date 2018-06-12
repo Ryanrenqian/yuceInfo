@@ -4,23 +4,6 @@ connect('test')
 # Create your models here.
 
 # 群组
-class Group(Document):
-    name=StringField(primary_key=True)
-    def __str__(self):
-        return self.name
-
-# 用户
-class User(Document):
-    account=StringField(primary_key=True)
-    password=StringField(default='')
-    name = StringField(default='')
-    region=StringField(default='')
-    email=StringField(default='')
-    telephone=StringField(default='')
-    group=ReferenceField(Group,null=True)
-    def __str__(self):
-        return self.account
-
 # 产品
 class Product(Document):
     productid = StringField(primary_key=True)
@@ -123,7 +106,8 @@ class Task(Document):
     samples = ListField(ReferenceField(Sample),null=True)
     config = StringField(default='')
     analyst= StringField(default='')
-    jiedu=StringField(default='')
+    parser=StringField(default='')
+    checker=StringField(default='')
     report=StringField(default='')
     def __str__(self):
         return str(self.pk)
@@ -137,7 +121,7 @@ class Project(Document):
     tumortype=StringField(default='')
     tasks=ListField(ReferenceField(Task))
     institute=StringField(default='')
-    duty=ReferenceField(User,null=True)
+    duty=StringField(null=True)
     status=StringField(default='待审查',choice=['待审查','未缴费','已付费/免费','已完成','暂停','已作废'])
     start_time=DateTimeField(null=True)
     deadline = DateTimeField(null=True)

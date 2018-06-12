@@ -1,5 +1,9 @@
 from django.shortcuts import HttpResponse,reverse,render
-import datetime,json,random,string,logging,os
+from django.http import StreamingHttpResponse
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.header import Header
+import datetime,json,random,string,logging,os,smtplib,ldap
 import pandas as pd
 from .models import *
 
@@ -61,7 +65,7 @@ def handle_uploaded_file(f,tmp):
     :param tmp:
     :return:
     '''
-    file=tmp+f.name
+    file=os.path.join(tmp,f.name)
     with open(file, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
@@ -83,16 +87,36 @@ def normalizejson(data):
         data_list.append(_data)
     return data_list
 
-
-
 def index(request):
     return render('index.html')
+
+# 组件功能部分
+# LDAP 数据获取
+class Ldapc:
+    '''
+    从ldap获取用户信息，和分组信息
+    '''
+    def __init__(self,host):
+        self.host=host
+        self.con=ldap.initialize(self.host)
+    def getGroupUsers(self,group):
+        rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+        users=[]
+        for item in rawdata:
+            users.append(item.decode('utf-8'))
+        return users
+    def getUsers(self,user):
+        rawdata=self.con.search_s('ou=People,DC=nodomain', ldap.SCOPE_SUBTREE, attrlist=['memberUid', 'mail'])
+        pass
+
+ldapc=Ldapc('ldap://192.168.1.211:389')
+
 
 class Handle:
     '''
     处理器父类：提供权限检查和临时文件存储支持
     '''
-    def __init__(self, group, check,tmp=None,workdir=None):
+    def __init__(self, group, check,ldapc=ldapc,tmp=None,workdir=None):
         '''
         初始化
         :param group:
@@ -101,6 +125,7 @@ class Handle:
         '''
         self.group = group
         self.check = check
+        self.ldapc=ldapc
         self.tmp=tmp
         self.workdir=workdir
 
@@ -108,9 +133,7 @@ class Handle:
         if not self.check:
             return True
         else:
-            user = request.session['user']
-            user = User.objects(pk=user).first()
-            return user.group in self.group
+            return self.group in request.session['groups']
 
     @property
     def checktmp(self):
@@ -118,6 +141,53 @@ class Handle:
             return os.mkdir(self.tmp)
         return True
 
+    def postdecro(self,request,func):
+        '''
+        提供权限的POST装饰器方法，额，可能需要测试,嗯 好像是用不了
+        :param request:
+        :param func:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                return func
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+class Email:
+    '''
+    发送邮件功能
+    '''
+    def __init__(self,host,port,account,password):
+        self.host=host
+        self.port=port
+        self.account=account
+        self.password=password
+        self.smtpobj=smtplib.SMTP()
+        self.smtpobj.connect(self.host,self.port)
+        self.smtpobj.login(self.account,self.password)
+    def send(self,receiver,content=None,file=None):
+        message=MIMEMultipart()
+        message['From'] = Header(self.account,'utf-8')
+        message['To'] = Header(receiver,'utf-8')
+        message['Subject']= Header(content['subject'],'utf-8')
+        message.attach(MIMEText(content['content'],'plain', 'utf-8'))
+        if file:
+            att1 = MIMEText(open(file, 'rb').read(), 'base64', 'utf-8')
+            att1["Content-Type"] = 'application/octet-stream'
+            # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
+            att1["Content-Disposition"] = 'attachment; filename="%s"'%file.split('/')[-1]
+            message.attach(att1)
+            try:
+                self.smtpobj.sendmail(self.account,receiver,message.as_string())
+                return '邮件发送成功'
+            except Exception as e:
+                return str(e)
+
+
+# 不同组权限功能部分
 class TaskHandle(Handle):
     '''
     任务处理类： 模板设计
@@ -387,6 +457,23 @@ class PMTaskHandle(TaskHandle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
+    # 任务分配
+    def allocate(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                task=Task.objects(pk=data['taskid']).first()
+                task.modify(**data)
+                message['success']='任务分配成功'
+            elif request.method == 'GET':
+                data={}
+                data['analyst']=self.ldapc.getGroupUsers('Analyst')
+                data['parser']=self.ldapc.getGroupUsers('parser')
+                return HttpResponse(json.dumps(data,ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
 
 class LabTaskHandle(TaskHandle):
     '''
@@ -585,7 +672,7 @@ class AanaTaskHandle(TaskHandle):
                                 data['ascat'].setdefault('imgs', []).append(
                                     reverse('YuceInfo:imageview', args=[imgpath]))
                             if file.endswith('.samplestatistics.txt'):
-                                data['ascat'].setdefault('file', {})
+                                data['ascat']['file'] = {}
                                 lines = {}
                                 with open(os.path.join(root, file), 'r') as f:
                                     for i, line in enumerate(f.readlines()):
@@ -612,6 +699,22 @@ class AanaTaskHandle(TaskHandle):
                 task=Task.objects(pk=data['taskid']).first()
                 task.modify(anastatus='wait',**data)
                 message['success']='修改成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def review(self, request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                task = Task.objects(pk=data['taskid']).first()
+                if data['cmd']=='暂停':
+                    task.modify(anastatus='暂停',status='暂停')
+                    message['success']='暂停成功'
+                if data['cmd']== '通过':
+                    task.modify(anastatus='完成',jiedu_status='开始')
+                    message['success'] = '暂停成功'
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -661,6 +764,65 @@ class JieduTaskHandle(TaskHandle):
         else:
             message['error']='对不起，您没有权限～'
         return HttpResponse(json.dumps(message,ensure_ascii=False))
+
+    def upload(self,request):
+        message={}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data=json.loads(request.body.decode('utf-8'))
+                taskid=data['taskid']
+                checher=data['checker']
+                f = handle_uploaded_file(request.FILES['file'],os.path.join(self.workdir,taskid))
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    task=Task.objects(pk=taskid).first()
+                    task.modify(report=f)
+                    message['success']='上传成功'
+                else:
+                    message['error']='上传失败，请重试'
+            elif request.method=='GET':
+                data={}
+                data['checker']=self.ldapc.getGroupUsers('InInterpreter')
+                return HttpResponse(json.dumps(data,ensure_ascii=False))
+        else:
+            message['error']='对不起，你没有权限操作～'
+        return HttpResponse(json.dumps(message,ensure_ascii=False))
+
+    def download(self,request):
+        def file_iterator(file_name, chunk_size=512):
+            with open(file_name) as f:
+                while True:
+                    c = f.read(chunk_size)
+                    if c:
+                        yield c
+                    else:
+                        break
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                taskid = json.loads(request.body.decode('utf-8'))['taskid']
+                task=Task.objects(pk=taskid).first
+                response = StreamingHttpResponse(file_iterator(task.report))
+                response['Content-Type'] = 'application/octet-stream'
+                response['Content-Disposition'] = 'attachment;filename="{0}"'.format(task.report)
+                return response
+        else:
+            message['error'] = '对不起，你没有权限操作～'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def review(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                taskid=data['taskid']
+                task = Task.objects(pk=taskid).first()
+                if data['cmd'] == '通过':
+                    task.modify(reportstatus = '通过审核')
+                    message['success'] = '通过审核'
+        else:
+            message['error'] = '对不起，你没有权限操作～'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
     def cmd(self,request):
         '''
         通过post传递暂停命令：
@@ -743,9 +905,7 @@ class ProjectHandle(Handle):
                 product_list = json.loads(Product.objects().all().to_json(ensure_ascii=False))
                 for product in product_list:
                     product['productid'] = product.pop('_id')
-                user_list = json.loads(User.objects().all().to_json(ensure_ascii=False))
-                for user in user_list:
-                    user['account'] = user.pop('_id')
+                user_list=self.ldapc.getGroupUsers('Analyst')
                 data['product_list'] = product_list
                 data['user_list'] = user_list
                 return HttpResponse(json.dumps({'data': [data]}, ensure_ascii=False))
@@ -1249,12 +1409,8 @@ class FileView:
             message['error']='文件不存在'
             return HttpResponse(json.dumps(message,ensure_ascii=False))
 
-groups=['项目管理','实验室管理','信息分析师']
-for group in groups:
-    Group(name=group).save()
 
-
-workdir = 'tmp' #设置总任务工作目录
+workdir = 'tmp' #设置工作根目录
 workdir=os.path.abspath(workdir)
 check=False
 # autotaskhandle=AutoTaskHandle()
@@ -1273,3 +1429,5 @@ patienthandle=PatientHandle(group,check,tmp)
 group = ['信息分析师']
 anataskhandle=AanaTaskHandle(group,check,workdir=workdir)
 fileview=FileView(workdir=workdir)
+reportdir='tmp'
+jiedutaskhandle=JieduTaskHandle(group,check,workdir=reportdir)
