@@ -1211,9 +1211,8 @@ class PatientHandle(Handle):
                         tasks.append(task)
                 logging.debug(tasks)
                 project=Project.objects(pk=data['projectid']).first()
-                duty=User.objects(pk=data['account']).first()
+                duty=data['account']
                 project.modify(
-                    # pk=data['projectid'],
                                   patients=[patient],
                                   products=products,
                                   tasks=tasks,

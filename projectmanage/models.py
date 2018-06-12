@@ -3,8 +3,7 @@ from mongoengine import *
 connect('test')
 # Create your models here.
 
-# 群组
-# 产品
+
 class Product(Document):
     productid = StringField(primary_key=True)
     productname = StringField(max_length=30)

@@ -480,3 +480,661 @@ TypeError: imageview() got multiple values for argument 'path'
 2018-06-07 07:15:27,896: {'taskid': 'ncu9h2i5Vg', 'info': '', 'cmd': '实验暂停'}
 2018-06-07 08:58:19,821: Not Found: /undefined
 2018-06-07 08:59:13,342: Not Found: /undefined
+2018-06-12 03:33:54,787: Not Found: /undefined
+2018-06-12 03:35:02,223: Internal Server Error: /AnaTaskHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 609, in view
+    task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1154, in to_json
+    return json_util.dumps(self.as_pymongo(), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 408, in dumps
+    return json.dumps(_json_convert(obj, json_options), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in _json_convert
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in <genexpr>
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused
+2018-06-12 03:45:53,811: Not Found: /undefined
+2018-06-12 03:46:27,992: Internal Server Error: /LabTaskHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 550, in view
+    task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1154, in to_json
+    return json_util.dumps(self.as_pymongo(), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 408, in dumps
+    return json.dumps(_json_convert(obj, json_options), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in _json_convert
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in <genexpr>
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused
+2018-06-12 03:46:34,604: Internal Server Error: /SampleHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1345, in view
+    sample_list = json.loads(Sample.objects().all().to_json(ensure_ascii=False))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1154, in to_json
+    return json_util.dumps(self.as_pymongo(), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 408, in dumps
+    return json.dumps(_json_convert(obj, json_options), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in _json_convert
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in <genexpr>
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused
+2018-06-12 03:46:37,877: Not Found: /undefined
+2018-06-12 03:46:41,196: Internal Server Error: /AnaTaskHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 609, in view
+    task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1154, in to_json
+    return json_util.dumps(self.as_pymongo(), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 408, in dumps
+    return json.dumps(_json_convert(obj, json_options), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in _json_convert
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in <genexpr>
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused
+2018-06-12 03:47:13,253: Internal Server Error: /LabTaskHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 550, in view
+    task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1154, in to_json
+    return json_util.dumps(self.as_pymongo(), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 408, in dumps
+    return json.dumps(_json_convert(obj, json_options), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in _json_convert
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in <genexpr>
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused
+2018-06-12 03:47:17,332: Internal Server Error: /SampleHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1345, in view
+    sample_list = json.loads(Sample.objects().all().to_json(ensure_ascii=False))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1154, in to_json
+    return json_util.dumps(self.as_pymongo(), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 408, in dumps
+    return json.dumps(_json_convert(obj, json_options), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in _json_convert
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in <genexpr>
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused
+2018-06-12 03:58:27,953: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 471, in allocate
+    data['analyst']=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 03:58:51,341: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 465, in allocate
+    data = json.loads(request.body.decode('utf-8'))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2018-06-12 03:58:58,195: Internal Server Error: /PMTaskHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 398, in view
+    task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1154, in to_json
+    return json_util.dumps(self.as_pymongo(), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 408, in dumps
+    return json.dumps(_json_convert(obj, json_options), *args, **kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in _json_convert
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/bson/json_util.py", line 449, in <genexpr>
+    return list((_json_convert(v, json_options) for v in obj))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1169, in next
+    if len(self.__data) or self._refresh():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/cursor.py", line 1068, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1394, in _ensure_session
+    return self.start_session(causal_consistency=False)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1372, in start_session
+    server_session = self._get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/mongo_client.py", line 1380, in _get_server_session
+    return self._topology.get_server_session()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 427, in get_server_session
+    None)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/pymongo/topology.py", line 199, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [Errno 61] Connection refused
+2018-06-12 04:00:30,087: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 465, in allocate
+    data = json.loads(request.body.decode('utf-8'))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2018-06-12 04:00:41,779: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 471, in allocate
+    data['analyst']=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 04:01:23,380: Internal Server Error: /AnaTaskHandle/qcview/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 641, in qcview
+    workdir = os.path.join(self.workdir, task.pk)
+AttributeError: 'NoneType' object has no attribute 'pk'
+2018-06-12 04:01:40,073: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 471, in allocate
+    data['analyst']=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 04:01:43,812: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 471, in allocate
+    data['analyst']=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 04:02:00,966: Internal Server Error: /ProjectHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1054, in view
+    task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-12 04:02:08,512: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 471, in allocate
+    data['analyst']=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 04:02:10,191: Internal Server Error: /ProjectHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1054, in view
+    task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-12 04:02:15,760: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 908, in init
+    user_list=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 04:02:17,537: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 471, in allocate
+    data['analyst']=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 12:03:43,939: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 471, in allocate
+    data['analyst']=self.ldapc.getGroupUsers('Analyst')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+TypeError: tuple indices must be integers or slices, not str
+2018-06-12 12:06:09,138: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 472, in allocate
+    data['parser']=self.ldapc.getGroupUsers('parser')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0][1]['memberUid']
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 852, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 846, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 738, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 742, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 749, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 756, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 329, in _ldap_call
+    reraise(exc_type, exc_value, exc_traceback)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/compat.py", line 44, in reraise
+    raise exc_value
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 313, in _ldap_call
+    result = func(*args,**kwargs)
+ldap.NO_SUCH_OBJECT: {'desc': 'No such object', 'matched': 'ou=Roles,dc=nodomain'}
+2018-06-12 12:06:48,152: Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 91, in index
+    return render('index.html')
+TypeError: render() missing 1 required positional argument: 'template_name'
+2018-06-12 12:06:48,500: Not Found: /favicon.ico
+2018-06-12 12:07:00,657: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 472, in allocate
+    data['parser']=self.ldapc.getGroupUsers('parser')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0][1]['memberUid']
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 852, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 846, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 738, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 742, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 749, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 756, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 329, in _ldap_call
+    reraise(exc_type, exc_value, exc_traceback)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/compat.py", line 44, in reraise
+    raise exc_value
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 313, in _ldap_call
+    result = func(*args,**kwargs)
+ldap.NO_SUCH_OBJECT: {'desc': 'No such object', 'matched': 'ou=Roles,dc=nodomain'}
+2018-06-12 12:07:49,135: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 472, in allocate
+    data['parser']=self.ldapc.getGroupUsers('parser')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0][1]['memberUid']
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 852, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 846, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 738, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 742, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 749, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 756, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 329, in _ldap_call
+    reraise(exc_type, exc_value, exc_traceback)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/compat.py", line 44, in reraise
+    raise exc_value
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 313, in _ldap_call
+    result = func(*args,**kwargs)
+ldap.NO_SUCH_OBJECT: {'desc': 'No such object', 'matched': 'ou=Roles,dc=nodomain'}
+2018-06-12 12:10:39,975: Internal Server Error: /ProjectHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1054, in view
+    task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-12 12:10:42,885: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 472, in allocate
+    data['parser']=self.ldapc.getGroupUsers('parser')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0][1]['memberUid']
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 852, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 846, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 738, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 742, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 749, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 756, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 329, in _ldap_call
+    reraise(exc_type, exc_value, exc_traceback)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/compat.py", line 44, in reraise
+    raise exc_value
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 313, in _ldap_call
+    result = func(*args,**kwargs)
+ldap.NO_SUCH_OBJECT: {'desc': 'No such object', 'matched': 'ou=Roles,dc=nodomain'}
+2018-06-12 12:10:45,646: Internal Server Error: /ProjectHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1054, in view
+    task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-12 12:13:05,240: Internal Server Error: /ProjectHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1054, in view
+    task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-12 12:13:09,560: Internal Server Error: /PMTaskHandle/allocate/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 472, in allocate
+    data['parser']=self.ldapc.getGroupUsers('parser')
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 103, in getGroupUsers
+    rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0][1]['memberUid']
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 852, in search_s
+    return self.search_ext_s(base,scope,filterstr,attrlist,attrsonly,None,None,timeout=self.timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 846, in search_ext_s
+    return self.result(msgid,all=1,timeout=timeout)[1]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 738, in result
+    resp_type, resp_data, resp_msgid = self.result2(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 742, in result2
+    resp_type, resp_data, resp_msgid, resp_ctrls = self.result3(msgid,all,timeout)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 749, in result3
+    resp_ctrl_classes=resp_ctrl_classes
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 756, in result4
+    ldap_result = self._ldap_call(self._l.result4,msgid,all,timeout,add_ctrls,add_intermediates,add_extop)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 329, in _ldap_call
+    reraise(exc_type, exc_value, exc_traceback)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/compat.py", line 44, in reraise
+    raise exc_value
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/ldap/ldapobject.py", line 313, in _ldap_call
+    result = func(*args,**kwargs)
+ldap.NO_SUCH_OBJECT: {'desc': 'No such object', 'matched': 'ou=Roles,dc=nodomain'}
+2018-06-12 12:14:38,545: Internal Server Error: /ProjectHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1054, in view
+    task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
