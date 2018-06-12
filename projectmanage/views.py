@@ -100,7 +100,7 @@ class Ldapc:
         self.host=host
         self.con=ldap.initialize(self.host)
     def getGroupUsers(self,group):
-        rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0]['memberUid']
+        rawdata=self.con.search_s('cn=%s,ou=Roles,DC=nodomain'%group,ldap.SCOPE_SUBTREE,attrlist=['memberUid'])[0][1]['memberUid']
         users=[]
         for item in rawdata:
             users.append(item.decode('utf-8'))
@@ -116,14 +116,14 @@ class Handle:
     '''
     处理器父类：提供权限检查和临时文件存储支持
     '''
-    def __init__(self, group, check,ldapc=ldapc,tmp=None,workdir=None):
+    def __init__(self, groups, check,ldapc=ldapc,tmp=None,workdir=None):
         '''
         初始化
         :param group:
         :param check:
         :param tmp:
         '''
-        self.group = group
+        self.groups = groups
         self.check = check
         self.ldapc=ldapc
         self.tmp=tmp
@@ -133,7 +133,10 @@ class Handle:
         if not self.check:
             return True
         else:
-            return self.group in request.session['groups']
+            for group in self.groups:
+                if group in request.session['groups']:
+                    return True
+            return False
 
     @property
     def checktmp(self):
@@ -469,7 +472,7 @@ class PMTaskHandle(TaskHandle):
             elif request.method == 'GET':
                 data={}
                 data['analyst']=self.ldapc.getGroupUsers('Analyst')
-                data['parser']=self.ldapc.getGroupUsers('parser')
+                data['parser']=self.ldapc.getGroupUsers('Interpreter')
                 return HttpResponse(json.dumps(data,ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
@@ -1409,24 +1412,27 @@ class FileView:
             message['error']='文件不存在'
             return HttpResponse(json.dumps(message,ensure_ascii=False))
 
-
+# 设置view参数
 workdir = 'tmp' #设置工作根目录
-workdir=os.path.abspath(workdir)
+
 check=False
 # autotaskhandle=AutoTaskHandle()
 
-group=['实验室管理']
+group=['Lab']
 samplehandle=SampleHandle(group,check)
 labtaskhandle=LabTaskHandle(group,check)
 
-group=['项目管理']
+group=['ProjectManager']
 projecthandle=ProjectHandle(group,check)
 pmtaskhandle=PMTaskHandle(group,check)
 producthandle=ProductHandle(group,check)
-group = ['项目管理','实验室管理']
+group = ['ProjectManager','Lab']
+# 设置临时文件存放点
 tmp='tmp'
-patienthandle=PatientHandle(group,check,tmp)
-group = ['信息分析师']
+patienthandle=PatientHandle(group,check,tmp=tmp)
+group = ['Analyst']
+#设置分析目录
+workdir=os.path.abspath(workdir)
 anataskhandle=AanaTaskHandle(group,check,workdir=workdir)
 fileview=FileView(workdir=workdir)
 reportdir='tmp'

@@ -72,5 +72,4 @@ urlpatterns=[
     # 产品操作
     path('ProductHandle/view/',views.producthandle.view), # 产品列表
     path('ProductHandle/add/', views.producthandle.add), # 添加或修改产品
-
 ]

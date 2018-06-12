@@ -16,7 +16,7 @@ def taskhandle(workdir,task):
     with open(task.config,'r')as f:
         jsonobj=json.loads(f)
     jsonobj["project"]["name"] = task.taskid
-    jsonobj["project"]["workdir"] = workdir+'/'+task.taskid
+    jsonobj["project"]["workdir"] = os.path.join(workdir,task.taskid)
     try:
         os.makedirs(jsonobj["project"]["workdir"])
     except:
@@ -50,7 +50,7 @@ def taskhandle(workdir,task):
                     outlist = [sample, run, "finished"]
                 else:
                     outlist = [sample, "unknown", "not_found"]
-        print("\t".join(outlist))
+
 
 # insert jsonobj
     for item in samplelist:
