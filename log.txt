@@ -1138,3 +1138,139 @@ Traceback (most recent call last):
   File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1054, in view
     task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
 AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-12 13:09:19,661: Internal Server Error: /ProjectHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1057, in view
+    task = json.loads(Task.objects(pk=task).first().to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-12 13:11:10,065: add task: cCi4uktJhe 0000001 MT100000 肺癌
+2018-06-12 13:11:10,079: add task: 0ECGRLwbfs 0000001 MT100000 胃癌
+2018-06-12 13:11:10,083: [<Task: cCi4uktJhe>, <Task: 0ECGRLwbfs>]
+2018-06-12 13:11:10,106: add task: eJ2lZs4cka 0000001 MT100000 
+2018-06-12 13:11:10,109: Cannot encode object: <Task: eJ2lZs4cka>
+2018-06-12 13:11:10,111: add task: cyZKRJEIns 0000001 MT100000 
+2018-06-12 13:11:10,115: Cannot encode object: <Task: cyZKRJEIns>
+2018-06-12 13:11:10,122: cmd: {"taskid": "cCi4uktJhe", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0", "cmd": "\u6682\u505c"}
+2018-06-12 13:11:10,131: cmd: {"taskid": "cCi4uktJhe", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0"}
+2018-06-12 13:11:10,133: Internal Server Error: /LabTaskHandle/cmd/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 493, in cmd
+    cmd=data.pop('cmd')
+KeyError: 'cmd'
+2018-06-12 13:11:10,203: cmd: {"taskid": "cCi4uktJhe", "cmd": "\u7ec8\u6b62", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0"}
+2018-06-12 13:11:10,227: {'taskid': 'cCi4uktJhe', 'samples': [{'sampleid': '18A00335XJ03', 'tumortype': '肺癌', 'tissue': '血浆', 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRConcentration': '', 'datasize': 5, 'info': ''}, {'sampleid': '18A00000XY122', 'tumortype': '肺癌', 'tissue': '血液', 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRConcentration': '', 'datasize': 5, 'info': ''}]}
+2018-06-12 13:11:10,320: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 884, in init
+    project = Project(**data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'info'}" do not exist on the document "Project"
+2018-06-12 13:11:32,586: add task: NZsaVD0iAb 0000001 MT100000 肺癌
+2018-06-12 13:11:32,598: add task: pSHVYQfCjW 0000001 MT100000 胃癌
+2018-06-12 13:11:32,611: [<Task: NZsaVD0iAb>, <Task: pSHVYQfCjW>]
+2018-06-12 13:11:32,654: add task: 4Os139HkPG 0000001 MT100000 
+2018-06-12 13:11:32,658: Cannot encode object: <Task: 4Os139HkPG>
+2018-06-12 13:11:32,670: add task: 1zlJIWUVFN 0000001 MT100000 
+2018-06-12 13:11:32,682: Cannot encode object: <Task: 1zlJIWUVFN>
+2018-06-12 13:11:32,727: cmd: {"taskid": "NZsaVD0iAb", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0", "cmd": "\u6682\u505c"}
+2018-06-12 13:11:32,766: cmd: {"taskid": "NZsaVD0iAb", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0"}
+2018-06-12 13:11:32,774: Internal Server Error: /LabTaskHandle/cmd/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 493, in cmd
+    cmd=data.pop('cmd')
+KeyError: 'cmd'
+2018-06-12 13:11:32,826: cmd: {"taskid": "NZsaVD0iAb", "cmd": "\u7ec8\u6b62", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0"}
+2018-06-12 13:11:32,841: {'taskid': 'NZsaVD0iAb', 'samples': [{'sampleid': '18A00335XJ03', 'tumortype': '肺癌', 'tissue': '血浆', 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRConcentration': '', 'datasize': 5, 'info': ''}, {'sampleid': '18A00000XY122', 'tumortype': '肺癌', 'tissue': '血液', 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRConcentration': '', 'datasize': 5, 'info': ''}]}
+2018-06-12 13:11:32,938: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 884, in init
+    project = Project(**data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'info'}" do not exist on the document "Project"
+2018-06-12 13:12:13,441: add task: TdBgsP0Rvr 0000001 MT100000 肺癌
+2018-06-12 13:12:13,467: add task: YibUa4Zt7m 0000001 MT100000 胃癌
+2018-06-12 13:12:13,474: [<Task: TdBgsP0Rvr>, <Task: YibUa4Zt7m>]
+2018-06-12 13:12:13,517: add task: 3wuVn1G9lB 0000001 MT100000 
+2018-06-12 13:12:13,520: Cannot encode object: <Task: 3wuVn1G9lB>
+2018-06-12 13:12:13,523: add task: AdY8mDlpBi 0000001 MT100000 
+2018-06-12 13:12:13,526: Cannot encode object: <Task: AdY8mDlpBi>
+2018-06-12 13:12:13,531: cmd: {"taskid": "TdBgsP0Rvr", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0", "cmd": "\u6682\u505c"}
+2018-06-12 13:12:13,548: cmd: {"taskid": "TdBgsP0Rvr", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0"}
+2018-06-12 13:12:13,552: Internal Server Error: /LabTaskHandle/cmd/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 493, in cmd
+    cmd=data.pop('cmd')
+KeyError: 'cmd'
+2018-06-12 13:12:13,583: cmd: {"taskid": "TdBgsP0Rvr", "cmd": "\u7ec8\u6b62", "info": "\u968f\u4fbf\u586b\u5199\u539f\u56e0"}
+2018-06-12 13:12:13,608: {'taskid': 'TdBgsP0Rvr', 'samples': [{'sampleid': '18A00335XJ03', 'tumortype': '肺癌', 'tissue': '血浆', 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRConcentration': '', 'datasize': 5, 'info': ''}, {'sampleid': '18A00000XY122', 'tumortype': '肺癌', 'tissue': '血液', 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRConcentration': '', 'datasize': 5, 'info': ''}]}
+2018-06-12 13:12:13,704: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 884, in init
+    project = Project(**data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'info'}" do not exist on the document "Project"
+2018-06-12 13:12:13,736: Internal Server Error: /AnaTaskHandle/qcview/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 644, in qcview
+    workdir = os.path.join(self.workdir, task.pk)
+AttributeError: 'NoneType' object has no attribute 'pk'
+2018-06-12 13:34:23,492: Not Found: /undefined
+2018-06-12 13:34:27,124: Not Found: /undefined
+2018-06-12 13:34:44,455: Not Found: /undefined
+2018-06-12 13:34:54,456: Not Found: /undefined
+2018-06-12 13:41:48,087: Not Found: /undefined
+2018-06-12 13:47:38,352: Not Found: /undefined
+2018-06-12 13:47:40,918: Not Found: /undefined
+2018-06-12 13:54:47,060: Not Found: /undefined
+2018-06-12 13:59:31,945: Not Found: /undefined

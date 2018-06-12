@@ -53,7 +53,7 @@ class Patient(Document):
     tumortype = StringField(default='')
     samples = ListField(ReferenceField(Sample))
     age=IntField(default=0)
-    gender=StringField(default='女')
+    gender=StringField(default='')
     infostatus=StringField(default='')
     samplestatus = StringField(default='')
     taskstatus = StringField(default='')
@@ -127,6 +127,7 @@ class Project(Document):
     duration=IntField(null=True)
     finish=DateTimeField(null=True)
     delay = StringField(default='否')
+    info=StringField(default='')
     def __str__(self):
         return self.pk
 

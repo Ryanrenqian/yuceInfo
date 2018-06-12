@@ -476,17 +476,18 @@ def test_project():
     }
     projectclient.initpost(project)
 
-#
-# Task.drop_collection()
-# Project.drop_collection()
-# Sample.drop_collection()
-# test_product()
-# test_patient()
-# test_labtask()
-# test_project()
-# # # # test_pmtask()
+
+Task.drop_collection()
+Project.drop_collection()
+Sample.drop_collection()
+test_product()
+test_patient()
+test_labtask()
+test_project()
+# # # test_pmtask()
 # data={'patient': 'asdf', 'tumortype': '肺癌', 'flag': '333333333', 'tissue': '血浆', 'type': 'as', 'i5': 'MID', 'i7': 'I4', 'volume': 5, 'concentration': '', 'QsepPeak': '', 'qPCRentration': '', 'datasize': 5, 'read1': 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT', 'read2': 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC', 'platform': 'Nextseq', 'info': '', 'sampleid': '18A00335XJ03'}
-# # sample=Sample.objects(pk=data.pop('sampleid')).first()
+# data['patient']=data[]
+# sample=Sample.objects(pk=data.pop('sampleid')).first()
 # sample.modify(**data)
 data={'taskid':'soyirJEYje'}
 res=requests.post(url+'AnaTaskHandle/qcview/',json=data)

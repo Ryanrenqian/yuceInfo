@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse,reverse,render
+from django.shortcuts import HttpResponse,reverse,render,redirect
 from django.http import StreamingHttpResponse
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -87,8 +87,7 @@ def normalizejson(data):
         data_list.append(_data)
     return data_list
 
-def index(request):
-    return render('index.html')
+
 
 # 组件功能部分
 # LDAP 数据获取
@@ -1410,6 +1409,10 @@ class FileView:
         else:
             message['error']='文件不存在'
             return HttpResponse(json.dumps(message,ensure_ascii=False))
+
+
+def index(request):
+    return redirect('templates/report/production/home.html')
 
 # 设置view参数
 workdir = 'tmp' #设置工作根目录
