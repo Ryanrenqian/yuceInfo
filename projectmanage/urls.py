@@ -20,7 +20,7 @@ urlpatterns=[
     #项目管理的任务操作
     path('PMTaskHandle/pause/',views.pmtaskhandle.cmd), # 暂停操作 cmd：实验暂停 分析暂停
     # path('PMTaskHandle/add/',views.pmtaskhandle.add), # 保留项
-    # path('PMTaskHandle/reset/',views.pmtaskhandle.reset), # 重置任务
+    path('PMTaskHandle/reset/',views.pmtaskhandle.reset), # 重置任务
     path('PMTaskHandle/go/', views.pmtaskhandle.go), # 保留项
     path('PMTaskHandle/modify/', views.pmtaskhandle.modify), # 任务修改
     path('PMTaskHandle/view/', views.pmtaskhandle.view), # 任务列表

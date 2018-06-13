@@ -1274,3 +1274,73 @@ AttributeError: 'NoneType' object has no attribute 'pk'
 2018-06-12 13:47:40,918: Not Found: /undefined
 2018-06-12 13:54:47,060: Not Found: /undefined
 2018-06-12 13:59:31,945: Not Found: /undefined
+2018-06-12 14:47:50,055: Internal Server Error: /PatientHandle/addproject/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1233, in addproject
+    user_list = json.loads(User.objects().all().to_json(ensure_ascii=False))
+NameError: name 'User' is not defined
+2018-06-12 15:10:53,900: {'tag': '科研', 'start_time': datetime.datetime(2018, 6, 12, 15, 10, 6), 'deadline': datetime.datetime(2018, 6, 12, 15, 10, 7), 'patients': [], 'tumortype': '胃癌', 'products': ['MT100000', '打手犯规'], 'projectid': 'KQtaG3bfvN'}
+2018-06-12 15:31:08,536: add task: 2k8QGzUD6u 0000001 MT100000 胃癌
+2018-06-12 15:31:08,549: add task: eGciK35bvg 0000001 打手犯规 胃癌
+2018-06-12 15:31:08,553: [<Task: 2k8QGzUD6u>, <Task: eGciK35bvg>]
+2018-06-12 15:31:08,554: Internal Server Error: /PatientHandle/addproject/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1213, in addproject
+    duty=data['account']
+KeyError: 'account'
+2018-06-12 15:52:50,915: add task: 5IeCyVHrGd 0000001 MT100000 胃癌
+2018-06-12 15:52:50,935: add task: RKiHGaeYqN 0000001 打手犯规 胃癌
+2018-06-12 15:52:50,938: [<Task: 5IeCyVHrGd>, <Task: RKiHGaeYqN>]
+2018-06-12 15:52:50,939: Internal Server Error: /PatientHandle/addproject/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1213, in addproject
+    duty=data['account']
+KeyError: 'account'
+2018-06-12 15:54:06,921: add task: 0lp58rxtQG 0000001 MT100000 胃癌
+2018-06-12 15:54:06,927: add task: uZlXCs05wA 0000001 打手犯规 胃癌
+2018-06-12 15:54:06,931: [<Task: 0lp58rxtQG>, <Task: uZlXCs05wA>]
+2018-06-12 15:54:06,932: Internal Server Error: /PatientHandle/addproject/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1213, in addproject
+    duty=data['account']
+KeyError: 'account'
+2018-06-12 15:55:32,835: add task: kO0dlFGzX1 0000001 MT100000 胃癌
+2018-06-12 15:55:32,841: add task: rKF97On4dx 0000001 打手犯规 胃癌
+2018-06-12 15:55:32,859: [<Task: kO0dlFGzX1>, <Task: rKF97On4dx>]
+2018-06-12 15:56:05,549: {'tag': '科研', 'institute': '裕策', 'start_time': datetime.datetime(2018, 6, 12, 15, 55, 53), 'deadline': datetime.datetime(2018, 7, 27, 15, 55, 53), 'patients': [], 'tumortype': '胃癌', 'products': ['MT100000', '打手犯规'], 'projectid': 'nO13oywl6H'}
+2018-06-12 15:57:17,387: {'tag': '科研', 'institute': '裕策', 'start_time': datetime.datetime(2018, 6, 12, 15, 55, 53), 'deadline': datetime.datetime(2018, 7, 27, 15, 55, 53), 'patients': [], 'tumortype': '胃癌', 'products': ['MT100000', '打手犯规'], 'projectid': 'CnLoFaDcyr'}
+2018-06-12 15:57:42,574: {'tag': '科研', 'patients': [], 'tumortype': '胃癌', 'start_time': datetime.datetime(2018, 6, 12, 15, 57, 30), 'deadline': datetime.datetime(2018, 6, 13, 15, 57, 30), 'institute': '裕策', 'duty': 'yangjie', 'products': ['MT100000', '打手犯规'], 'projectid': 'dQKJLBTs6k'}
+2018-06-12 17:39:59,885: Cannot resolve field "jiedustatus"
+2018-06-12 17:40:04,704: {'taskid': '3wuVn1G9lB', 'info': '', 'cmd': '解读暂停'}
+2018-06-12 19:42:22,685: add task: sFXhm30pby 0000002 MT100000 肺癌
+2018-06-12 19:42:22,700: add task: pAJstXbx0n 0000002 打手犯规 肺癌
+2018-06-12 19:42:22,704: [<Task: sFXhm30pby>, <Task: pAJstXbx0n>]
+2018-06-12 19:42:57,427: {'taskid': 'sFXhm30pby', 'info': '', 'cmd': '实验暂停'}
+2018-06-12 19:43:13,321: Not Found: /PMTaskHandle/reset/
+2018-06-12 19:43:28,612: Not Found: /PMTaskHandle/reset/
+2018-06-12 19:43:50,826: Not Found: /PMTaskHandle/reset/
+2018-06-12 19:43:55,432: Not Found: /PMTaskHandle/reset/

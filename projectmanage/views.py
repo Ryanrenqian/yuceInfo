@@ -1230,9 +1230,7 @@ class PatientHandle(Handle):
                 product_list = json.loads(Product.objects().all().to_json(ensure_ascii=False))
                 for product in product_list:
                     product['productid'] = product.pop('_id')
-                user_list = json.loads(User.objects().all().to_json(ensure_ascii=False))
-                for user in user_list:
-                    user['account'] = user.pop('_id')
+                user_list = self.ldapc.getGroupUsers('Analyst')
                 data['product_list'] = product_list
                 data['user_list'] = user_list
                 return HttpResponse(json.dumps({'data': data}, ensure_ascii=False))
