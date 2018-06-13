@@ -451,7 +451,7 @@ class PMTaskHandle(TaskHandle):
                         message['error'] = str(e)
                 if data['cmd'] == '取消解读':
                     try:
-                        task.modify(expstatus='无', anastatus='开始')
+                        task.modify(jiedu_status='无', reportstatus='无')
                         message['success'] = '取消实验操作成功'
                     except Exception as e:
                         logging.debug(e)
