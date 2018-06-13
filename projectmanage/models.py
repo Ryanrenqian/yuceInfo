@@ -6,9 +6,9 @@ connect('test')
 
 class Product(Document):
     productid = StringField(primary_key=True)
-    productname = StringField(max_length=30)
+    productname = StringField(default='')
     book=StringField(default='')
-    config = StringField(max_length=30)
+    config = StringField(default='')
     period = IntField(default=5)
     normaltype = StringField(default='')
     normalsize = StringField(default='')
