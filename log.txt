@@ -1344,3 +1344,93 @@ KeyError: 'account'
 2018-06-12 19:43:28,612: Not Found: /PMTaskHandle/reset/
 2018-06-12 19:43:50,826: Not Found: /PMTaskHandle/reset/
 2018-06-12 19:43:55,432: Not Found: /PMTaskHandle/reset/
+2018-06-13 16:09:19,142: {'taskid': 'TdBgsP0Rvr', 'info': '', 'cmd': '实验暂停'}
+2018-06-13 16:09:34,206: Cannot resolve field "jiedustatus"
+2018-06-13 16:09:43,692: {'taskid': 'TdBgsP0Rvr', 'info': '', 'cmd': '解读暂停'}
+2018-06-14 15:04:48,673: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 912, in init
+    items.append((patient['_id'],patient['patientname'],patient[tumortype]))
+KeyError: ''
+2018-06-14 20:37:45,412: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 868, in init
+    patient=Patient.objects(patientid=taski['patientid']).first()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 299, in first
+    result = queryset[0]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 199, in __getitem__
+    only_fields=self.only_fields
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'immudrug'}" do not exist on the document "Patient"
+2018-06-14 20:39:24,168: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 885, in init
+    items.append({'patientid':patient['_id'],'patientname':patient['patientname'],'tumortype':patient['tumortype'],'product':[]})
+KeyError: 'patientname'
+2018-06-14 20:40:22,257: add task: pnW2z9gSv8 000002 MT100000 
+2018-06-14 20:40:22,265: add task: lpVBCw9qxt 000002 打手犯规 
+2018-06-14 20:40:22,273: add task: NOQ5U90bAk 000001 MT100000 
+2018-06-14 20:40:22,279: add task: 5nNit7MrWl 000001 打手犯规 
+2018-06-14 20:40:22,282: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 253, in update
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "patient"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 876, in init
+    project.modify(start_time=start_time,deadline=deadline,tasks=tasks,patient=list(set(patients)),products=products)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 281, in modify
+    updated = self._qs(**query).modify(new=True, **update)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 605, in modify
+    update = transform.update(queryset._document, **update)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 255, in update
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "patient"
+2018-06-14 20:41:10,381: add task: Qi5pESNmTW 000002 MT100000 
+2018-06-14 20:41:10,397: add task: iW1PBmaTzY 000002 打手犯规 
+2018-06-14 20:41:10,404: add task: gVcKwbuC6x 000001 MT100000 
+2018-06-14 20:41:10,410: add task: ElbzQKtXd3 000001 打手犯规 
+2018-06-14 20:41:39,115: add task: HqPyZsLf8t 000002 MT100000 
+2018-06-14 20:41:39,121: add task: 0R4mhT6Kyl 000002 打手犯规 
+2018-06-14 20:41:39,129: add task: S4p1658X2U 000001 MT100000 
+2018-06-14 20:41:39,135: add task: AVRUBFK0r2 000001 打手犯规 
+2018-06-14 20:43:02,312: add task: OP0TQhH17L 000002 MT100000 
+2018-06-14 20:43:02,318: add task: weqkgALiHG 000002 打手犯规 
+2018-06-14 20:43:02,326: add task: ViwycatDHn 000001 MT100000 
+2018-06-14 20:43:02,332: add task: fOsyWKw5pc 000001 打手犯规 
+2018-06-14 20:44:48,106: add task: SHDwnICxqK 000001 MT100000 
+2018-06-14 20:44:48,113: add task: YJMxn3BUPi 000001 打手犯规 
+2018-06-14 20:44:48,128: add task: pOU02AtkcP 000002 MT100000 
+2018-06-14 20:44:48,135: add task: CfApaz8Dvk 000002 打手犯规 

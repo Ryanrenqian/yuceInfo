@@ -480,6 +480,7 @@ def test_project():
 Task.drop_collection()
 Project.drop_collection()
 Sample.drop_collection()
+
 test_product()
 test_patient()
 test_labtask()
