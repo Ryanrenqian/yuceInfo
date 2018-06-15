@@ -1064,6 +1064,7 @@ class ProjectHandle(Handle):
                     task_list = []
                     for patient in project.get('patients', []):
                         patient = json.loads(Patient.objects(pk=patient).first().to_json(ensure_ascii=False))
+                        patient['patientid']=patient.pop('_id')
                         patient_list.append(patient)
                     for product in project.get('products', []):
                         product = json.loads(Product.objects(pk=product).first().to_json(ensure_ascii=False))
