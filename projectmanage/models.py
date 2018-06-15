@@ -51,6 +51,8 @@ class Patient(Document):
     chemshistory=StringField(default='')
     targethistory=StringField(default='')
     immuhistory=StringField(default='')
+    mhistory=StringField(default='')
+    genetest=StringField(default='')
     explant=StringField(default='')
     hospital=StringField(default='')
     sales=StringField(default='')
@@ -77,11 +79,11 @@ class Task(Document):
     # 任务信息部分
     starttime = DateTimeField(null=True)
     deadline=DateTimeField(null=True)
-    status = StringField(default='wait')
-    expstatus = StringField(default='wait')
-    anastatus = StringField(default='wait')
-    jiedu_status = StringField(default='wait')
-    reportstatus = StringField(default='wait')
+    status = StringField(default='等待')
+    expstatus = StringField(default='等待')
+    anastatus = StringField(default='等待')
+    jiedu_status = StringField(default='等待')
+    reportstatus = StringField(default='等待')
     info = StringField(default='')
     extrainfo = StringField(default='')
     # 数据分析部分
@@ -141,6 +143,7 @@ class Extraction(Document):
     location=StringField(default='')
     time=DateTimeField(auto_now=True)
     remarks=StringField(default='')
+    status=StringField(default='开始')
     def __str__(self):
         return self.pk
 # 建库
@@ -171,6 +174,7 @@ class Library(Document):
     time1=StringField(default='')
     time2=StringField(default='')
     info=StringField(default='')
+    status=''
     def __str__(self):
         return self.pk
 # 杂交
@@ -192,6 +196,7 @@ class Hybridization(Document):
     time1=StringField(default='')
     time2=StringField(default='')
     remarks=StringField(default='')
+    status=StringField(default='开始')
     def __str__(self):
         return self.pk
 # 质控
@@ -200,6 +205,7 @@ class QualityControl(Document):
     postid=StringField(default='')
     Qseppeak=StringField(default='')
     qPCR_concentration=StringField(default='')
+    qPCR_concentration_origional=StringField(default='')
     qPCRQB=StringField(default='')
     qPCRreagent=StringField(default='')
     lot=StringField(default='')
@@ -209,6 +215,7 @@ class QualityControl(Document):
     location=StringField(default='')
     remarks=StringField(default='')
     time=StringField(default='')
+    status = StringField(default='开始')
     def __str__(self):
         return self.pk
 # 测序
@@ -216,6 +223,7 @@ class Sequencing(Document):
     expid=StringField(primary_key=True)
     dilutionRatio=StringField(default='')
     postdilutionConcentration=StringField(default='')
+    status = StringField(default='开始')
     def __str__(self):
         return self.pk
 

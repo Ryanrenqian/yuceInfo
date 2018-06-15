@@ -43,8 +43,8 @@ urlpatterns=[
     path('JieduTaskHandle/review/', views.jiedutaskhandle.review),#审核
     # 项目操作
     path('ProjectHandle/init/',views.projecthandle.init), # 添加项目
-    path('ProjectHandle/complete/', views.projecthandle.complete), #补充订单
-    path('ProjectHandle/completehelp/', views.projecthandle.compltehelp), #辅助补充订单
+    path('ProjectHandle/complement/', views.projecthandle.complement), #补充订单
+    path('ProjectHandle/complementhelp/', views.projecthandle.complementhelp), #辅助补充订单
     path('ProjectHandle/cmd/', views.projecthandle.cmd), # 项目cmd
     path('ProjectHandle/view/', views.projecthandle.view), # 项目列表
     # 患者操作
