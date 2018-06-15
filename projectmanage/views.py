@@ -368,6 +368,8 @@ class PMTaskHandle(TaskHandle):
                 data = json.loads(request.body.decode('utf-8'))
                 logging.debug(data)
                 task = Task.objects(pk=data['taskid']).first()
+                data['starttime']=datetime.datetime.strptime(data['starttime'], '%Y-%m-%d %H:%M:%S')
+                data['deadline'] = datetime.datetime.strptime(data['deadline'], '%Y-%m-%d %H:%M:%S')
                 try:
                     task.modify(**data)
                     message['success']='任务修改成功'
@@ -383,10 +385,13 @@ class PMTaskHandle(TaskHandle):
         if self.is_valid(request):
             if request.method == 'GET':
                 task_list = json.loads(Task.objects().all().to_json(ensure_ascii=False))
-                task_list = [task for task in task_list if task.get('starttime')]
+                # task_list = [task for task in task_list if task.get('starttime')]
                 for task in task_list:
+                    patient=Patient.objects(pk=task.get('patient')).first()
                     task['taskid'] = task.pop('_id')
-                    task['patientname'] = Patient.objects(pk=task.get('patient')).first().patientname
+                    task['patientname'] = patient.patientname
+                    task['age']=patient.age
+                    task['gender'] = patient.gender
                     task['starttime'] = datetime.datetime.fromtimestamp(task['starttime']['$date'] / 1000).strftime(
                         '%Y-%m-%d %H:%M:%S')
                     task['bestuptime'] = datetime.datetime.fromtimestamp(task['bestuptime']['$date'] / 1000).strftime(
