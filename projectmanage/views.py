@@ -22,6 +22,8 @@ def GenerateID(database):
     return ran_str
 
 configpath='config' # 设置config文件默认目录
+
+# 可复用代码区
 def GenerateTask(patient,product,tumortype,configoath=configpath):
     '''
     自动生成task
@@ -71,7 +73,6 @@ def handle_uploaded_file(f,tmp):
             destination.write(chunk)
     return file
 
-
 def normalizejson(data):
     '''
     标准化处理不合格的json格式，需要设置对应的workdir
@@ -87,8 +88,8 @@ def normalizejson(data):
         data_list.append(_data)
     return data_list
 
-
 # 组件功能部分
+
 # LDAP 数据获取
 class Ldapc:
     '''
@@ -477,6 +478,9 @@ class LabTaskHandle(TaskHandle):
                 task = Task.objects(pk=data['taskid']).first()
                 if cmd=='暂停':
                     task.modify(status='暂停', expstatus='暂停', **data)
+                    for sample in task.samples:
+                        experiment=Experiment.objects(pk=sample).first()
+                        experiment.modify(status='暂停')
                     message['success'] = '暂停成功'
                 elif cmd=='终止':
                     task.modify(status='终止',
@@ -491,42 +495,71 @@ class LabTaskHandle(TaskHandle):
                     deadline = datetime.datetime.now() + datetime.timedelta(days=task.product.period)
                     bestuptime = datetime.datetime.now() + datetime.timedelta(days=task.product.bestuptime)
                     worstuptime = datetime.datetime.now() + datetime.timedelta(days=task.product.worstuptime)
-                    try:
-                        task.modify(
-                            starttime=starttime, deadline=deadline,
-                            bestuptime=bestuptime, worstuptime=worstuptime,
-                            status='开始', expstatus='开始')
-                        message['success'] = '实验重启成功'
-                    except Exception as e:
-                        message['error']=str(e)
+                    task.modify(
+                        starttime=starttime, deadline=deadline,
+                        bestuptime=bestuptime, worstuptime=worstuptime,
+                        status='开始', expstatus='开始')
+                    message['success'] = '实验重启成功'
                 elif cmd=='完成':
-                    task.modify(expstatus='完成',**data)
+                    task.modify(expstatus='完成',anastatus='开始',**data)
                     message['success']='已完成'
-                elif cmd=='下单':
-                    task.modify(status='进行',expstatus='开始')
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-
-    def loadsample(self, request):
+    def order(self, request):
         message = {}
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
-                logging.info(str(data))
-                task = Task.objects(pk=data['taskid']).first()
-                samples=[]
-                for sample in data['samples']:
-                    sample=Sample(**sample)
-                    sample.save()
-                    samples.append(sample)
-                try:
-                    task.modify(expstatus='上机',samples=samples)
-                    message['success']='上样成功～'
-                except Exception as e:
-                    message['error'] = str(e)
-                    logging.debug(e)
+                for task in data['task_list']:
+                    experiments=[]
+                    for key in ['normal','tumor','extra']:
+                        if task[key] !='':
+                            expid=task[key]+task['lane']
+                            experiments.append(expid)
+                            exp=Experiment(
+                                pk=expid,task=task['task'],
+                                sample=task[key],lane=task['lane'],
+                                point=task['point'])
+                            exp.save()
+                    message['success']='下单成功'
+                return HttpResponse(json.dumps(message, ensure_ascii=False))
+            elif request.method == 'GET':
+                data={}
+                task_list=[]
+                for task in Task.objects(expstatus='开始').all():
+                    item={}
+                    item['task']=task.pk
+                    item['lane']=task.product.lane
+                    item['normal']=''
+                    item['tumor']=''
+                    item['extra']=''
+                    item['samples']=task.patient.samples
+                    item['point']=''
+                    task_list.append(item)
+                points=['提取','建库','杂交','质控','上机']
+                data['task_list']=task_list
+                data['points']=points
+                return HttpResponse(json.dumps(data,ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def download(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def upload(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -547,31 +580,6 @@ class LabTaskHandle(TaskHandle):
                     task['worstuptime'] = datetime.datetime.fromtimestamp(task['worstuptime']['$date'] / 1000).strftime(
                         '%Y-%m-%d %H:%M:%S')
                 return HttpResponse(json.dumps(task_list, ensure_ascii=False))
-        else:
-            message['warning'] = '对不起，您没有权限'
-        return HttpResponse(json.dumps(message, ensure_ascii=False))
-
-    def finish(self,request):
-        message = {}
-        if self.is_valid(request):
-            if request.method == 'POST':
-                data = json.loads(request.body.decode('utf-8'))
-                task= Task.objects(pk=data['taskid']).first()
-                sample_list=data['samples']
-                samples=[]
-                for sample in sample_list:
-                    sample=Sample(**sample)
-                    sample.save()
-                    samples.append(sample)
-                try:
-                    task.modify(expstatus='完成',samples=samples,anastatus='开始')
-                    patient=task.patient
-                    patient.samples=patient.samples+samples
-                    patient.save()
-                    message['success']='操作成功'
-                except Exception as e:
-                    logging.debug(e)
-                    message['error']=str(e)
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -718,6 +726,7 @@ class AanaTaskHandle(TaskHandle):
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
 class JieduTaskHandle(TaskHandle):
+
     def view(self, request):
         message = {}
         if self.is_valid(request):
@@ -894,21 +903,6 @@ class ProjectHandle(Handle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
-    # 终止项目及子任务
-    def stop(self,request):
-        message = {}
-        if self.is_valid(request):
-            if request.method == 'POST':
-                data = json.loads(request.body.decode('utf-8'))
-                project = Project.objects(projectid=data['project']).first()
-                for task in project.tasks:
-                    task.modify(status='终止', expstatus='终止', anastatus='终止', jiedu_status='终止')
-                project.modify(status='终止')
-                message['success'] = '该项目已终止'
-                return HttpResponse(json.dumps(message, ensure_ascii=False))
-        else:
-            message['warning'] = '对不起，您没有权限'
-        return HttpResponse(json.dumps(message, ensure_ascii=False))
     # 为项目添加订单
     def complete(self,request):
         message = {}
@@ -918,14 +912,15 @@ class ProjectHandle(Handle):
                 data = json.loads(request.body.decode('utf-8'))
                 project = Project.objects(pk=data['projectid']).first()
                 for taski in data['task_list']:
-                    patient=Patient.objects(patientid=taski['patient']).first()
-                    patient.modify(taskstatus='有')
-                    project.patients.append(patient)
-                    task = GenerateTask(patient,taski['product'],taski['tumortype'])
-                    project.tasks.append(task)
-                    product=Product.objects(pk=taski['product']).first()
-                    if product not in project.products:
-                        project.products.append(product)
+                    for product in data['product']:
+                        patient=Patient.objects(patientid=taski['patient']).first()
+                        patient.modify(taskstatus='有')
+                        project.patients.append(patient)
+                        task = GenerateTask(patient,product,taski['tumortype'])
+                        project.tasks.append(task)
+                        product=Product.objects(pk=product).first()
+                        if product not in project.products:
+                            project.products.append(product)
                 project.save()
                 message['success'] = '保存成功'
                 if len(warning) != 0:
@@ -939,20 +934,19 @@ class ProjectHandle(Handle):
         if self.is_valid(request):
             if request.method == 'POST':
                 data=json.loads(request.body.decode('utf-8'))
-                items = []
                 project=Project.objects(pk=data['projectid']).first()
                 patients=project.patients
+                items = []
                 for patient in patients:
-                    for tumortype in patient['tumortype'].split(';'):
-                        items.append({'patientid': patient['_id'], 'patientname': patient['patientname'],
-                                      'tumortype': patient['tumortype']})
+                    for tumortype in patient.tumortype.split(';'):
+                        items.append({'patientid': patient.pk, 'patientname': patient.patientname,
+                                      'tumortype': tumortype})
                 patients = json.loads(Patient.objects(taskstatus='无').all().to_json(ensure_ascii=False))
 
                 for patient in patients:
                     for tumortype in patient['tumortype'].split(';'):
                         items.append({'patientid': patient['_id'], 'patientname': patient['patientname'],
-                                      'tumortype': patient['tumortype']})
-
+                                      'tumortype': patient['tumortype'],'products':[]})
                 products = []
                 product_list = json.loads(Product.objects().all().to_json(ensure_ascii=False))
                 for product in product_list:
@@ -964,7 +958,7 @@ class ProjectHandle(Handle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
-    #
+
     def cmd(self,request):
         message = {}
         if self.is_valid(request):
@@ -1020,6 +1014,11 @@ class ProjectHandle(Handle):
                     except Exception as e:
                         logging.debug(e)
                         message['error'] = str(e)
+                elif data['cmd'] == '终止':
+                    for task in project.tasks:
+                        task.modify(status='终止', expstatus='终止', anastatus='终止', jiedu_status='终止')
+                    project.modify(status='终止')
+                    message['success'] = '该项目已终止'
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1331,7 +1330,8 @@ class SampleHandle(Handle):
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
 class Experimenthandle(Handle):
-    pass
+    def view(self,request):
+        pass
 
 class ProductHandle(Handle):
     '''产品处理器'''

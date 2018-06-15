@@ -19,6 +19,7 @@ class Product(Document):
     chip = StringField(default='')
     strategy = StringField(default='')
     moletag = StringField(default='')
+    lane = StringField(default='')
     def __str__(self):
         return self.pk
 # 样本
@@ -84,7 +85,7 @@ class Task(Document):
     info = StringField(default='')
     extrainfo = StringField(default='')
     # 数据分析部分
-    samples = ListField(ReferenceField(Sample),null=True)
+    experiment = ListField(StringField(),null=True)
     config = StringField(default='')
     analyst= StringField(default='')
     parser=StringField(default='')
@@ -111,9 +112,11 @@ class Project(Document):
 # 实验编号
 class Experiment(Document):
     expid=StringField(primary_key=True)
-    patient=ReferenceField(Patient)
-    product=ReferenceField(Product)
-    samples=ListField(ReferenceField(Sample))
+    task=ReferenceField(Task)
+    sample=ReferenceField(Sample)
+    lane=StringField()
+    status=StringField(default='正常')
+    point=StringField(default='提取')
     def __str__(self):
         return self.pk
 # 提取

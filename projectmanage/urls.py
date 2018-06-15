@@ -19,7 +19,6 @@ urlpatterns=[
     path('tableview/<path:path>/',views.fileview.tableview,name='tableview'),
     #项目管理的任务操作
     path('PMTaskHandle/pause/',views.pmtaskhandle.cmd), # 暂停操作 cmd：实验暂停 分析暂停
-    # path('PMTaskHandle/add/',views.pmtaskhandle.add), # 保留项
     path('PMTaskHandle/reset/',views.pmtaskhandle.reset), # 重置任务
     path('PMTaskHandle/go/', views.pmtaskhandle.go), # 保留项
     path('PMTaskHandle/modify/', views.pmtaskhandle.modify), # 任务修改
@@ -27,16 +26,11 @@ urlpatterns=[
     path('PMTaskHandle/stop/', views.pmtaskhandle.stop), #终止任务
     path('PMTaskHandle/cancel/', views.pmtaskhandle.cancel), # 取消操作 cmd： 取消实验 取消解读
     path('PMTaskHandle/allocate/', views.pmtaskhandle.allocate),  # 任务分配
-
     # 实验室管理的任务操作
     path('LabTaskHandle/cmd/', views.labtaskhandle.cmd), # cmd操作，进行，暂停，终止,重置
-    # path('LabTaskHandle/reset/', views.labtaskhandle.reset), # 重置任务
-    path('LabTaskHandle/loadsample/', views.labtaskhandle.loadsample), # 上机
+    path('LabTaskHandle/order/', views.labtaskhandle.order), # 内部下单
     path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
-    # path('LabTaskHandle/stop/', views.labtaskhandle.stop), #
-    path('LabTaskHandle/finish/', views.labtaskhandle.finish), # 完成测序
-    # 自动化投递任务操作
-    # path('AutoTaskHandle/get/',views.autotaskhandle.GET),
+
     # 分析师任务操作
     path('AnaTaskHandle/view/',views.anataskhandle.view),
     path('AnaTaskHandle/modify/',views.anataskhandle.modify),
@@ -47,18 +41,12 @@ urlpatterns=[
     path('JieduTaskHandle/download/', views.jiedutaskhandle.download),#下载报告
     path('JieduTaskHandle/upload/', views.jiedutaskhandle.upload),#上传报告
     path('JieduTaskHandle/review/', views.jiedutaskhandle.review),#审核
-    # path('AutoTaskHandle/post/', views.autotaskhandle.POST),
     # 项目操作
     path('ProjectHandle/init/',views.projecthandle.init), # 添加项目
-    path('ProjectHandle/stop/', views.projecthandle.stop), # 终止项目
     path('ProjectHandle/complete/', views.projecthandle.complete), #补充订单
     path('ProjectHandle/completehelp/', views.projecthandle.compltehelp), #辅助补充订单
-    # path('ProjectHandle/pay/', views.projecthandle.pay), # 项目缴费
     path('ProjectHandle/cmd/', views.projecthandle.cmd), # 项目cmd
-    # path('ProjectHandle/pause/', views.projecthandle.pause), #项目暂停
-    # path('ProjectHandle/reset/', views.projecthandle.reset), #项目重置
     path('ProjectHandle/view/', views.projecthandle.view), # 项目列表
-    # path('ProjectHandle/cancel/', views.projecthandle.cancel), # 项目列表
     # 患者操作
     path('PatientHandle/init/', views.patienthandle.init), # 添加患者
     path('PatientHandle/view/', views.patienthandle.view), # 患者列表
