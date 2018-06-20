@@ -2324,3 +2324,1064 @@ Traceback (most recent call last):
   File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
     o.__class__.__name__)
 TypeError: Object of type 'Sample' is not JSON serializable
+2018-06-20 14:41:21,479: Not Found: /http://192.168.1.186:8000/ExtractHandle/download/
+2018-06-20 14:45:29,139: Internal Server Error: /ExtractHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/utils/datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'file'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1442, in upload
+    f = handle_uploaded_file(request.FILES['file'], self.tmp)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/utils/datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'file'
+2018-06-20 15:02:13,626: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 523, in order
+    for task in data['task_list']:
+TypeError: list indices must be integers or slices, not str
+2018-06-20 15:03:49,740: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1428, in view
+    return HttpResponse(json.dumps(items, ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+2018-06-20 15:03:49,741: Internal Server Error: /ExtractHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1464, in download
+    item=json.load(i.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-20 15:05:21,806: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1428, in view
+    return HttpResponse(json.dumps(items, ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+2018-06-20 15:05:21,807: Internal Server Error: /ExtractHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1464, in download
+    item=json.load(i.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-20 15:06:50,136: Internal Server Error: /ExtractHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1465, in download
+    item=json.load(i.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-20 15:06:50,140: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1428, in view
+    logging.info(str(data))
+NameError: name 'data' is not defined
+2018-06-20 15:07:09,242: [[...]]
+2018-06-20 15:07:09,241: Internal Server Error: /ExtractHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1465, in download
+    item=json.load(i.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-20 15:07:09,242: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1429, in view
+    return HttpResponse(json.dumps(items, ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+2018-06-20 15:08:12,625: [[...]]
+2018-06-20 15:08:12,622: Internal Server Error: /ExtractHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1465, in download
+    item=json.load(i.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-20 15:08:12,625: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1429, in view
+    return HttpResponse(json.dumps(items, ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+ValueError: Circular reference detected
+2018-06-20 15:08:30,818: [{'expid': '18A000001SL02', 'task': <Task: SHDwnICxqK>, 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:08:30,817: Internal Server Error: /ExtractHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1465, in download
+    item=json.load(i.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-20 15:08:30,819: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1429, in view
+    return HttpResponse(json.dumps(items, ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Task' is not JSON serializable
+2018-06-20 15:10:06,070: [{'expid': '18A000001SL02', 'task': <Task: SHDwnICxqK>, 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:10:06,070: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1429, in view
+    return HttpResponse(json.dumps(items, ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Task' is not JSON serializable
+2018-06-20 15:10:35,173: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:12:04,159: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:12:25,219: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:12:58,911: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:12:59,653: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1544, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 15:13:00,535: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:13:05,809: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1544, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 15:13:10,809: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sample': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:15:43,383: Internal Server Error: /ExtractHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1416, in view
+    for exp in experiments:
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1473, in __next__
+    only_fields=self.only_fields)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'sample'}" do not exist on the document "Experiment"
+2018-06-20 15:16:45,698: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 532, in order
+    point=task['point'])
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'sample'}" do not exist on the document "Experiment"
+2018-06-20 15:22:45,808: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sampleid': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:30:15,254: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', 'sampleid': '18A000001SL', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:32:37,609: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:35:02,904: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:36:42,213: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:38:25,977: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:40:18,518: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:41:21,267: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:48:31,428: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:48:43,692: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:49:08,123: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:50:47,859: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:52:33,944: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:52:54,806: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:53:23,942: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:54:40,143: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:58:51,551: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:59:21,601: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:59:32,855: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 15:59:50,009: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:00:56,229: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:01:00,101: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:01:36,988: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:02:08,386: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:03:00,720: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:03:46,364: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:05:37,208: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:05:53,390: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:06:10,507: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:07:27,140: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:08:50,497: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:12:08,838: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:12:55,113: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:16:01,195: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:16:24,606: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:16:47,469: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:25:29,371: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:26:21,775: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:27:11,035: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:29:17,564: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:29:42,399: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:29:56,626: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:30:10,575: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:30:22,146: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:30:45,605: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:31:06,121: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:32:25,477: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:33:38,107: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:35:53,620: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:36:18,480: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:36:48,390: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:39:40,734: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:40:04,744: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:40:24,285: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:40:39,733: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:41:27,461: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:41:37,277: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:41:50,252: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:42:40,344: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:42:51,532: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:43:52,776: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:44:12,731: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:44:35,215: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:44:59,327: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:47:13,144: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:47:19,232: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:47:41,253: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:48:03,908: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:49:14,249: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:50:08,431: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:52:25,309: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:52:56,810: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:53:25,502: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:56:28,301: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:57:08,868: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:58:21,591: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:58:47,708: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 16:58:53,731: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:02:28,762: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:03:21,532: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:06:08,766: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:08:27,810: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:10:05,758: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:13:15,238: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:13:33,666: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:16:49,240: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:17:31,268: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:17:58,727: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:18:49,570: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:19:45,857: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:19:45,885: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:23:15,700: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:25:00,467: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:28:48,236: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:28:54,701: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:29:52,492: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:30:14,164: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:31:42,907: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:31:44,224: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:31:53,255: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:31:55,503: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:32:00,951: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:32:01,653: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:34:55,757: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:35:06,514: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:35:42,074: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:37:52,124: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:37:56,796: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:38:24,157: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:38:24,424: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:39:22,994: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:39:38,468: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:39:39,424: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:39:42,447: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:39:43,201: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:39:52,705: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:40:07,971: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:40:10,204: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:40:54,840: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:42:02,594: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 17:42:03,066: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 17:42:08,784: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]

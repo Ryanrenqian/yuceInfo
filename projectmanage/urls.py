@@ -61,20 +61,25 @@ urlpatterns=[
     path('LabTaskHandle/order/', views.labtaskhandle.order), # 内部下单
     path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
     # 提取管理
+    path('ExtractHandle/download/', views.extracthandle.download), # 批量导入数据
     path('ExtractHandle/upload/', views.extracthandle.upload), # 批量导入数据
     path('ExtractHandle/view/', views.extracthandle.view), # 提取结果列表
     # 建库管理
     path('LibraryHandle/view/', views.libraryhandle.view),  # 提取结果列表
     path('LibraryHandle/upload/', views.libraryhandle.upload),  # 提取结果列表
+    path('LibraryHandle/download/', views.libraryhandle.download),  # 提取结果列表模板下载
     # 杂交
     path('HybridHandle/view/', views.hybridhandle.view),  # 提取结果列表
     path('HybridHandle/upload/', views.hybridhandle.upload),  # 提取结果列表
+    path('HybridHandle/download/', views.hybridhandle.download),  # 提取结果列表模板下载
     # 质控
     path('LabQCHandle/view/', views.labqc.view),  # 提取结果列表
     path('LabQCHandle/upload/', views.labqc.upload),  # 提取结果列表
+    path('LabQCHandle/download/', views.labqc.download),  # 提取结果列表模板下载
     # 测序
     path('seqhandle/view/', views.seqhandle.view),  # 提取结果列表
     path('seqhandle/upload/', views.seqhandle.upload),  # 提取结果列表
+    path('seqhandle/download/', views.seqhandle.download),  # 提取结果列表模板下载
 
     # 产品操作
     path('ProductHandle/view/',views.producthandle.view), # 产品列表

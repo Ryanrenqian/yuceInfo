@@ -115,7 +115,7 @@ class Project(Document):
 class Experiment(Document):
     expid=StringField(primary_key=True)
     task=ReferenceField(Task)
-    sample=StringField(default='')
+    sampleid=StringField(default='')
     lane=StringField(default='')
     status=StringField(default='正常')
     point=StringField(default='提取')
@@ -141,7 +141,7 @@ class Extraction(Document):
     reagent=StringField(default='')
     lot=StringField(default='')
     location=StringField(default='')
-    time=DateTimeField(auto_now=True)
+    time=StringField(default='')
     remarks=StringField(default='')
     status=StringField(default='开始')
     def __str__(self):
@@ -226,4 +226,3 @@ class Sequencing(Document):
     status = StringField(default='开始')
     def __str__(self):
         return self.pk
-

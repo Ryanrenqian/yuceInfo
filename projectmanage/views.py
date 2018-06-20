@@ -173,7 +173,6 @@ class Email:
             except Exception as e:
                 return str(e)
 
-
 # 不同组权限功能部分
 class TaskHandle(Handle):
     '''
@@ -521,7 +520,7 @@ class LabTaskHandle(TaskHandle):
         if self.is_valid(request):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
-                for task in data['task_list']:
+                for task in data:
                     experiments=[]
                     for key in ['normal','tumor','extra']:
                         if task[key] !='':
@@ -529,21 +528,22 @@ class LabTaskHandle(TaskHandle):
                             experiments.append(expid)
                             exp=Experiment(
                                 pk=expid,task=task['task'],
-                                sample=task[key],lane=task['lane'],
+                                sampleid=task[key],lane=task['lane'],
                                 point=task['point'])
                             exp.save()
                             if task['point'] =='提取':
-                                if Extraction.objects(pk=exp.sample).first() == None:
-                                    Extraction(pk=exp.sample).save()
+                                if Extraction.objects(pk=exp.sampleid).first() == None:
+                                    Extraction(pk=exp.sampleid).save()
                             elif task['point'] =='建库':
-                                if Library.objects(pk=exp.sample).first() == None:
-                                    Library(pk=exp.sample).save()
+                                if Library.objects(pk=exp.sampleid).first() == None:
+                                    Library(pk=exp.sampleid).save()
                             elif task['point'] == '杂交':
                                 if Hybridization.objects(pk=exp.pk).first() == None:
                                     Hybridization(pk=exp.pk).save()
                             elif task['point'] == '上机':
                                 if Sequencing.objects(pk=exp.pk).first() == None:
                                     Sequencing(pk=exp.pk).save()
+                            exp.modify(status='进行')
                     message['success']='下单成功'
                 return HttpResponse(json.dumps(message, ensure_ascii=False))
             elif request.method == 'GET':
@@ -1407,7 +1407,6 @@ class ExperimentHandle(Handle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-
 class ExtractHandle(Handle):
 
     def view(self,request):
@@ -1416,17 +1415,17 @@ class ExtractHandle(Handle):
             items=[]
             experiments = Experiment.objects(point='提取').all()
             for exp in experiments:
-                extract = json.loads(Extraction.objects(pk=exp.sample).first().to_json(ensure_ascii=False))
+                extract = json.loads(Extraction.objects(pk=exp.sampleid).first().to_json(ensure_ascii=False))
                 if extract['status']=='完成':
                     exp.modify(point='建库')
                 item={}
                 item['expid']=exp.pk
-                item['task']=exp.task
+                item['task']=exp.task.pk
                 item['point']=exp.point
                 item['expstatus']=exp.status
-                item['sample']=exp.sample
                 item.update(extract)
-                items.append(items)
+                items.append(item)
+            logging.info(str(items))
             return HttpResponse(json.dumps(items, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
@@ -1444,7 +1443,10 @@ class ExtractHandle(Handle):
                 f = handle_uploaded_file(request.FILES['file'], self.tmp)
                 if os.path.getsize(f) == request.FILES['file'].size:
                     fail = []
-                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    if f.endswith('.xlsx'):
+                        data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    elif f.endswith('.csv'):
+                        data = pd.read_csv(f, header=0, sheetname=0, dtype=str)
                     for i in data.index:
                         row = data.loc[i].to_dict()
                         Extraction(status='完成',**row).save()
@@ -1460,7 +1462,8 @@ class ExtractHandle(Handle):
             if request.method == 'POST':
                 data=[]
                 for i in Extraction.objects(status='开始').all():
-                    item=json.load(i.to_json(ensure_ascii=False))
+                    item=json.loads(i.to_json(ensure_ascii=False))
+                    item['sampleid']=item.pop('_id')
                     item.pop('status')
                     data.append(item)
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
@@ -1493,19 +1496,19 @@ class LibraryHandle(Handle):
                 experiments = Experiment.objects(point='建库').all()
                 items=[]
                 for exp in experiments:
-                    library=Library.objects(pk=exp.sample).first()
+                    library=Library.objects(pk=exp.sampleid).first()
                     if library == None:
-                        library = Library(pk=exp.sample)
+                        library = Library(pk=exp.sampleid)
                         library.save()
                     library = json.load(library.to_json(ensure_ascii=False))
                     if library['status'] == '完成':
                         exp.modify(point='杂交')
                     item = {}
                     item['expid']= exp.pk
-                    item['task'] = exp.task
+                    item['task'] = exp.task.pk
                     item['point'] = exp.point
                     item['expstatus'] = exp.status
-                    item['sample'] = exp.sample
+                    item['sampleid'] = exp.sampleid
                     item.update(library)
                     items.append(item)
                 return HttpResponse(json.dumps(items, ensure_ascii=False))
@@ -1540,7 +1543,8 @@ class LibraryHandle(Handle):
             if request.method == 'POST':
                 data=[]
                 for i in Library.objects(status='开始').all():
-                    item = json.load(i.to_json(ensure_ascii=False))
+                    item = json.loads(i.to_json(ensure_ascii=False))
+                    item['sampleid']=i.pop('_id')
                     item.pop('status')
                     data.append(item)
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
@@ -1563,19 +1567,19 @@ class HybridHandle(Handle):
                 experiments = Experiment.objects(point='建库').all()
                 items=[]
                 for exp in experiments:
-                    hybrid=Hybridization.objects(pk=exp.sample).first()
+                    hybrid=Hybridization.objects(pk=exp.sampleid).first()
                     if hybrid == None:
-                        hybrid = Hybridization(pk=exp.sample)
+                        hybrid = Hybridization(pk=exp.sampleid)
                         hybrid.save()
-                    hybrid = json.load(hybrid.to_json(ensure_ascii=False))
+                    hybrid = json.loads(hybrid.to_json(ensure_ascii=False))
                     if hybrid['status'] == '完成':
                         exp.modify(point='质控')
                     item = {}
                     item['expid']= exp.pk
-                    item['task'] = exp.task
+                    item['task'] = exp.task.pk
                     item['point'] = exp.point
                     item['expstatus'] = exp.status
-                    item['sample'] = exp.sample
+                    item['sampleid'] = exp.sampleid
                     item.update(hybrid)
                     items.append(item)
                 return HttpResponse(json.dumps(items, ensure_ascii=False))
@@ -1610,7 +1614,8 @@ class HybridHandle(Handle):
             if request.method == 'POST':
                 data=[]
                 for i in Hybridization.objects(status='开始').all():
-                    item = json.load(i.to_json(ensure_ascii=False))
+                    item = json.loads(i.to_json(ensure_ascii=False))
+                    item['expid']=item.pop('_id')
                     item.pop('status')
                     data.append(item)
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
@@ -1637,15 +1642,15 @@ class LabQCHandle(Handle):
                     if qc == None:
                         qc = QualityControl(pk=exp.pk)
                         qc.save()
-                    qc = json.load(qc.to_json(ensure_ascii=False))
+                    qc = json.loads(qc.to_json(ensure_ascii=False))
                     if qc['status'] == '完成':
                         exp.modify(point='测序')
                     item = {}
                     item['expid']= exp.pk
-                    item['task'] = exp.task
+                    item['task'] = exp.task.pk
                     item['point'] = exp.point
                     item['expstatus'] = exp.status
-                    item['sample'] = exp.sample
+                    item['sampleid'] = exp.sampleid
                     item.update(qc)
                     items.append(item)
                 return HttpResponse(json.dumps(items, ensure_ascii=False))
@@ -1680,7 +1685,8 @@ class LabQCHandle(Handle):
             if request.method == 'POST':
                 data=[]
                 for i in QualityControl.objects(status='开始').all():
-                    item = json.load(i.to_json(ensure_ascii=False))
+                    item = json.loads(i.to_json(ensure_ascii=False))
+                    item['expid']=item.pop('_id')
                     item.pop('status')
                     data.append(item)
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
@@ -1706,15 +1712,15 @@ class SeqHandle(Handle):
                     if seq == None:
                         seq = Sequencing(pk=exp.pk)
                         seq.save()
-                    seq = json.load(seq.to_json(ensure_ascii=False))
+                    seq = json.loads(seq.to_json(ensure_ascii=False))
                     if seq['status'] == '完成':
                         exp.modify(point='完成')
                     item = {}
                     item['expid']= exp.pk
-                    item['task'] = exp.task
+                    item['task'] = exp.task.pk
                     item['point'] = exp.point
                     item['expstatus'] = exp.status
-                    item['sample'] = exp.sample
+                    item['sample'] = exp.sampleid
                     item.update(seq)
                     items.append(item)
                 return HttpResponse(json.dumps(items, ensure_ascii=False))
@@ -1749,7 +1755,8 @@ class SeqHandle(Handle):
             if request.method == 'POST':
                 data=[]
                 for i in Sequencing.objects(status='开始').all():
-                    item = json.load(i.to_json(ensure_ascii=False))
+                    item = json.loads(i.to_json(ensure_ascii=False))
+                    item['expid'] = item.pop('_id')
                     item.pop('status')
                     data.append(item)
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
