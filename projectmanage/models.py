@@ -115,8 +115,8 @@ class Project(Document):
 class Experiment(Document):
     expid=StringField(primary_key=True)
     task=ReferenceField(Task)
-    sample=ReferenceField(Sample)
-    lane=StringField()
+    sample=StringField(default='')
+    lane=StringField(default='')
     status=StringField(default='正常')
     point=StringField(default='提取')
     def __str__(self):
@@ -174,7 +174,7 @@ class Library(Document):
     time1=StringField(default='')
     time2=StringField(default='')
     info=StringField(default='')
-    status=''
+    status='开始'
     def __str__(self):
         return self.pk
 # 杂交

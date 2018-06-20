@@ -388,10 +388,14 @@ class PMTaskHandle(TaskHandle):
                 # task_list = [task for task in task_list if task.get('starttime')]
                 for task in task_list:
                     patient=Patient.objects(pk=task.get('patient')).first()
+                    product = Product.objects(pk=task.get('product')).first()
+                    task['productname']=product.productname
                     task['taskid'] = task.pop('_id')
                     task['patientname'] = patient.patientname
                     task['age']=patient.age
                     task['gender'] = patient.gender
+                    task['deadline'] = datetime.datetime.fromtimestamp(task['deadline']['$date'] / 1000).strftime(
+                        '%Y-%m-%d %H:%M:%S')
                     task['starttime'] = datetime.datetime.fromtimestamp(task['starttime']['$date'] / 1000).strftime(
                         '%Y-%m-%d %H:%M:%S')
                     task['bestuptime'] = datetime.datetime.fromtimestamp(task['bestuptime']['$date'] / 1000).strftime(
@@ -548,11 +552,12 @@ class LabTaskHandle(TaskHandle):
                 for task in Task.objects(expstatus='开始').all():
                     item={}
                     item['task']=task.pk
+                    item['patient']=str(task.patient)
                     item['lane']=task.product.lane
                     item['normal']=''
                     item['tumor']=''
                     item['extra']=''
-                    item['samples']=task.patient.samples
+                    item['samples']=[str(i) for i in task.patient.samples]
                     item['point']=''
                     task_list.append(item)
                 points=['提取','建库','杂交','质控','上机']
@@ -881,8 +886,8 @@ class ProjectHandle(Handle):
                 data = json.loads(request.body.decode('utf-8'))
                 if not data.get('projectid',None):
                     project=GenerateID(Project)
+                    project=Project.objects(pk=project).first()
                 else:
-
                     project=Project(pk=data['projectid'],tag=data['tag'],duty=data['duty'],)
                     project.save()
                 start_time = datetime.datetime.strptime(data['start_time'], '%Y-%m-%d %H:%M:%S')
@@ -1310,17 +1315,16 @@ class SampleHandle(Handle):
             warning=[]
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
-                if len(Patient.objects(pk=data['patient']['patientid'])) == 0:
-                    patient = Patient(**data['patient']).save()
-                    for sample in data['samples']:
-                        if len(Sample.objects(pk=sample['sampleid'])) == 0:
-                            sample['patient'] = patient
-                            Sample(**sample).save()
-                        else:
-                            warning.append(sample['sampleid'])
-                    message['warning'] = "以下样本编号已存在： %s" % ','.join(warning)
+                if len(Sample.objects(pk=data['sampleid'])) == 0:
+                    sample=Sample(**data)
+                    sample.save()
+                    patient=Patient.objects(pk=sample.patient).first()
+                    patient.samples.append(sample)
+                    patient.save()
+                    patient.modify(samplestatus='有')
+                    message['success']='添加成功'
                 else:
-                    message['error'] = '该患者编号已存在'
+                    message['error']='保存失败'
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1345,7 +1349,7 @@ class SampleHandle(Handle):
                             try:
                                 sample = Sample(**row)
                                 sample.save()
-                                patient =Patient.objects(pk=row['patient']).first()
+                                patient = Patient.objects(pk=row['patient']).first()
                                 patient.samples.append(sample)
                                 patient.save()
                                 patient.modify(samplestatus='有')
@@ -1385,31 +1389,82 @@ class SampleHandle(Handle):
                 sample_list = json.loads(Sample.objects().all().to_json(ensure_ascii=False))
                 for sample in sample_list:
                     sample['sampleid']=sample.pop('_id')
+                    sample['recievetime']=datetime.datetime.fromtimestamp(sample['recievetime']['$date'] / 1000).strftime(
+                        '%Y-%m-%d %H:%M:%S')
                 return HttpResponse(json.dumps(sample_list,ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-class ExtractHandle(Handle):
+class ExperimentHandle(Handle):
     def view(self,request):
         message = {}
         if self.is_valid(request):
-            data={}
+            if request.method == 'GET':
+                data=json.load(Experiment.objects.all().to_json(ensure_ascii=False))
+                return HttpResponse(json.dumps(data, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+
+class ExtractHandle(Handle):
+
+    def view(self,request):
+        message = {}
+        if self.is_valid(request):
             items=[]
             experiments = Experiment.objects(point='提取').all()
             for exp in experiments:
+                extract = json.loads(Extraction.objects(pk=exp.sample).first().to_json(ensure_ascii=False))
+                if extract['status']=='完成':
+                    exp.modify(point='建库')
                 item={}
+                item['expid']=exp.pk
                 item['task']=exp.task
                 item['point']=exp.point
                 item['expstatus']=exp.status
                 item['sample']=exp.sample
-                extract=json.loads(Extraction.objects(pk=exp.sample).first().to_json(ensure_ascii=False))
                 item.update(extract)
                 items.append(items)
-            data['items']=items
-            users=ldapc.getGroupUsers('Lab')
-            data['users']=users
-            return HttpResponse(json.dumps(data, ensure_ascii=False))
+            return HttpResponse(json.dumps(items, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def upload(self,request):
+        '''
+        上传数据
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                f = handle_uploaded_file(request.FILES['file'], self.tmp)
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    fail = []
+                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    for i in data.index:
+                        row = data.loc[i].to_dict()
+                        Extraction(status='完成',**row).save()
+                message['success'] = '保存成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def download(self,request):
+        '''下载数据'''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data=[]
+                for i in Extraction.objects(status='开始').all():
+                    item=json.load(i.to_json(ensure_ascii=False))
+                    item.pop('status')
+                    data.append(item)
+                return HttpResponse(json.dumps(data, ensure_ascii=False))
+
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1420,6 +1475,285 @@ class ExtractHandle(Handle):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
                 pass
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+class LibraryHandle(Handle):
+
+    def view(self,request):
+        '''
+        视图函数
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'GET':
+                experiments = Experiment.objects(point='建库').all()
+                items=[]
+                for exp in experiments:
+                    library=Library.objects(pk=exp.sample).first()
+                    if library == None:
+                        library = Library(pk=exp.sample)
+                        library.save()
+                    library = json.load(library.to_json(ensure_ascii=False))
+                    if library['status'] == '完成':
+                        exp.modify(point='杂交')
+                    item = {}
+                    item['expid']= exp.pk
+                    item['task'] = exp.task
+                    item['point'] = exp.point
+                    item['expstatus'] = exp.status
+                    item['sample'] = exp.sample
+                    item.update(library)
+                    items.append(item)
+                return HttpResponse(json.dumps(items, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def upload(self,request):
+        '''
+        补充样本，好像没啥用
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                f = handle_uploaded_file(request.FILES['file'], self.tmp)
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    for i in data.index:
+                        row = data.loc[i].to_dict()
+                        Library(status='完成',**row).save()
+                message['success'] = '保存成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def download(self,request):
+        '''下载数据'''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data=[]
+                for i in Library.objects(status='开始').all():
+                    item = json.load(i.to_json(ensure_ascii=False))
+                    item.pop('status')
+                    data.append(item)
+                return HttpResponse(json.dumps(data, ensure_ascii=False))
+
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+class HybridHandle(Handle):
+
+    def view(self,request):
+        '''
+        视图函数
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'GET':
+                experiments = Experiment.objects(point='建库').all()
+                items=[]
+                for exp in experiments:
+                    hybrid=Hybridization.objects(pk=exp.sample).first()
+                    if hybrid == None:
+                        hybrid = Hybridization(pk=exp.sample)
+                        hybrid.save()
+                    hybrid = json.load(hybrid.to_json(ensure_ascii=False))
+                    if hybrid['status'] == '完成':
+                        exp.modify(point='质控')
+                    item = {}
+                    item['expid']= exp.pk
+                    item['task'] = exp.task
+                    item['point'] = exp.point
+                    item['expstatus'] = exp.status
+                    item['sample'] = exp.sample
+                    item.update(hybrid)
+                    items.append(item)
+                return HttpResponse(json.dumps(items, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def upload(self,request):
+        '''
+        补充样本，好像没啥用
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                f = handle_uploaded_file(request.FILES['file'], self.tmp)
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    for i in data.index:
+                        row = data.loc[i].to_dict()
+                        Hybridization(status='完成',**row).save()
+                message['success'] = '保存成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def download(self,request):
+        '''下载数据'''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data=[]
+                for i in Hybridization.objects(status='开始').all():
+                    item = json.load(i.to_json(ensure_ascii=False))
+                    item.pop('status')
+                    data.append(item)
+                return HttpResponse(json.dumps(data, ensure_ascii=False))
+
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+class LabQCHandle(Handle):
+
+    def view(self,request):
+        '''
+        视图函数
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'GET':
+                experiments = Experiment.objects(point='建库').all()
+                items=[]
+                for exp in experiments:
+                    qc=QualityControl.objects(pk=exp.pk).first()
+                    if qc == None:
+                        qc = QualityControl(pk=exp.pk)
+                        qc.save()
+                    qc = json.load(qc.to_json(ensure_ascii=False))
+                    if qc['status'] == '完成':
+                        exp.modify(point='测序')
+                    item = {}
+                    item['expid']= exp.pk
+                    item['task'] = exp.task
+                    item['point'] = exp.point
+                    item['expstatus'] = exp.status
+                    item['sample'] = exp.sample
+                    item.update(qc)
+                    items.append(item)
+                return HttpResponse(json.dumps(items, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def upload(self,request):
+        '''
+        补充样本，好像没啥用
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                f = handle_uploaded_file(request.FILES['file'], self.tmp)
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    for i in data.index:
+                        row = data.loc[i].to_dict()
+                        QualityControl(status='完成',**row).save()
+                message['success']='保存成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def download(self,request):
+        '''下载数据'''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data=[]
+                for i in QualityControl.objects(status='开始').all():
+                    item = json.load(i.to_json(ensure_ascii=False))
+                    item.pop('status')
+                    data.append(item)
+                return HttpResponse(json.dumps(data, ensure_ascii=False))
+
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+class SeqHandle(Handle):
+    def view(self,request):
+        '''
+        视图函数
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'GET':
+                experiments = Experiment.objects(point='建库').all()
+                items=[]
+                for exp in experiments:
+                    seq=Sequencing.objects(pk=exp.pk).first()
+                    if seq == None:
+                        seq = Sequencing(pk=exp.pk)
+                        seq.save()
+                    seq = json.load(seq.to_json(ensure_ascii=False))
+                    if seq['status'] == '完成':
+                        exp.modify(point='完成')
+                    item = {}
+                    item['expid']= exp.pk
+                    item['task'] = exp.task
+                    item['point'] = exp.point
+                    item['expstatus'] = exp.status
+                    item['sample'] = exp.sample
+                    item.update(seq)
+                    items.append(item)
+                return HttpResponse(json.dumps(items, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def upload(self, request):
+        '''
+        上传
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                f = handle_uploaded_file(request.FILES['file'], self.tmp)
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    for i in data.index:
+                        row = data.loc[i].to_dict()
+                        Sequencing(status='完成',**row).save()
+                message['success']='保存成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def download(self,request):
+        '''下载数据'''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data=[]
+                for i in Sequencing.objects(status='开始').all():
+                    item = json.load(i.to_json(ensure_ascii=False))
+                    item.pop('status')
+                    data.append(item)
+                return HttpResponse(json.dumps(data, ensure_ascii=False))
+
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1439,7 +1773,7 @@ class ProductHandle(Handle):
                 try:
                     product = Product(**data)
                     product.save()
-                    message['sucess'] = '产品保存/修改成功'
+                    message['success'] = '产品保存/修改成功'
                 except Exception as e:
                     logging.debug(e)
                     message['error'] = str(e)
@@ -1490,14 +1824,22 @@ def index(request):
 # 启动或关闭权限
 check=False
 
+# 实验室管理部分
 group=['Lab']
 samplehandle=SampleHandle(group,check)
 labtaskhandle=LabTaskHandle(group,check)
-
+extracthandle=ExtractHandle(group,check)
+libraryhandle=LibraryHandle(group,check)
+hybridhandle=HybridHandle(group,check)
+labqc=LabQCHandle(group,check)
+seqhandle=SeqHandle(group,check)
+# 项目管理部分
 group=['ProjectManager']
 projecthandle=ProjectHandle(group,check)
 pmtaskhandle=PMTaskHandle(group,check)
 producthandle=ProductHandle(group,check)
+
+# 项目管理，实验室管理部分
 group = ['ProjectManager','Lab']
 # 设置临时文件存放点
 tmp='tmp'

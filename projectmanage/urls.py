@@ -26,10 +26,7 @@ urlpatterns=[
     path('PMTaskHandle/stop/', views.pmtaskhandle.stop), #终止任务
     path('PMTaskHandle/cancel/', views.pmtaskhandle.cancel), # 取消操作 cmd： 取消实验 取消解读
     path('PMTaskHandle/allocate/', views.pmtaskhandle.allocate),  # 任务分配
-    # 实验室管理的任务操作
-    path('LabTaskHandle/cmd/', views.labtaskhandle.cmd), # cmd操作，进行，暂停，终止,重置
-    path('LabTaskHandle/order/', views.labtaskhandle.order), # 内部下单
-    path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
+
 
     # 分析师任务操作
     path('AnaTaskHandle/view/',views.anataskhandle.view),
@@ -54,10 +51,31 @@ urlpatterns=[
     path('PatientHandle/addproject/', views.patienthandle.addproject), # 直接下单
     path('PatientHandle/add2project/', views.patienthandle.add2project), # 添加到项目
     path('PatientHandle/batchadd/',views.patienthandle.batchadd), # 批量导入患者
-    # 样本操作
+    # 样本管理
     path('SampleHandle/init/', views.samplehandle.init), # 添加样本
     path('SampleHandle/modify/', views.samplehandle.modify), # 完善或者修改样本信息
     path('SampleHandle/view/', views.samplehandle.view), # 样本列表
+    path('SampleHandle/upload/', views.samplehandle.upload), # 批量导入样本
+    # 实验室管理的任务操作
+    path('LabTaskHandle/cmd/', views.labtaskhandle.cmd), # cmd操作，进行，暂停，终止,重置
+    path('LabTaskHandle/order/', views.labtaskhandle.order), # 内部下单
+    path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
+    # 提取管理
+    path('ExtractHandle/upload/', views.extracthandle.upload), # 批量导入数据
+    path('ExtractHandle/view/', views.extracthandle.view), # 提取结果列表
+    # 建库管理
+    path('LibraryHandle/view/', views.libraryhandle.view),  # 提取结果列表
+    path('LibraryHandle/upload/', views.libraryhandle.upload),  # 提取结果列表
+    # 杂交
+    path('HybridHandle/view/', views.hybridhandle.view),  # 提取结果列表
+    path('HybridHandle/upload/', views.hybridhandle.upload),  # 提取结果列表
+    # 质控
+    path('LabQCHandle/view/', views.labqc.view),  # 提取结果列表
+    path('LabQCHandle/upload/', views.labqc.upload),  # 提取结果列表
+    # 测序
+    path('seqhandle/view/', views.seqhandle.view),  # 提取结果列表
+    path('seqhandle/upload/', views.seqhandle.upload),  # 提取结果列表
+
     # 产品操作
     path('ProductHandle/view/',views.producthandle.view), # 产品列表
     path('ProductHandle/add/', views.producthandle.add), # 添加或修改产品

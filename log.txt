@@ -2130,3 +2130,197 @@ Traceback (most recent call last):
   File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1074, in view
     task['projectid']=project.pk
 AttributeError: 'dict' object has no attribute 'pk'
+2018-06-15 20:36:04,550: {'tumor': '', 'chip': '阿斯蒂芬', 'strategy': '你有毒啊', 'moletag': '你有毒啊', 'normaltype': '大师傅', 'normalsize': '你有毒啊', 'tumortype': '你有毒啊', 'tumorsize': '你有毒啊', 'platform': '阿斯蒂芬', 'status': '开始', 'expstatus': 'wait', 'anastatus': 'wait', 'jiedu_status': 'wait', 'reportstatus': 'wait', 'info': '你有毒啊', 'extrainfo': '你有毒啊', 'config': 'config/阿斯蒂芬', 'analyst': '', 'parser': '', 'checker': '', 'report': '', 'product': '打手犯规', 'starttime': '2018-06-15 04:40:22', 'bestuptime': '2018-06-16 04:40:22', 'worstuptime': '2018-06-17 04:40:22', 'deadline': {'$date': 1529181622279}, 'taskid': '5nNit7MrWl'}
+2018-06-15 20:36:04,560: Internal Server Error: /PMTaskHandle/modify/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 372, in modify
+    data['deadline'] = datetime.datetime.strptime(data['deadline'], '%Y-%m-%d %H:%M:%S')
+TypeError: strptime() argument 1 must be str, not dict
+2018-06-15 20:39:45,567: {'tumor': '', 'chip': '你有毒啊', 'strategy': '你有毒啊', 'moletag': '你有毒啊', 'normaltype': '你有毒啊', 'normalsize': '你有毒啊', 'tumortype': '你有毒啊', 'tumorsize': '你有毒啊', 'platform': '阿斯蒂芬', 'status': '开始', 'expstatus': 'wait', 'anastatus': 'wait', 'jiedu_status': 'wait', 'reportstatus': 'wait', 'info': '你有毒啊', 'extrainfo': '你有毒啊', 'config': 'config/阿斯蒂芬', 'analyst': '', 'parser': '', 'checker': '', 'report': '', 'product': '你有毒啊', 'starttime': '2018-06-15 04:40:22', 'bestuptime': '2018-06-16 04:40:22', 'worstuptime': '2018-06-17 04:40:22', 'deadline': '2018-06-17 04:40:22', 'taskid': 'lpVBCw9qxt'}
+2018-06-15 20:39:45,572: A ReferenceField only accepts DBRef, LazyReference, ObjectId or documents
+2018-06-15 20:41:15,687: {'tumor': '', 'chip': '阿斯蒂芬', 'strategy': '阿德法', 'moletag': '阿德法', 'normaltype': '大师傅', 'normalsize': '阿斯蒂芬', 'tumortype': '阿斯蒂芬', 'tumorsize': '阿斯蒂芬', 'platform': '阿斯蒂芬', 'status': '开始', 'expstatus': 'wait', 'anastatus': 'wait', 'jiedu_status': 'wait', 'reportstatus': 'wait', 'info': '你有毒啊', 'extrainfo': '你有毒啊', 'config': 'config/阿斯蒂芬', 'analyst': '', 'parser': '', 'checker': '', 'report': '', 'product': '打手犯规', 'starttime': '2018-06-15 04:40:22', 'bestuptime': '2018-06-16 04:40:22', 'worstuptime': '2018-06-17 04:40:22', 'deadline': '2018-06-17 04:40:22', 'taskid': '5nNit7MrWl'}
+2018-06-15 20:41:15,689: A ReferenceField only accepts DBRef, LazyReference, ObjectId or documents
+2018-06-15 20:44:43,932: {'tumor': '', 'chip': '阿斯蒂芬', 'strategy': '阿德法', 'moletag': '阿德法', 'normaltype': '大师傅', 'normalsize': '阿斯蒂芬', 'tumortype': '阿斯蒂芬', 'tumorsize': '阿斯蒂芬', 'platform': '阿斯蒂芬', 'status': '开始', 'expstatus': 'wait', 'anastatus': 'wait', 'jiedu_status': 'wait', 'reportstatus': 'wait', 'info': '你有毒啊', 'extrainfo': '你有毒啊', 'config': 'config/阿斯蒂芬', 'analyst': '', 'parser': '', 'checker': '', 'report': '', 'product': '打手犯规', 'starttime': '2018-06-15 04:40:22', 'bestuptime': '2018-06-16 04:40:22', 'worstuptime': '2018-06-17 04:40:22', 'deadline': '2018-06-17 04:40:22', 'taskid': '5nNit7MrWl'}
+2018-06-15 20:44:43,937: A ReferenceField only accepts DBRef, LazyReference, ObjectId or documents
+2018-06-15 20:45:40,191: {'tumor': '', 'chip': '阿斯蒂芬', 'strategy': '阿德法', 'moletag': '阿德法', 'normaltype': '大师傅', 'normalsize': '阿斯蒂芬', 'tumortype': '阿斯蒂芬', 'tumorsize': '阿斯蒂芬', 'platform': '阿斯蒂芬', 'status': '开始', 'expstatus': 'wait', 'anastatus': 'wait', 'jiedu_status': 'wait', 'reportstatus': 'wait', 'info': '你有毒啊', 'extrainfo': '', 'config': 'config/阿斯蒂芬', 'analyst': '', 'parser': '', 'checker': '', 'report': '', 'starttime': '2018-06-15 04:40:22', 'bestuptime': '2018-06-16 04:40:22', 'worstuptime': '2018-06-17 04:40:22', 'deadline': '2018-06-17 04:40:22', 'taskid': '5nNit7MrWl'}
+2018-06-19 14:01:23,379: add task: rfBTJPWodH 000002 MT100000 肿瘤类型
+2018-06-19 14:01:23,396: add task: 0XcRnZ3zv8 000002 打手犯规 肿瘤类型
+2018-06-19 14:02:52,711: add task: fnDYcZauQ8 000002 MT100000 胃
+2018-06-19 14:02:52,723: add task: UunX38VJrl 000002 MT100000 癌
+2018-06-19 14:02:52,728: add task: e5KOnNotbL 000002 打手犯规 胃
+2018-06-19 14:02:52,733: add task: Emwa63PJxh 000002 打手犯规 癌
+2018-06-19 14:02:52,736: [<Task: fnDYcZauQ8>, <Task: UunX38VJrl>, <Task: e5KOnNotbL>, <Task: Emwa63PJxh>]
+2018-06-19 14:03:29,899: add task: DaJvyPUQft 000001 MT100000 胃癌
+2018-06-19 14:03:29,905: add task: BQCpbuvf2S 000001 打手犯规 胃癌
+2018-06-19 14:03:29,908: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 906, in init
+    project.modify(start_time=start_time,deadline=deadline,tasks=tasks,patients=list(set(patients)),products=products)
+AttributeError: 'str' object has no attribute 'modify'
+2018-06-19 14:03:51,940: add task: 1sftuePTIb 000001 MT100000 胃癌
+2018-06-19 14:03:51,947: add task: 6aRPVGdXEg 000001 打手犯规 胃癌
+2018-06-19 14:03:51,950: Internal Server Error: /ProjectHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 906, in init
+    project.modify(start_time=start_time,deadline=deadline,tasks=tasks,patients=list(set(patients)),products=products)
+AttributeError: 'str' object has no attribute 'modify'
+2018-06-19 14:06:14,073: add task: GRqiXAUPH2 000002 MT100000 肿瘤类型
+2018-06-19 14:06:14,085: add task: eEZO0hwakN 000002 打手犯规 肿瘤类型
+2018-06-19 14:09:02,357: add task: GKwmtU5XLW 000002 MT100000 肿瘤类型
+2018-06-19 14:09:02,376: add task: RdAHKlPmBf 000002 打手犯规 肿瘤类型
+2018-06-19 14:11:12,043: add task: hmC1EaLBxI 000001 MT100000 胃癌
+2018-06-19 14:11:12,054: add task: kq2JWBFCvo 000001 打手犯规 胃癌
+2018-06-19 14:12:28,222: add task: W1vkYFVM0u 000002 MT100000 肿瘤类型
+2018-06-19 14:12:28,238: add task: 7BVOUGj2tL 000002 打手犯规 肿瘤类型
+2018-06-19 14:18:39,339: add task: HIOYWnKtps 000001 MT100000 胃癌
+2018-06-19 14:18:39,352: add task: z0GVxuy6Ml 000001 打手犯规 胃癌
+2018-06-19 14:18:39,360: add task: 2CTSRolVXs 000001 MT100000 胃癌
+2018-06-19 14:18:39,367: add task: Qacb42T16v 000001 打手犯规 胃癌
+2018-06-19 14:19:05,248: add task: k0DThzA1Mp 000001 MT100000 胃癌
+2018-06-19 14:19:05,260: add task: sKkPWhQZEw 000001 打手犯规 胃癌
+2018-06-19 14:19:05,277: add task: HSouDZLNl1 000002 MT100000 肿瘤类型
+2018-06-19 14:19:05,284: add task: hFImWnJ81O 000002 打手犯规 肿瘤类型
+2018-06-19 14:19:05,291: add task: 6MQ4RBWl0u 000002 MT100000 肿瘤类型
+2018-06-19 14:19:05,299: add task: A0aSjMUdVp 000002 打手犯规 肿瘤类型
+2018-06-19 14:19:05,306: add task: hmHvM3Bkwr 000002 MT100000 肿瘤类型
+2018-06-19 14:19:05,313: add task: TXERH3W6Po 000002 打手犯规 肿瘤类型
+2018-06-19 14:19:11,042: add task: UWcwGmh3nS 000001 MT100000 胃癌
+2018-06-19 14:19:11,055: add task: H7WB2MpQEg 000001 打手犯规 胃癌
+2018-06-19 14:19:11,062: add task: UIwT1PcksQ 000002 MT100000 肿瘤类型
+2018-06-19 14:19:11,069: add task: VYq91O4DZK 000002 打手犯规 肿瘤类型
+2018-06-19 14:19:11,080: add task: Rbre2WdZpk 000002 MT100000 肿瘤类型
+2018-06-19 14:19:11,104: add task: PY1LrvR9hl 000002 打手犯规 肿瘤类型
+2018-06-19 14:19:11,112: add task: ACRxtXDMbg 000002 MT100000 肿瘤类型
+2018-06-19 14:19:11,119: add task: ZMW4xkwgH0 000002 打手犯规 肿瘤类型
+2018-06-19 15:00:32,036: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 524, in order
+    for task in data['task_list']:
+KeyError: 'task_list'
+2018-06-19 15:19:07,900: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 566, in order
+    return HttpResponse(json.dumps(data,ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Patient' is not JSON serializable
+2018-06-19 17:10:32,882: Internal Server Error: /SampleHandle/init/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1318, in init
+    if len(Patient.objects(pk=data['patient']['patientid'])) == 0:
+TypeError: string indices must be integers
+2018-06-19 17:21:01,548: Internal Server Error: /SampleHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1387, in view
+    sample['recievetime']=datetime.datetime.fromtimestamp(tz='')
+TypeError: Required argument 'timestamp' (pos 1) not found
+2018-06-19 17:32:30,576: add task: Q7FaM5eYm6 1800445 MT100000 胃
+2018-06-19 17:32:30,582: add task: onU1emCFx4 1800445 MT100000 癌
+2018-06-19 17:32:30,588: add task: 0bodnVHlRZ 1800445 打手犯规 胃
+2018-06-19 17:32:30,594: add task: WumDT5JC48 1800445 打手犯规 癌
+2018-06-19 17:32:30,597: [<Task: Q7FaM5eYm6>, <Task: onU1emCFx4>, <Task: 0bodnVHlRZ>, <Task: WumDT5JC48>]
+2018-06-19 17:37:26,812: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 566, in order
+    return HttpResponse(json.dumps(data,ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Sample' is not JSON serializable
+2018-06-19 17:37:32,624: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 566, in order
+    return HttpResponse(json.dumps(data,ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Sample' is not JSON serializable
+2018-06-19 17:37:53,392: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 566, in order
+    return HttpResponse(json.dumps(data,ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'Sample' is not JSON serializable
