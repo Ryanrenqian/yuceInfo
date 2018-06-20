@@ -174,7 +174,7 @@ class Library(Document):
     time1=StringField(default='')
     time2=StringField(default='')
     info=StringField(default='')
-    status='开始'
+    status=StringField(default='开始')
     def __str__(self):
         return self.pk
 # 杂交
