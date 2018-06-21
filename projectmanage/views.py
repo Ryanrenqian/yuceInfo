@@ -992,7 +992,7 @@ class ProjectHandle(Handle):
                 if data['cmd']=='审核':
                     project.modify(status='审核通过')
                     for task in project.tasks:
-                        if task.status != '等待':
+                        if task.status in ['终止','暂停','进行']:
                             continue
                         starttime = datetime.datetime.now()
                         bestuptime = datetime.datetime.now() + datetime.timedelta(days=task.product.bestuptime)
@@ -1409,7 +1409,7 @@ class ExperimentHandle(Handle):
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
-                data=json.load(Experiment.objects.all().to_json(ensure_ascii=False))
+                data=json.loads(Experiment.objects.all().to_json(ensure_ascii=False))
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
@@ -1421,10 +1421,10 @@ class ExtractHandle(Handle):
         message = {}
         if self.is_valid(request):
             items=[]
-            experiments = Experiment.objects(point='提取').all()
+            experiments = Experiment.objects().all()
             for exp in experiments:
                 extract = json.loads(Extraction.objects(pk=exp.sampleid).first().to_json(ensure_ascii=False))
-                if extract['status']=='完成':
+                if exp.point=='提取'and extract['status']=='完成':
                     exp.modify(point='建库')
                 item={}
                 item['expid']=exp.pk
@@ -1454,7 +1454,7 @@ class ExtractHandle(Handle):
                     if f.endswith('.xlsx'):
                         data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
                     elif f.endswith('.csv'):
-                        data = pd.read_csv(f, header=0, sheetname=0, dtype=str)
+                        data = pd.read_csv(f, header=0, dtype=str)
                     for i in data.index:
                         row = data.loc[i].to_dict()
                         Extraction(status='完成',**row).save()
@@ -1501,15 +1501,15 @@ class LibraryHandle(Handle):
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
-                experiments = Experiment.objects(point='建库').all()
+                experiments = Experiment.objects().all()
                 items=[]
                 for exp in experiments:
                     library=Library.objects(pk=exp.sampleid).first()
                     if library == None:
                         library = Library(pk=exp.sampleid)
                         library.save()
-                    library = json.load(library.to_json(ensure_ascii=False))
-                    if library['status'] == '完成':
+                    library = json.loads(library.to_json(ensure_ascii=False))
+                    if library['status'] == '完成' and exp.point=='建库':
                         exp.modify(point='杂交')
                     item = {}
                     item['expid']= exp.pk
@@ -1555,7 +1555,7 @@ class LibraryHandle(Handle):
                 data=[]
                 for i in Library.objects(status='开始').all():
                     item = json.loads(i.to_json(ensure_ascii=False))
-                    item['sampleid']=i.pop('_id')
+                    item['sampleid']=item.pop('_id')
                     item.pop('status')
                     data.append(item)
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
@@ -1575,11 +1575,11 @@ class HybridHandle(Handle):
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
-                experiments = Experiment.objects(point='建库').all()
+                experiments = Experiment.objects().all()
                 items=[]
                 for exp in experiments:
                     hybrid=Hybridization.objects(pk=exp.sampleid).first()
-                    if hybrid == None:
+                    if hybrid == None and exp.point=='建库':
                         hybrid = Hybridization(pk=exp.sampleid)
                         hybrid.save()
                     hybrid = json.loads(hybrid.to_json(ensure_ascii=False))
@@ -1649,11 +1649,11 @@ class LabQCHandle(Handle):
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
-                experiments = Experiment.objects(point='建库').all()
+                experiments = Experiment.objects().all()
                 items=[]
                 for exp in experiments:
                     qc=QualityControl.objects(pk=exp.pk).first()
-                    if qc == None:
+                    if qc == None and exp.point=='建库':
                         qc = QualityControl(pk=exp.pk)
                         qc.save()
                     qc = json.loads(qc.to_json(ensure_ascii=False))
@@ -1722,11 +1722,11 @@ class SeqHandle(Handle):
         message = {}
         if self.is_valid(request):
             if request.method == 'GET':
-                experiments = Experiment.objects(point='建库').all()
+                experiments = Experiment.objects().all()
                 items=[]
                 for exp in experiments:
                     seq=Sequencing.objects(pk=exp.pk).first()
-                    if seq == None:
+                    if seq == None and exp.point=='建库':
                         seq = Sequencing(pk=exp.pk)
                         seq.save()
                     seq = json.loads(seq.to_json(ensure_ascii=False))
@@ -1878,13 +1878,14 @@ check=False
 
 # 实验室管理部分
 group=['Lab']
-samplehandle=SampleHandle(group,check)
-labtaskhandle=LabTaskHandle(group,check)
-extracthandle=ExtractHandle(group,check)
-libraryhandle=LibraryHandle(group,check)
-hybridhandle=HybridHandle(group,check)
-labqc=LabQCHandle(group,check)
-seqhandle=SeqHandle(group,check)
+tmp='tmp'
+samplehandle=SampleHandle(group,check,tmp='tmp' )
+labtaskhandle=LabTaskHandle(group,check,tmp='tmp' )
+extracthandle=ExtractHandle(group,check,tmp='tmp' )
+libraryhandle=LibraryHandle(group,check,tmp='tmp' )
+hybridhandle=HybridHandle(group,check,tmp='tmp' )
+labqc=LabQCHandle(group,check,tmp='tmp' )
+seqhandle=SeqHandle(group,check,tmp='tmp' )
 # 项目管理部分
 group=['ProjectManager']
 projecthandle=ProjectHandle(group,check)

@@ -3599,3 +3599,287 @@ Traceback (most recent call last):
   File "/Users/ryan/anaconda3/lib/python3.6/posixpath.py", line 78, in join
     a = os.fspath(a)
 TypeError: expected str, bytes or os.PathLike object, not NoneType
+2018-06-21 17:29:22,418: Internal Server Error: /ProductHandle/batchadd/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1846, in batchadd
+    product.save()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 354, in save
+    self.validate(clean=clean)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 394, in validate
+    raise ValidationError(message, errors=errors)
+mongoengine.errors.ValidationError: ValidationError (Product:MT1010) (nan could not be converted to int: ['bestuptime', 'worstuptime'])
+2018-06-21 17:30:56,430: Internal Server Error: /ProductHandle/batchadd/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1846, in batchadd
+    product.save()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 354, in save
+    self.validate(clean=clean)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 394, in validate
+    raise ValidationError(message, errors=errors)
+mongoengine.errors.ValidationError: ValidationError (Product:MT1010) (nan could not be converted to int: ['bestuptime', 'worstuptime'])
+2018-06-21 17:47:44,810: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:47:46,296: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:49:03,018: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:50:36,569: add task: zLc5MF4jAU 1800445 MT100000 肺癌
+2018-06-21 17:50:36,576: add task: max9V2OrCp 1800445 打手犯规 肺癌
+2018-06-21 17:50:36,583: add task: gvJAxy4RmD 1800445 MT1010 肺癌
+2018-06-21 17:50:36,599: add task: ymfvAu5s4H 1800445 MT1011 肺癌
+2018-06-21 17:50:36,605: add task: 7k0qhPvlrt 1800445 MT1020 肺癌
+2018-06-21 17:50:36,611: add task: XtyiwMPr9z 1800445 MT1021 肺癌
+2018-06-21 17:50:36,616: add task: O73ot1MXrG 1800445 MT1031 肺癌
+2018-06-21 17:50:36,621: add task: Yac8HSBDw5 1800445 MT2010 肺癌
+2018-06-21 17:50:36,626: add task: fXQrHLAgDM 1800445 MT2011 肺癌
+2018-06-21 17:50:36,632: add task: Uzgl128R7F 1800445 MT3010 肺癌
+2018-06-21 17:50:36,637: add task: iLszUC4bnF 1800445 MT3011 肺癌
+2018-06-21 17:50:36,642: add task: jPDaNUyutR 1800445 MT0070 肺癌
+2018-06-21 17:50:36,648: add task: PUM9xrbkGA 1800445 MT0071 肺癌
+2018-06-21 17:50:36,653: add task: l71mREjMbI 1800445 MT0040 肺癌
+2018-06-21 17:50:36,658: add task: 4yn9LPp7vR 1800445 MT0030 肺癌
+2018-06-21 17:50:36,664: add task: hnQLqlv9zM 1800445 MT0090 肺癌
+2018-06-21 17:50:36,669: add task: AXnr8Z3tdy 1800445 MT0510 肺癌
+2018-06-21 17:50:36,675: add task: 7Rn5hA3xt4 1800445 MT0050 肺癌
+2018-06-21 17:50:36,680: add task: 9QirdF5o2z 1800445 MT0010 肺癌
+2018-06-21 17:50:36,685: add task: CysSNzm1O7 1800445 MT0020 肺癌
+2018-06-21 17:50:36,691: add task: XwWrgo1cYC 1800445 MT0061 肺癌
+2018-06-21 17:50:36,712: add task: 9kPxICcJAm 1800445 MT0031 肺癌
+2018-06-21 17:50:36,719: add task: MirFPBd13w 1800445 MT2020 肺癌
+2018-06-21 17:50:36,725: add task: 4lN3gS9b6k 1800445 MT2021 肺癌
+2018-06-21 17:50:36,731: add task: sLWro2Z9eC 1800445 MT2030 肺癌
+2018-06-21 17:50:36,736: add task: QTLu40vlrD 1800445 MT3020 肺癌
+2018-06-21 17:50:36,742: add task: zYDdLP3mRS 1800445 MT3021 肺癌
+2018-06-21 17:50:36,748: add task: M41gICdfOw 1800121 MT100000 乳腺癌
+2018-06-21 17:51:26,859: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:52:43,922: Internal Server Error: /ExtractHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1451, in upload
+    f = handle_uploaded_file(request.FILES['file'], self.tmp)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 70, in handle_uploaded_file
+    file=os.path.join(tmp,f.name)
+  File "/Users/ryan/anaconda3/lib/python3.6/posixpath.py", line 78, in join
+    a = os.fspath(a)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+2018-06-21 17:54:02,345: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:54:06,355: Internal Server Error: /ExtractHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1457, in upload
+    data = pd.read_csv(f, header=0, sheetname=0, dtype=str)
+TypeError: parser_f() got an unexpected keyword argument 'sheetname'
+2018-06-21 17:55:13,640: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:55:42,551: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:55:48,393: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 17:55:51,718: Internal Server Error: /ExtractHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1460, in upload
+    Extraction(status='完成',**row).save()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 354, in save
+    self.validate(clean=clean)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 394, in validate
+    raise ValidationError(message, errors=errors)
+mongoengine.errors.ValidationError: ValidationError (Extraction:18A000001SL) (StringField only accepts string values: ['type'])
+2018-06-21 17:58:01,908: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 17:58:12,079: []
+2018-06-21 17:58:23,992: []
+2018-06-21 17:58:48,758: []
+2018-06-21 18:02:54,611: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:02:58,315: Internal Server Error: /LibraryHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1511, in view
+    library = json.load(library.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-21 18:03:45,758: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1558, in download
+    item['sampleid']=i.pop('_id')
+AttributeError: 'Library' object has no attribute 'pop'
+2018-06-21 18:03:45,760: Internal Server Error: /LibraryHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1511, in view
+    library = json.load(library.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-21 18:03:47,779: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:03:48,486: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1558, in download
+    item['sampleid']=i.pop('_id')
+AttributeError: 'Library' object has no attribute 'pop'
+2018-06-21 18:03:48,487: Internal Server Error: /LibraryHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1511, in view
+    library = json.load(library.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-21 18:03:55,538: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1558, in download
+    item['sampleid']=i.pop('_id')
+AttributeError: 'Library' object has no attribute 'pop'
+2018-06-21 18:03:55,550: Internal Server Error: /LibraryHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1511, in view
+    library = json.load(library.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-21 18:04:38,709: Not Found: /favicon.ico
+2018-06-21 18:04:47,249: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1558, in download
+    item['sampleid']=i.pop('_id')
+AttributeError: 'Library' object has no attribute 'pop'
+2018-06-21 18:04:47,252: Internal Server Error: /LibraryHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1511, in view
+    library = json.load(library.to_json(ensure_ascii=False))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 296, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+2018-06-21 18:06:34,453: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1558, in download
+    item['sampleid']=i.pop('_id')
+AttributeError: 'Library' object has no attribute 'pop'
+2018-06-21 18:07:37,889: Internal Server Error: /ProductHandle/batchadd/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1846, in batchadd
+    product.save()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 354, in save
+    self.validate(clean=clean)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 394, in validate
+    raise ValidationError(message, errors=errors)
+mongoengine.errors.ValidationError: ValidationError (Product:产品编号) (产品周期 could not be converted to int: ['period'] 最优上机时间 could not be converted to int: ['bestuptime'] 最坏上机时间 could not be converted to int: ['worstuptime'])
+2018-06-21 18:08:06,135: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:08:11,522: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:08:13,744: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:09:25,768: Internal Server Error: /ProductHandle/batchadd/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1846, in batchadd
+    product.save()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/document.py", line 354, in save
+    self.validate(clean=clean)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 394, in validate
+    raise ValidationError(message, errors=errors)
+mongoengine.errors.ValidationError: ValidationError (Product:产品编号) (产品周期 could not be converted to int: ['period'] 最优上机时间 could not be converted to int: ['bestuptime'] 最坏上机时间 could not be converted to int: ['worstuptime'])
+2018-06-21 18:09:47,343: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:09:55,064: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:09:56,946: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '建库', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-21 18:18:52,363: Internal Server Error: /LabQCHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1692, in upload
+    QualityControl(status='完成',**row).save()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'postid\tQseppeak\tqPCR_concentration\tqPCR_concentration_origional\tqPCRQB\tqPCRreagent\tlot\tqualify\toperator1\toperator2\tlocation\tremarks\ttime\texpid'}" do not exist on the document "QualityControl"
+2018-06-21 18:24:09,860: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
