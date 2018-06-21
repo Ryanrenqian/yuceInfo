@@ -3540,3 +3540,62 @@ Traceback (most recent call last):
   File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
     raise InvalidQueryError(e)
 mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-21 15:43:24,189: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 15:49:32,271: Not Found: /undefined
+2018-06-21 15:54:17,093: Internal Server Error: /SampleHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1340, in upload
+    f = handle_uploaded_file(request.FILES['file'], self.tmp)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 70, in handle_uploaded_file
+    file=os.path.join(tmp,f.name)
+  File "/Users/ryan/anaconda3/lib/python3.6/posixpath.py", line 78, in join
+    a = os.fspath(a)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+2018-06-21 16:01:10,282: add task: tTsUr73z2B 000002 MT100000 肿瘤类型
+2018-06-21 16:01:10,293: add task: i7Jo9BLtwa 000002 打手犯规 肿瘤类型
+2018-06-21 16:01:10,301: add task: p3yIrdf8o7 000001 MT100000 胃癌
+2018-06-21 16:01:10,307: add task: kdLuMryK8m 000001 打手犯规 胃癌
+2018-06-21 16:01:10,314: add task: wO7RdsNCjP 1800445 MT100000 肺癌
+2018-06-21 16:01:10,320: add task: J95CmY13wu 1800445 打手犯规 肺癌
+2018-06-21 16:01:10,326: add task: 29HqjQSv56 1800121 MT100000 乳腺癌
+2018-06-21 16:01:10,332: add task: qUFWhawS92 1800121 打手犯规 乳腺癌
+2018-06-21 16:01:10,338: add task: 5QB1WHgwn8 180000257 MT100000 双发肺癌、食管癌
+2018-06-21 16:01:10,344: add task: C8BnftO1Dw 180000257 打手犯规 双发肺癌、食管癌
+2018-06-21 16:25:46,522: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 16:25:51,431: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-21 16:26:03,430: Internal Server Error: /SampleHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1340, in upload
+    f = handle_uploaded_file(request.FILES['file'], self.tmp)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 70, in handle_uploaded_file
+    file=os.path.join(tmp,f.name)
+  File "/Users/ryan/anaconda3/lib/python3.6/posixpath.py", line 78, in join
+    a = os.fspath(a)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+2018-06-21 16:27:45,114: Internal Server Error: /SampleHandle/upload/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1340, in upload
+    f = handle_uploaded_file(request.FILES['file'], self.tmp)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 70, in handle_uploaded_file
+    file=os.path.join(tmp,f.name)
+  File "/Users/ryan/anaconda3/lib/python3.6/posixpath.py", line 78, in join
+    a = os.fspath(a)
+TypeError: expected str, bytes or os.PathLike object, not NoneType

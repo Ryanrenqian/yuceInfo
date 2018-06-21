@@ -58,7 +58,7 @@ class Patient(Document):
     sales=StringField(default='')
     def __str__(self):
         return self.patientid
-# 任务
+# 订单
 class Task(Document):
     # 下单部分
     taskid=StringField(primary_key=True)
@@ -111,7 +111,7 @@ class Project(Document):
     delay = StringField(default='否')
     def __str__(self):
         return self.pk
-# 实验编号
+# 实验
 class Experiment(Document):
     expid=StringField(primary_key=True)
     task=ReferenceField(Task)

@@ -1189,7 +1189,10 @@ class PatientHandle(Handle):
                     try:
                         fail = []
                         warn = []
-                        data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                        if f.endswith('.xlsx'):
+                            data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                        elif f.endswith('.csv'):
+                            data = pd.read_csv(f, header=0, dtype=str)
                         for i in data.index:
                             row = data.loc[i].to_dict()
                             if len(Patient.objects(patientid=row['patientid'])) == 0:
@@ -1201,8 +1204,11 @@ class PatientHandle(Handle):
                                     fail.append(row['patientid'] + row['patientname'])
                             else:
                                 warn.append(row['patientid'])
-                        message['warning'] = '以下患者编号已存在：%s' % ' '.join(warn)
-                        message['error'] = '以下患者保存失败：%s' % ' '.join(fail)
+                        if len(warn)>0 or len(fail)>0:
+                            message['warning'] = '以下患者编号已存在：%s' % ' '.join(warn)
+                            message['error'] = '以下患者保存失败：%s' % ' '.join(fail)
+                        else:
+                            message['success']='完全导入成功'
                     except Exception as e:
                         message['error'] = str(e)
         else:
@@ -1341,7 +1347,10 @@ class SampleHandle(Handle):
                 if os.path.getsize(f) == request.FILES['file'].size:
                     fail = []
                     warn = []
-                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    if f.endswith('.xlsx'):
+                        data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                    elif f.endswith('.csv'):
+                        data = pd.read_csv(f, header=0, dtype=str)
                     for i in data.index:
                         row = data.loc[i].to_dict()
                         if len(Sample.objects(pk=row['sampleid'])) == 0:
@@ -1526,7 +1535,10 @@ class LibraryHandle(Handle):
             if request.method == 'POST':
                 f = handle_uploaded_file(request.FILES['file'], self.tmp)
                 if os.path.getsize(f) == request.FILES['file'].size:
-                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    if f.endswith('.xlsx'):
+                        data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                    elif f.endswith('.csv'):
+                        data = pd.read_csv(f, header=0, dtype=str)
                     for i in data.index:
                         row = data.loc[i].to_dict()
                         Library(status='完成',**row).save()
@@ -1597,7 +1609,10 @@ class HybridHandle(Handle):
             if request.method == 'POST':
                 f = handle_uploaded_file(request.FILES['file'], self.tmp)
                 if os.path.getsize(f) == request.FILES['file'].size:
-                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    if f.endswith('.xlsx'):
+                        data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                    elif f.endswith('.csv'):
+                        data = pd.read_csv(f, header=0, dtype=str)
                     for i in data.index:
                         row = data.loc[i].to_dict()
                         Hybridization(status='完成',**row).save()
@@ -1668,7 +1683,10 @@ class LabQCHandle(Handle):
             if request.method == 'POST':
                 f = handle_uploaded_file(request.FILES['file'], self.tmp)
                 if os.path.getsize(f) == request.FILES['file'].size:
-                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    if f.endswith('.xlsx'):
+                        data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                    elif f.endswith('.csv'):
+                        data = pd.read_csv(f, header=0, dtype=str)
                     for i in data.index:
                         row = data.loc[i].to_dict()
                         QualityControl(status='完成',**row).save()
@@ -1738,7 +1756,10 @@ class SeqHandle(Handle):
             if request.method == 'POST':
                 f = handle_uploaded_file(request.FILES['file'], self.tmp)
                 if os.path.getsize(f) == request.FILES['file'].size:
-                    data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                    if f.endswith('.xlsx'):
+                        data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                    elif f.endswith('.csv'):
+                        data = pd.read_csv(f, header=0, dtype=str)
                     for i in data.index:
                         row = data.loc[i].to_dict()
                         Sequencing(status='完成',**row).save()
@@ -1804,26 +1825,28 @@ class ProductHandle(Handle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
-    def batchadd(self,request):
-        def batchadd(self, request):
-            '''
-            批量导入患者
-            :param request:
-            :return:
-            '''
-            message = {}
-            if self.is_valid(request):
-                if request.method == 'POST':
-                    f = handle_uploaded_file(request.FILES['file'], self.tmp)
-                    if os.path.getsize(f) == request.FILES['file'].size:
-                            data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
-                            for i in data.index:
-                                row = data.loc[i].to_dict()
-                                product = Product(**row)
-                                product.save()
-            else:
-                message['warning'] = '对不起，您没有权限'
-            return HttpResponse(json.dumps(message, ensure_ascii=False))
+    def batchadd(self, request):
+        '''
+        批量导入患者
+        :param request:
+        :return:
+        '''
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                f = handle_uploaded_file(request.FILES['file'], self.tmp)
+                if os.path.getsize(f) == request.FILES['file'].size:
+                    if f.endswith('.xlsx'):
+                        data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                    elif f.endswith('.csv'):
+                        data = pd.read_csv(f, header=0, dtype=str)
+                    for i in data.index:
+                        row = data.loc[i].to_dict()
+                        product = Product(**row)
+                        product.save()
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
 
 class FileView:
     '''
@@ -1865,14 +1888,14 @@ seqhandle=SeqHandle(group,check)
 group=['ProjectManager']
 projecthandle=ProjectHandle(group,check)
 pmtaskhandle=PMTaskHandle(group,check)
-producthandle=ProductHandle(group,check)
+
 
 # 项目管理，实验室共同管理部分
 group = ['ProjectManager','Lab']
 
 tmp='tmp' # 设置临时上传文件存放点
 patienthandle=PatientHandle(group,check,tmp=tmp)
-
+producthandle=ProductHandle(group,check,tmp=tmp)
 # 分析师管理部分
 group = ['Analyst']
 workdir='tmp' #设置分析目录
