@@ -110,7 +110,6 @@ class Ldapc:
 
 ldapc=Ldapc('ldap://192.168.1.211:389')
 
-
 class Handle:
     '''
     处理器父类：提供权限检查和临时文件存储支持
@@ -1787,6 +1786,7 @@ class ProductHandle(Handle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
+
     def view(self,request):
         '''
         视图函数
@@ -1803,6 +1803,27 @@ class ProductHandle(Handle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def batchadd(self,request):
+        def batchadd(self, request):
+            '''
+            批量导入患者
+            :param request:
+            :return:
+            '''
+            message = {}
+            if self.is_valid(request):
+                if request.method == 'POST':
+                    f = handle_uploaded_file(request.FILES['file'], self.tmp)
+                    if os.path.getsize(f) == request.FILES['file'].size:
+                            data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
+                            for i in data.index:
+                                row = data.loc[i].to_dict()
+                                product = Product(**row)
+                                product.save()
+            else:
+                message['warning'] = '对不起，您没有权限'
+            return HttpResponse(json.dumps(message, ensure_ascii=False))
 
 class FileView:
     '''
@@ -1846,17 +1867,18 @@ projecthandle=ProjectHandle(group,check)
 pmtaskhandle=PMTaskHandle(group,check)
 producthandle=ProductHandle(group,check)
 
-# 项目管理，实验室管理部分
+# 项目管理，实验室共同管理部分
 group = ['ProjectManager','Lab']
-# 设置临时文件存放点
-tmp='tmp'
+
+tmp='tmp' # 设置临时上传文件存放点
 patienthandle=PatientHandle(group,check,tmp=tmp)
+
+# 分析师管理部分
 group = ['Analyst']
-#设置分析目录
-workdir='tmp'
+workdir='tmp' #设置分析目录
 workdir=os.path.abspath(workdir)
 anataskhandle=AanaTaskHandle(group,check,workdir=workdir)
 fileview=FileView(workdir=workdir)
-# 设置报告存放地址
-reportdir='tmp'
+
+reportdir='tmp' # 设置报告存放地址
 jiedutaskhandle=JieduTaskHandle(group,check,workdir=reportdir)

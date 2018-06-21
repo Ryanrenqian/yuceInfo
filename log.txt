@@ -3385,3 +3385,158 @@ Traceback (most recent call last):
 mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
 2018-06-20 17:42:03,066: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
 2018-06-20 17:42:08,784: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 18:13:57,394: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 18:14:00,731: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 18:14:06,866: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 18:14:07,727: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 18:20:04,001: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
+2018-06-20 18:20:04,555: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '正常', '_id': '18A000001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '提取', 'expstatus': '进行', '_id': '18A0001SL', 'type': '', 'extraction_volume': 0.0, 's260280': '', 's260230': '', 'take3': '', 'QB': '', 'mass': '', 'RQN': '', 'DV200': '', 's2818': '', 'qualify': '', 'operator1': '', 'operator2': '', 'remaining_mass': '', 'reagent': '', 'lot': '', 'location': '', 'time': '', 'remarks': '', 'status': '开始'}]
+2018-06-20 18:20:05,701: Internal Server Error: /LibraryHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 61, in query
+    fields = _doc_cls._lookup_field(parts)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 1008, in _lookup_field
+    raise LookUpError('Cannot resolve field "%s"' % field_name)
+mongoengine.errors.LookUpError: Cannot resolve field "status"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1545, in download
+    for i in Library.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1466, in __next__
+    raw_doc = next(self._cursor)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1547, in _cursor
+    self._cursor_obj = self._collection.find(self._query,
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1590, in _query
+    self._mongo_query = self._query_obj.to_query(self._document)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 89, in to_query
+    query = query.accept(QueryCompilerVisitor(document))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 155, in accept
+    return visitor.visit_query(self)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/visitor.py", line 78, in visit_query
+    return transform.query(self.document, **query.query)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/transform.py", line 63, in query
+    raise InvalidQueryError(e)
+mongoengine.errors.InvalidQueryError: Cannot resolve field "status"
