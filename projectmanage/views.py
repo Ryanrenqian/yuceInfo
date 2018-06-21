@@ -1844,6 +1844,7 @@ class ProductHandle(Handle):
                         row = data.loc[i].to_dict()
                         product = Product(**row)
                         product.save()
+                message['success']='产品导入成功'
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
