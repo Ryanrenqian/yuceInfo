@@ -417,7 +417,7 @@ class PMTaskHandle(TaskHandle):
                     task.modify(status='终止',
                                 expstatus='终止',
                                 anastatus='终止',
-                                jiedustatus='终止',
+                                jiedu_status='终止',
                                 reportstatus='终止',
                                 info=data['info'])
                     message['success'] = '终止成功'
