@@ -555,6 +555,7 @@ class LabTaskHandle(TaskHandle):
                     item={}
                     item['task']=task.pk
                     item['patient']=str(task.patient)
+                    item['patientname']=task.patient.patientname
                     item['lane']=task.product.lane
                     item['normal']=''
                     item['tumor']=''
@@ -1731,6 +1732,7 @@ class LabQCHandle(Handle):
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
 class SeqHandle(Handle):
+
     def view(self,request):
         '''
         视图函数
