@@ -552,8 +552,7 @@ class LabTaskHandle(TaskHandle):
                 data={}
                 task_list=[]
                 for task in Task.objects(expstatus='开始').all():
-                    item=json.loads(task.to_json(ensure_ascii=False))
-                    item.pop('_id')
+                    item={}
                     item['task']=task.pk
                     item['patient']=str(task.patient)
                     item['lane']=task.product.lane

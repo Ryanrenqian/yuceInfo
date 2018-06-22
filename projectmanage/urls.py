@@ -60,6 +60,10 @@ urlpatterns=[
     path('LabTaskHandle/cmd/', views.labtaskhandle.cmd), # cmd操作，进行，暂停，终止,重置
     path('LabTaskHandle/order/', views.labtaskhandle.order), # 内部下单
     path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
+    # 实验管理
+    path('ExperimentHandle/view/', views.labtaskhandle.view),  # 实验列表
+    path('ExperimentHandle/cmd/', views.labtaskhandle.view),  # 实验列表
+
     # 提取管理
     path('ExtractHandle/download/', views.extracthandle.download), # 批量导入数据
     path('ExtractHandle/upload/', views.extracthandle.upload), # 批量导入数据
