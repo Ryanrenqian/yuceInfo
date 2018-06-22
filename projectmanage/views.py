@@ -1400,8 +1400,7 @@ class SampleHandle(Handle):
                 sample_list = json.loads(Sample.objects().all().to_json(ensure_ascii=False))
                 for sample in sample_list:
                     sample['sampleid']=sample.pop('_id')
-                    sample['recievetime']=datetime.datetime.fromtimestamp(sample['recievetime']['$date'] / 1000).strftime(
-                        '%Y-%m-%d %H:%M:%S')
+                    sample['recievetime']=int(sample['recievetime']['$date']/1000)
                 return HttpResponse(json.dumps(sample_list,ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
@@ -1485,15 +1484,14 @@ class ExtractHandle(Handle):
         '''下载数据'''
         message = {}
         if self.is_valid(request):
-            if request.method == 'POST':
-                data=[]
-                for i in Extraction.objects(status='开始').all():
-                    item=json.loads(i.to_json(ensure_ascii=False))
-                    item['sampleid']=item.pop('_id')
-                    item.pop('status')
-                    data.append(item)
-                return HttpResponse(json.dumps(data, ensure_ascii=False))
-
+            data=[]
+            for i in Extraction.objects(status='开始').all():
+                item=json.loads(i.to_json(ensure_ascii=False))
+                item['sampleid']=item.pop('_id')
+                item.pop('status')
+                logging.info(item)
+                data.append(item)
+            return HttpResponse(json.dumps(data, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
