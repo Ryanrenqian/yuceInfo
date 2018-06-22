@@ -555,7 +555,6 @@ class LabTaskHandle(TaskHandle):
                     item={}
                     item['task']=task.pk
                     item['patient']=str(task.patient)
-                    item['patientname']=task.patient.patientname
                     item['lane']=task.product.lane
                     item['normal']=''
                     item['tumor']=''
