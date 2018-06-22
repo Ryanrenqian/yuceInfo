@@ -369,8 +369,8 @@ class PMTaskHandle(TaskHandle):
                 data = json.loads(request.body.decode('utf-8'))
                 logging.debug(data)
                 task = Task.objects(pk=data['taskid']).first()
-                data['starttime']=datetime.datetime.strptime(data['starttime'], '%Y-%m-%d %H:%M:%S')
-                data['deadline'] = datetime.datetime.strptime(data['deadline'], '%Y-%m-%d %H:%M:%S')
+                # data['starttime']=datetime.datetime.strptime(data['starttime'], '%Y-%m-%d %H:%M:%S')
+                # data['deadline'] = datetime.datetime.strptime(data['deadline'], '%Y-%m-%d %H:%M:%S')
                 try:
                     task.modify(**data)
                     message['success']='任务修改成功'
@@ -1126,8 +1126,8 @@ class PatientHandle(Handle):
                 patient_list = json.loads(patient_list.to_json(ensure_ascii=False))
                 for patient in patient_list:
                     patient['patientid'] = patient.pop('_id')
-                    samples = json.loads(Sample.objects(patient=patient['patientid']).all().to_json(ensure_ascii=False))
-                    patient['samples'] = samples
+                    samples = [i.pk for i in Sample.objects(patient=patient['patientid']).all()]
+                    patient['samples'] = ','.join(samples)
                 return HttpResponse(json.dumps({'data': patient_list}, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
@@ -1384,8 +1384,7 @@ class SampleHandle(Handle):
                 data = json.loads(request.body.decode('utf-8'))
                 logging.info(str(data))
                 Sample(**data).save()
-                message['success']='保存成功'
-
+                message['success']='修改成功'
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1434,6 +1433,17 @@ class ExperimentHandle(Handle):
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
 
+    def modify(self,request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                logging.info(str(data))
+                Sample(**data).save()
+                message['success'] = '修改成功'
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
 class ExtractHandle(Handle):
 
     def view(self,request):
