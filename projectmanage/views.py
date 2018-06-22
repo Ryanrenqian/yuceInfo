@@ -1351,7 +1351,7 @@ class SampleHandle(Handle):
                     fail = []
                     warn = []
                     if f.endswith('.xlsx'):
-                        data = pd.read_excel(f, header=0, sheet_name=0, dtype=str)
+                        data = pd.read_excel(f, header=0, sheet_name=0)
                     elif f.endswith('.csv'):
                         data = pd.read_csv(f, header=0, dtype=str)
                     for i in data.index:
