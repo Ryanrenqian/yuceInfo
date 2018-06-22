@@ -61,8 +61,8 @@ urlpatterns=[
     path('LabTaskHandle/order/', views.labtaskhandle.order), # 内部下单
     path('LabTaskHandle/view/', views.labtaskhandle.view), # 任务列表
     # 实验管理
-    path('ExperimentHandle/view/', views.labtaskhandle.view),  # 实验列表
-    path('ExperimentHandle/cmd/', views.labtaskhandle.view),  # 实验cmd
+    path('ExperimentHandle/view/', views.experimenthandle.view),  # 实验列表
+    path('ExperimentHandle/cmd/', views.experimenthandle.cmd),  # 实验cmd
 
     # 提取管理
     path('ExtractHandle/download/', views.extracthandle.download), # 批量导入数据

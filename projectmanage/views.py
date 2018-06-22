@@ -1922,6 +1922,7 @@ group=['Lab']
 tmp='tmp' # 临时文件存放点
 samplehandle=SampleHandle(group,check,tmp=tmp)
 labtaskhandle=LabTaskHandle(group,check,tmp=tmp)
+experimenthandle=ExperimentHandle(group,check,tmp=tmp)
 extracthandle=ExtractHandle(group,check,tmp=tmp)
 libraryhandle=LibraryHandle(group,check,tmp=tmp)
 hybridhandle=HybridHandle(group,check,tmp=tmp)
