@@ -1444,6 +1444,7 @@ class ExperimentHandle(Handle):
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
+
 class ExtractHandle(Handle):
 
     def view(self,request):
@@ -1479,7 +1480,6 @@ class ExtractHandle(Handle):
             if request.method == 'POST':
                 f = handle_uploaded_file(request.FILES['file'], self.tmp)
                 if os.path.getsize(f) == request.FILES['file'].size:
-                    fail = []
                     if f.endswith('.xlsx'):
                         data = pd.read_excel(f, header=0, sheetname=0, dtype=str)
                     elif f.endswith('.csv'):
@@ -1533,7 +1533,7 @@ class LibraryHandle(Handle):
                 items=[]
                 for exp in experiments:
                     library=Library.objects(pk=exp.sampleid).first()
-                    if library == None:
+                    if library == None and exp.point=='建库':
                         library = Library(pk=exp.sampleid)
                         library.save()
                     if library==None:
@@ -1609,7 +1609,7 @@ class HybridHandle(Handle):
                 items=[]
                 for exp in experiments:
                     hybrid=Hybridization.objects(pk=exp.sampleid).first()
-                    if hybrid == None and exp.point=='建库':
+                    if hybrid == None and exp.point=='杂交':
                         hybrid = Hybridization(pk=exp.sampleid)
                         hybrid.save()
                     if hybrid==None:
@@ -1685,7 +1685,7 @@ class LabQCHandle(Handle):
                 items=[]
                 for exp in experiments:
                     qc=QualityControl.objects(pk=exp.pk).first()
-                    if qc == None and exp.point=='建库':
+                    if qc == None and exp.point=='质控':
                         qc = QualityControl(pk=exp.pk)
                         qc.save()
                     if qc==None:
@@ -1761,7 +1761,7 @@ class SeqHandle(Handle):
                 items=[]
                 for exp in experiments:
                     seq=Sequencing.objects(pk=exp.pk).first()
-                    if seq == None and exp.point=='建库':
+                    if seq == None and exp.point=='测序':
                         seq = Sequencing(pk=exp.pk)
                         seq.save()
                     if seq ==None:
@@ -1770,14 +1770,15 @@ class SeqHandle(Handle):
 
                     if seq['status'] == '完成':
                         exp.modify(point='完成')
-                    item = {}
-                    item['expid']= exp.pk
-                    item['task'] = exp.task.pk
-                    item['point'] = exp.point
-                    item['expstatus'] = exp.status
-                    item['sample'] = exp.sampleid
-                    item.update(seq)
-                    items.append(item)
+                    # item = {}
+                    # # item['expid']= exp.pk
+                    # # item['task'] = exp.task.pk
+                    # # item['point'] = exp.point
+                    # # item['expstatus'] = exp.status
+                    # # item['sample'] = exp.sampleid
+                    # item.update(seq)
+                    # items.append(item)
+                    items.append(seq)
                 return HttpResponse(json.dumps(items, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
