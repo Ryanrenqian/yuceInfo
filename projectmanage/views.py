@@ -56,7 +56,7 @@ def GenerateTask(patient,product,tumortype,configoath=configpath):
                 platform = product.platform,
                 tumortype = product.tumortype,
                 tumorsize = product.tumorsize,
-                config=configpath+'/'+product.config
+                config=os.path.join(configpath,product.config)
                 )
     return task
 
@@ -1898,14 +1898,14 @@ check=False
 
 # 实验室管理部分
 group=['Lab']
-tmp='tmp'
-samplehandle=SampleHandle(group,check,tmp='tmp' )
-labtaskhandle=LabTaskHandle(group,check,tmp='tmp' )
-extracthandle=ExtractHandle(group,check,tmp='tmp' )
-libraryhandle=LibraryHandle(group,check,tmp='tmp' )
-hybridhandle=HybridHandle(group,check,tmp='tmp' )
-labqc=LabQCHandle(group,check,tmp='tmp' )
-seqhandle=SeqHandle(group,check,tmp='tmp' )
+tmp='tmp' # 临时文件存放点
+samplehandle=SampleHandle(group,check,tmp=tmp)
+labtaskhandle=LabTaskHandle(group,check,tmp=tmp)
+extracthandle=ExtractHandle(group,check,tmp=tmp)
+libraryhandle=LibraryHandle(group,check,tmp=tmp)
+hybridhandle=HybridHandle(group,check,tmp=tmp)
+labqc=LabQCHandle(group,check,tmp=tmp)
+seqhandle=SeqHandle(group,check,tmp=tmp)
 # 项目管理部分
 group=['ProjectManager']
 projecthandle=ProjectHandle(group,check)
