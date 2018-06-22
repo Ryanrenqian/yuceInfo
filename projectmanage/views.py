@@ -299,6 +299,9 @@ class PMTaskHandle(TaskHandle):
                         logging.debug(e)
                 elif data['cmd']=='加急':
                     pass
+                elif data['cmd'] =='删除':
+                    task.delete()
+                    message['success']='删除成功'
         else:
             message['warning']='对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1411,6 +1414,21 @@ class ExperimentHandle(Handle):
             if request.method == 'GET':
                 data=json.loads(Experiment.objects.all().to_json(ensure_ascii=False))
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
+        else:
+            message['warning'] = '对不起，您没有权限'
+        return HttpResponse(json.dumps(message, ensure_ascii=False))
+
+    def cmd(self, request):
+        message = {}
+        if self.is_valid(request):
+            if request.method == 'POST':
+                data = json.loads(request.body.decode('utf-8'))
+                logging.info('cmd: %s'%request.body.decode('utf-8'))
+                exp = Experiment.objects(pk=data['expid']).first()
+                cmd=data.pop('cmd')
+                if cmd=='暂停':
+                    exp.modify(status='暂停')
+                    message['success'] = '暂停成功'
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
