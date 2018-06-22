@@ -28,7 +28,7 @@ class Sample(Document):
     patient=StringField(default='') # 患者编号
     tumortype=StringField(default='') # 肿瘤类型
     type=StringField(default='') # 样品类型
-    recievetime=StringField()# 收样时间
+    recievetime=DateTimeField()# 收样时间
     def __str__(self):
         return self.pk
 # 患者
