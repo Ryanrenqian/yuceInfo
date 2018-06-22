@@ -1413,6 +1413,8 @@ class ExperimentHandle(Handle):
         if self.is_valid(request):
             if request.method == 'GET':
                 data=json.loads(Experiment.objects.all().to_json(ensure_ascii=False))
+                for i in data:
+                    i['expid']=i.pop('_id')
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
