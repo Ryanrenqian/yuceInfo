@@ -3888,3 +3888,120 @@ mongoengine.errors.FieldDoesNotExist: The fields "{'postid\tQseppeak\tqPCR_conce
 2018-06-22 09:59:42,024: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
 2018-06-22 10:00:24,876: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
 2018-06-22 10:00:31,839: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 10:18:34,356: Internal Server Error: /AnaTaskHandle/modify/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 721, in modify
+    task.modify(anastatus='等待',**data)
+AttributeError: 'NoneType' object has no attribute 'modify'
+2018-06-22 10:21:40,994: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 10:22:27,587: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 10:35:34,953: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 10:50:58,641: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 556, in order
+    item.pop['_id']
+TypeError: 'builtin_function_or_method' object is not subscriptable
+2018-06-22 10:51:45,436: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 524, in order
+    data = json.loads(request.body.decode('utf-8'))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2018-06-22 10:51:58,364: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 524, in order
+    data = json.loads(request.body.decode('utf-8'))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2018-06-22 10:52:05,816: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 524, in order
+    data = json.loads(request.body.decode('utf-8'))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2018-06-22 10:52:54,256: Internal Server Error: /LabTaskHandle/order/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 524, in order
+    data = json.loads(request.body.decode('utf-8'))
+  File "/Users/ryan/anaconda3/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Users/ryan/anaconda3/lib/python3.6/json/decoder.py", line 355, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2018-06-22 11:14:46,929: Internal Server Error: /SeqHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1752, in view
+    seq = json.loads(seq.to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-22 11:14:58,393: Internal Server Error: /SeqHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1752, in view
+    seq = json.loads(seq.to_json(ensure_ascii=False))
+AttributeError: 'NoneType' object has no attribute 'to_json'
+2018-06-22 11:22:29,271: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 11:22:44,833: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]

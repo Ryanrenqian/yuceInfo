@@ -552,7 +552,8 @@ class LabTaskHandle(TaskHandle):
                 data={}
                 task_list=[]
                 for task in Task.objects(expstatus='开始').all():
-                    item={}
+                    item=json.loads(task.to_json(ensure_ascii=False))
+                    item.pop('_id')
                     item['task']=task.pk
                     item['patient']=str(task.patient)
                     item['lane']=task.product.lane
@@ -1526,6 +1527,8 @@ class LibraryHandle(Handle):
                     if library == None:
                         library = Library(pk=exp.sampleid)
                         library.save()
+                    if library==None:
+                        continue
                     library = json.loads(library.to_json(ensure_ascii=False))
                     if library['status'] == '完成' and exp.point=='建库':
                         exp.modify(point='杂交')
@@ -1600,6 +1603,8 @@ class HybridHandle(Handle):
                     if hybrid == None and exp.point=='建库':
                         hybrid = Hybridization(pk=exp.sampleid)
                         hybrid.save()
+                    if hybrid==None:
+                        continue
                     hybrid = json.loads(hybrid.to_json(ensure_ascii=False))
                     if hybrid['status'] == '完成':
                         exp.modify(point='质控')
@@ -1674,6 +1679,8 @@ class LabQCHandle(Handle):
                     if qc == None and exp.point=='建库':
                         qc = QualityControl(pk=exp.pk)
                         qc.save()
+                    if qc==None:
+                        continue
                     qc = json.loads(qc.to_json(ensure_ascii=False))
                     if qc['status'] == '完成':
                         exp.modify(point='测序')
@@ -1748,7 +1755,10 @@ class SeqHandle(Handle):
                     if seq == None and exp.point=='建库':
                         seq = Sequencing(pk=exp.pk)
                         seq.save()
+                    if seq ==None:
+                        continue
                     seq = json.loads(seq.to_json(ensure_ascii=False))
+
                     if seq['status'] == '完成':
                         exp.modify(point='完成')
                     item = {}

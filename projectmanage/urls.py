@@ -77,9 +77,9 @@ urlpatterns=[
     path('LabQCHandle/upload/', views.labqc.upload),  # 提取结果列表
     path('LabQCHandle/download/', views.labqc.download),  # 提取结果列表模板下载
     # 测序
-    path('seqhandle/view/', views.seqhandle.view),  # 提取结果列表
-    path('seqhandle/upload/', views.seqhandle.upload),  # 提取结果列表
-    path('seqhandle/download/', views.seqhandle.download),  # 提取结果列表模板下载
+    path('SeqHandle/view/', views.seqhandle.view),  # 提取结果列表
+    path('SeqHandle/upload/', views.seqhandle.upload),  # 提取结果列表
+    path('SeqHandle/download/', views.seqhandle.download),  # 提取结果列表模板下载
 
     # 产品操作
     path('ProductHandle/view/',views.producthandle.view), # 产品列表
