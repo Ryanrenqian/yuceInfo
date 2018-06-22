@@ -1456,6 +1456,7 @@ class ExtractHandle(Handle):
                 extract = json.loads(Extraction.objects(pk=exp.sampleid).first().to_json(ensure_ascii=False))
                 if exp.point=='提取'and extract['status']=='完成':
                     exp.modify(point='建库')
+                extract['sampleid']=extract.pop('_id')
                 item={}
                 item['expid']=exp.pk
                 item['task']=exp.task.pk
@@ -1615,16 +1616,18 @@ class HybridHandle(Handle):
                     if hybrid==None:
                         continue
                     hybrid = json.loads(hybrid.to_json(ensure_ascii=False))
+                    hybrid['expid']=hybrid.pop('_id')
                     if hybrid['status'] == '完成':
                         exp.modify(point='质控')
-                    item = {}
-                    item['expid']= exp.pk
-                    item['task'] = exp.task.pk
-                    item['point'] = exp.point
-                    item['expstatus'] = exp.status
-                    item['sampleid'] = exp.sampleid
-                    item.update(hybrid)
-                    items.append(item)
+                    # item = {}
+                    # item['expid']= exp.pk
+                    # item['task'] = exp.task.pk
+                    # item['point'] = exp.point
+                    # item['expstatus'] = exp.status
+                    # item['sampleid'] = exp.sampleid
+                    # # item.update(hybrid)
+                    # items.append(item)
+                    items.append(hybrid)
                 return HttpResponse(json.dumps(items, ensure_ascii=False))
         else:
             message['warning'] = '对不起，您没有权限'
@@ -1741,7 +1744,6 @@ class LabQCHandle(Handle):
                     item.pop('status')
                     data.append(item)
                 return HttpResponse(json.dumps(data, ensure_ascii=False))
-
         else:
             message['warning'] = '对不起，您没有权限'
         return HttpResponse(json.dumps(message, ensure_ascii=False))
@@ -1767,7 +1769,7 @@ class SeqHandle(Handle):
                     if seq ==None:
                         continue
                     seq = json.loads(seq.to_json(ensure_ascii=False))
-
+                    seq['expid']=seq.pop('_id')
                     if seq['status'] == '完成':
                         exp.modify(point='完成')
                     # item = {}

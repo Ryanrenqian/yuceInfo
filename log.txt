@@ -4032,3 +4032,133 @@ AttributeError: 'NoneType' object has no attribute 'to_json'
 2018-06-22 16:31:07,740: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
 2018-06-22 16:51:31,013: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
 2018-06-22 16:52:00,858: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 16:58:48,739: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 17:48:23,912: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 17:50:16,061: Internal Server Error: /HybridHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1663, in download
+    for i in Hybridization.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1473, in __next__
+    only_fields=self.only_fields)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'experiment_panel'}" do not exist on the document "Hybridization"
+2018-06-22 17:50:16,063: Internal Server Error: /HybridHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1611, in view
+    hybrid=Hybridization.objects(pk=exp.sampleid).first()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 299, in first
+    result = queryset[0]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 199, in __getitem__
+    only_fields=self.only_fields
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'experiment_panel'}" do not exist on the document "Hybridization"
+2018-06-22 17:50:17,371: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 17:58:55,928: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A000001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', '_id': '18A0001SL', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成'}]
+2018-06-22 17:59:27,361: Internal Server Error: /HybridHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1663, in download
+    for i in Hybridization.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1473, in __next__
+    only_fields=self.only_fields)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'experiment_panel'}" do not exist on the document "Hybridization"
+2018-06-22 17:59:27,363: Internal Server Error: /HybridHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1611, in view
+    hybrid=Hybridization.objects(pk=exp.sampleid).first()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 299, in first
+    result = queryset[0]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 199, in __getitem__
+    only_fields=self.only_fields
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'experiment_panel'}" do not exist on the document "Hybridization"
+2018-06-22 17:59:59,160: Internal Server Error: /HybridHandle/download/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1663, in download
+    for i in Hybridization.objects(status='开始').all():
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 99, in _iter_results
+    self._populate_cache()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/queryset.py", line 118, in _populate_cache
+    self._result_cache.append(next(self))
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 1473, in __next__
+    only_fields=self.only_fields)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'experiment_panel'}" do not exist on the document "Hybridization"
+2018-06-22 17:59:59,173: Internal Server Error: /HybridHandle/view/
+Traceback (most recent call last):
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ryan/PycharmProjects/untitled/projectmanage/views.py", line 1611, in view
+    hybrid=Hybridization.objects(pk=exp.sampleid).first()
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 299, in first
+    result = queryset[0]
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/queryset/base.py", line 199, in __getitem__
+    only_fields=self.only_fields
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 721, in _from_son
+    obj = cls(__auto_convert=False, _created=created, __only_fields=only_fields, **data)
+  File "/Users/ryan/PycharmProjects/untitled/venv/lib/python3.6/site-packages/mongoengine/base/document.py", line 77, in __init__
+    raise FieldDoesNotExist(msg)
+mongoengine.errors.FieldDoesNotExist: The fields "{'experiment_panel'}" do not exist on the document "Hybridization"
+2018-06-22 18:00:25,733: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A000001SL'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A0001SL'}]
+2018-06-22 18:00:56,579: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A000001SL'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A0001SL'}]
+2018-06-22 18:05:27,971: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A000001SL'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A0001SL'}]
+2018-06-22 18:05:39,375: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A000001SL'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A0001SL'}]
+2018-06-22 18:07:11,547: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A000001SL'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A0001SL'}]
+2018-06-22 18:07:20,011: [{'expid': '18A000001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A000001SL'}, {'expid': '18A0001SL02', 'task': 'SHDwnICxqK', 'point': '测序', 'expstatus': '进行', 'type': 'a', 'extraction_volume': 0.0, 's260280': 'a', 's260230': 'a', 'take3': 'a', 'QB': 'a', 'mass': 'a', 'RQN': 'a', 'DV200': 'a', 's2818': 'a', 'qualify': 'a', 'operator1': 'a', 'operator2': 'a', 'remaining_mass': 'a', 'reagent': 'a', 'lot': 'a', 'location': 'a', 'time': 'a', 'remarks': 'a', 'status': '完成', 'sampleid': '18A0001SL'}]
