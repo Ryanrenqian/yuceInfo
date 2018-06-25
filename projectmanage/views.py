@@ -547,8 +547,8 @@ class LabTaskHandle(TaskHandle):
                                 if Sequencing.objects(pk=exp.pk).first() == None:
                                     Sequencing(pk=exp.pk).save()
                             exp.modify(status='进行')
-                    task=Task.objects(pk=data['task']).first()
-                    task.modify(status='进行',expstatus='进行')
+                    task=Task.objects(pk=task['task']).first()
+                    task.modify(status='进行',expstatus='进行',anastatus='待投递')
                     message['success']='下单成功'
                 return HttpResponse(json.dumps(message, ensure_ascii=False))
             elif request.method == 'GET':

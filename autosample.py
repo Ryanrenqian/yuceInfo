@@ -6,7 +6,6 @@
 # Created Time: Tue 05 Jun 2018 10:46:20 AM CST
 #=============================================================
 import json,os,sys,time
-from projectmanage.models import *
 import pymongo
 from projectmanage.models import *
 from config import *
@@ -131,6 +130,6 @@ if __name__=='__main__':
     workdir=''   # 设置工作目录
     waittime=300 # 扫描时间间隔
     while True:
-        for task in Task.objects(expstatus='上机',anastatus='wait')
+        for task in Task.objects(expstatus='进行',anastatus='待投递')
             taskhandle(workdir,task)
         time.sleep(waittime)# 五分钟扫描一次
