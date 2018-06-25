@@ -121,7 +121,7 @@ def taskhandle(workdir,task):
 
 if __name__=='__main__':
     # connect database
-    conn = pymongo.MongoClient("127.0.0.1", 27017) #数据库连接设置
+    conn = pymongo.MongoClient("196.168.11.101", 27017) #数据库连接设置
     db = conn.bclmon
     col = db["samples"]
     colrun = db["sequencing"]
@@ -130,6 +130,6 @@ if __name__=='__main__':
     workdir=''   # 设置工作目录
     waittime=300 # 扫描时间间隔
     while True:
-        for task in Task.objects(expstatus='进行',anastatus='待投递')
+        for task in Task.objects(expstatus='进行',anastatus='待投递'):
             taskhandle(workdir,task)
         time.sleep(waittime)# 五分钟扫描一次
