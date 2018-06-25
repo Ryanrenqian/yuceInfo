@@ -720,7 +720,7 @@ class AanaTaskHandle(TaskHandle):
             if request.method == 'POST':
                 data = json.loads(request.body.decode('utf-8'))
                 task=Task.objects(pk=data['taskid']).first()
-                task.modify(anastatus='等待',**data)
+                task.modify(anastatus='待投递',**data)
                 message['success']='修改成功'
         else:
             message['warning'] = '对不起，您没有权限'
