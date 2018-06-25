@@ -524,13 +524,14 @@ class LabTaskHandle(TaskHandle):
                 data = json.loads(request.body.decode('utf-8'))
                 for task in data:
                     experiments=[]
-                    for key in ['normal','tumor','extra']:
-                        if task[key] !='':
-                            expid=task[key]+task['lane']
+                    lanes=task['lane'].split(',')
+                    for key,lane in zip(['normal','tumor','extra'],lanes):
+                        if lane !='':
+                            expid=task[key]+lane
                             experiments.append(expid)
                             exp=Experiment(
                                 pk=expid,task=task['task'],
-                                sampleid=task[key],lane=task['lane'],
+                                sampleid=task[key],lane=lane,
                                 point=task['point'])
                             exp.save()
                             if task['point'] =='提取':
