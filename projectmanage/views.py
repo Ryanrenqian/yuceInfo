@@ -528,11 +528,12 @@ class LabTaskHandle(TaskHandle):
                     for key,lane in zip(['normal','tumor','extra'],lanes):
                         if lane !='':
                             expid=task[key]+lane
-                            experiments.append(expid)
+
                             exp=Experiment(
                                 pk=expid,task=task['task'],
                                 sampleid=task[key],lane=lane,
                                 point=task['point'])
+                            experiments.append(exp)
                             exp.save()
                             if task['point'] =='提取':
                                 if Extraction.objects(pk=exp.sampleid).first() == None:
@@ -548,7 +549,7 @@ class LabTaskHandle(TaskHandle):
                                     Sequencing(pk=exp.pk).save()
                             exp.modify(status='进行')
                     task=Task.objects(pk=task['task']).first()
-                    task.modify(status='进行',expstatus='进行',anastatus='待投递')
+                    task.modify(status='进行',expstatus='进行',anastatus='待投递',experiments=experiments)
                     message['success']='下单成功'
                 return HttpResponse(json.dumps(message, ensure_ascii=False))
             elif request.method == 'GET':
